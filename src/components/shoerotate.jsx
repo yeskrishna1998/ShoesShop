@@ -6,11 +6,11 @@ const ShoeRotate = () => {
       <img
         src={shoe1}
         alt="Rotating Shoe"
-        className="
-          w-30 md:w-100 h-100
-          animate-shoe-rotate
-          drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)]
-        "
+        className={
+          "w-30 md:w-100 h-100 " +
+          "animate-shoe-rotate " +
+          "drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+        }
       />
     </div>
   );

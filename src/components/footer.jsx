@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="mt-20 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 text-white">
+    <footer className="bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 text-white">
       
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-4">

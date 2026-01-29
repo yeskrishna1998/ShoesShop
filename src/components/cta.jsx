@@ -1,4 +1,4 @@
-const CTA = () => {
+const CTA = ({ setShowLoginModal, setShowRegisterModal }) => {
   return (
     <section className="py-14 bg-white border-t">
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -12,6 +12,22 @@ const CTA = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
+          {/* Login Button */}
+          <button
+            onClick={() => setShowLoginModal(true)}
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold hover:opacity-90 transition"
+          >
+            🔐 Login
+          </button>
+
+          {/* Signup Button */}
+          <button
+            onClick={() => setShowRegisterModal(true)}
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-semibold hover:opacity-90 transition"
+          >
+            ✨ Signup
+          </button>
+
           {/* Call Button */}
           <a
             href="tel:6393072928"
