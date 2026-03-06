@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import Booking from "./pages/Booking";
 import Services from "./components/service";
 import Pricing from "./components/pricing";
+import ScrollToTop from "./pages/ScrollToTop";
 
 
 
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
+          <ScrollToTop />
       {!hideLayout && <Navbar />}
 
       {/* IMPORTANT FIX */}

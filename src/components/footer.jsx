@@ -6,20 +6,20 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 text-white">
 
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-4 py-4 grid gap-3 md:grid-cols-4">
+      <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
         {/* Brand */}
-        <div>
-          <h2 className="text-2xl font-extrabold">
+        <div className="col-span-2 sm:col-span-2 md:col-span-1">
+          <h2 className="text-xl font-extrabold">
             Shoes<span className="text-black">Repair</span> 👟
           </h2>
 
-          <p className="mt-3 text-sm text-white/90">
+          <p className="mt-2 text-sm text-white/90">
             Professional shoe repairing service.
             We make your old shoes feel brand new again.
           </p>
 
-          <p className="mt-4 text-sm font-semibold">
+          <p className="mt-2 text-sm font-semibold">
             🚚 Free Home Pickup & Delivery
           </p>
         </div>
@@ -27,45 +27,45 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <h3 className="font-bold mb-3">Services</h3>
+          <h3 className="font-bold mb-2">Services</h3>
 
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-1 text-sm">
 
             <li>
-  <Link to="/booking?service=sole-repair" className="hover:underline hover:text-black">
-    👞 Sole Repair
-  </Link>
-</li>
+              <Link to="/booking?service=sole-repair" className="hover:text-black transition duration-200 active:scale-90">
+                👞 Sole Repair
+              </Link>
+            </li>
 
-<li>
-  <Link to="/booking?service=heel-repair" className="hover:underline hover:text-black">
-    👠 Heel Repair
-  </Link>
-</li>
+            <li>
+              <Link to="/booking?service=heel-repair" className="hover:text-black transition duration-200 active:scale-90">
+                👠 Heel Repair
+              </Link>
+            </li>
 
-<li>
-  <Link to="/booking?service=polishing" className="hover:underline hover:text-black">
-    ✨ Shoe Polishing
-  </Link>
-</li>
+            <li>
+              <Link to="/booking?service=polishing" className="hover:text-black transition duration-200 active:scale-90">
+                ✨ Shoe Polishing
+              </Link>
+            </li>
 
-<li>
-  <Link to="/booking?service=leather-fix" className="hover:underline hover:text-black">
-    🧴 Leather Fix
-  </Link>
-</li>
+            <li>
+              <Link to="/booking?service=leather-fix" className="hover:text-black transition duration-200 active:scale-90">
+                🧴 Leather Fix
+              </Link>
+            </li>
 
-<li>
-  <Link to="/booking?service=cleaning" className="hover:underline hover:text-black">
-    🧼 Shoe Cleaning
-  </Link>
-</li>
+            <li>
+              <Link to="/booking?service=cleaning" className="hover:text-black transition duration-200 active:scale-90">
+                🧼 Shoe Cleaning
+              </Link>
+            </li>
 
-<li>
-  <Link to="/booking?service=stitching" className="hover:underline hover:text-black">
-    🪡 Shoe Stitching
-  </Link>
-</li>
+            <li>
+              <Link to="/booking?service=stitching" className="hover:text-black transition duration-200 active:scale-90">
+                🪡 Shoe Stitching
+              </Link>
+            </li>
 
           </ul>
         </div>
@@ -73,30 +73,30 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold mb-3">Quick Links</h3>
+          <h3 className="font-bold mb-2">Quick Links</h3>
 
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-1 text-sm">
 
             <li>
-              <Link to="/" className="hover:underline hover:text-black">
+              <Link to="/" className="hover:text-black transition duration-200 active:scale-90">
                 🏠 Home
               </Link>
             </li>
 
             <li>
-              <Link to="/services" className="hover:underline hover:text-black">
+              <Link to="/services" className="hover:text-black transition duration-200 active:scale-90">
                 🛠 Services
               </Link>
             </li>
 
             <li>
-              <Link to="/pricing" className="hover:underline hover:text-black">
+              <Link to="/pricing" className="hover:text-black transition duration-200 active:scale-90">
                 💰 Pricing
               </Link>
             </li>
 
             <li>
-              <Link to="/contact" className="hover:underline hover:text-black">
+              <Link to="/contact" className="hover:text-black transition duration-200 active:scale-90">
                 📞 Contact
               </Link>
             </li>
@@ -107,34 +107,28 @@ const Footer = () => {
 
         {/* Contact */}
         <div>
-          <h3 className="font-bold mb-3">Contact</h3>
+          <h3 className="font-bold mb-2">Contact</h3>
 
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-1 text-sm">
 
             <li>
-              📍 1306, Block-C, Sector-45, Gurgaon, Haryana, India
+              📍 Sector-45, Gurgaon, Haryana
             </li>
 
             <li>
-              <a
-                href="tel:+916393072928"
-                className="hover:underline hover:text-black"
-              >
+              <a href="tel:+916393072928" className="hover:text-black transition">
                 📞 +91 6393072928
               </a>
             </li>
 
             <li>
-              <a
-                href="mailto:shoesrepair@gmail.com"
-                className="hover:underline hover:text-black"
-              >
+              <a href="mailto:shoesrepair@gmail.com" className="hover:text-black transition">
                 📧 shoesrepair@gmail.com
               </a>
             </li>
 
             <li>
-              🕒 Mon – Sat : 10:00 AM – 8:00 PM
+              🕒 Mon – Sat : 10 AM – 8 PM
             </li>
 
           </ul>
@@ -144,7 +138,7 @@ const Footer = () => {
 
 
       {/* Bottom Bar */}
-      <div className="backdrop-blur-md bg-black/20 text-center py-4 text-sm">
+      <div className="backdrop-blur-md bg-black/20 text-center py-3 text-xs">
 
         <p>
           © {new Date().getFullYear()} ShoesRepair. All rights reserved.
@@ -157,3 +151,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

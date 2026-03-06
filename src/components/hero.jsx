@@ -68,20 +68,55 @@ const Hero = () => {
           <div className="w-full md:w-[60%] text-center md:text-left text-white">
             
             {/* Badge */}
-            {/* Badge */}
-           <div className="flex items-center gap-[50px] mb-6 reveal-item">
+           {/* Badge */}
+   
+<div className="flex flex-row items-center gap-2">
 
   {/* Rating Badge */}
-  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-pink-400/20 backdrop-blur-md border border-yellow-300/40 text-xs font-bold shadow-lg shadow-yellow-500/10">
-    ⭐ Rated 5.0 by Happy Customers
+  <div className="inline-flex items-center gap-1
+  px-2.5 py-1
+  text-[10px]
+  sm:text-xs
+  md:text-sm
+  sm:px-3 sm:py-1.5
+  md:px-5 md:py-2
+  rounded-full
+  bg-gradient-to-r from-yellow-400/20 to-pink-400/20
+  backdrop-blur-md
+  border border-yellow-300/40
+  font-semibold
+  shadow-lg shadow-yellow-500/10">
+
+    ⭐
+    <span className="sm:hidden">Rated 5.0</span>
+    <span className="hidden sm:inline">Rated 5.0 by Happy Customers</span>
   </div>
 
-  {/* Home Delivery Badge */}
-  <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-yellow-400/30 to-orange-400/30 backdrop-blur-md border border-yellow-300/60 font-bold text-yellow-200 shadow-lg shadow-yellow-500/20 animate-pulse">
-    🚚 Free Home Pickup & Delivery
-  </span>
+
+  {/* Pickup Badge */}
+  <div className="inline-flex items-center gap-1
+  px-2.5 py-1
+  text-[10px]
+  sm:text-xs
+  md:text-sm
+  sm:px-3 sm:py-1.5
+  md:px-5 md:py-2
+  rounded-full
+  bg-gradient-to-r from-green-900 to-green-900/30
+
+  border border-yellow-300/60
+  font-semibold text-yellow-200
+  shadow-lg shadow-yellow-500/20
+  animate-pulse">
+
+    🚚
+    <span className="sm:hidden">Free Pickup</span>
+    <span className="hidden sm:inline">Free Home Pickup & Delivery</span>
+  </div>
 
 </div>
+
+
 
             {/* Heading */}
             <h1 className="text-4xl md:text-6xl font-black leading-tight reveal-item">
