@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -59,59 +60,88 @@ export default function Register() {
   };
 
   // ================= SUBMIT =================
-  const submit = (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+  const submit = async (e) => {
+  e.preventDefault();
 
-    setLoading(true);
+  console.log("Submit button clicked");
 
-    setTimeout(() => {
-      setLoading(false);
-      alert("Account created successfully 🎉");
-      navigate("/login");
-    }, 1500);
-  };
+  if (!validate()) {
+    console.log("Validation failed");
+    return;
+  }
 
- 
+  setLoading(true);
+
+  try {
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      password: form.password,
+      address: form.address,
+      city: form.city,
+      state: form.state,
+      pincode: form.pincode,
+    };
+
+    console.log("Sending data:", payload);
+
+    const response = await fetch("http://127.0.0.1:8000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    console.log("API Response:", response);
+
+    const data = await response.json();
+    console.log("Response data:", data);
+
+    if (!response.ok) {
+      throw new Error(data.detail || "Registration failed");
+    }
+
+    alert("Account created successfully 🎉");
+    navigate("/login");
+
+  } catch (error) {
+    console.error("API error:", error);
+    alert(error.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-yellow-400 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-xl bg-white/95 rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
 
-        {/* HEADER */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-            Create <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Account</span>
+          <h1 className="text-3xl font-extrabold text-gray-900">
+            Create <span className="text-purple-600">Account</span>
           </h1>
-          <p className="text-gray-600 text-sm mt-2">
-            Join us and get premium shoe services 👟
-          </p>
         </div>
 
         <form onSubmit={submit} className="space-y-6">
 
-          {/* ACCOUNT INFO HEADER */}
-          <p className="text-purple-600 text-sm font-semibold tracking-wide">
-            Account Information
-          </p>
-
-          {/* NAME */}
-          <Input label="Full Name" value={form.name}
+          <Input label="Full Name"
+            value={form.name}
             onChange={(v) => setForm({ ...form, name: v })}
             error={errors.name} />
 
-          {/* EMAIL */}
-          <Input label="Email Address" value={form.email}
+          <Input label="Email"
+            value={form.email}
             onChange={(v) => setForm({ ...form, email: v })}
             error={errors.email} />
 
-          {/* PHONE */}
-          <Input label="Mobile Number" value={form.phone}
+          <Input label="Phone"
+            value={form.phone}
             onChange={(v) => setForm({ ...form, phone: v })}
             error={errors.phone} />
 
-          {/* PASSWORD FIELDS - GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <Input label="Password" type="password"
               value={form.password}
               onChange={(v) => setForm({ ...form, password: v })}
@@ -124,19 +154,12 @@ export default function Register() {
               error={errors.confirmPassword} />
           </div>
 
-          {/* DELIVERY INFO HEADER */}
-          <p className="text-purple-600 text-sm font-semibold tracking-wide mt-4">
-            Delivery Address
-          </p>
-
-          {/* ADDRESS */}
-          <Input label="Address (House / Street)"
+          <Input label="Address"
             value={form.address}
             onChange={(v) => setForm({ ...form, address: v })}
             error={errors.address} />
 
-          {/* CITY, STATE, PINCODE - GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <Input label="City"
               value={form.city}
               onChange={(v) => setForm({ ...form, city: v })}
@@ -153,25 +176,18 @@ export default function Register() {
               error={errors.pincode} />
           </div>
 
-          {/* BUTTON */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white
-                       font-semibold tracking-wide transition hover:opacity-90
-                       active:scale-[0.98] disabled:opacity-60 text-base mt-4"
+            className="w-full py-3 rounded-xl bg-purple-600 text-white font-semibold"
           >
             {loading ? "Creating..." : "Create Account"}
           </button>
         </form>
 
-        {/* LOGIN LINK */}
         <p className="text-center text-gray-600 text-sm mt-6">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-purple-600 hover:text-pink-500 font-bold transition"
-          >
+          <Link to="/login" className="text-purple-600 font-bold">
             Login
           </Link>
         </p>
@@ -179,8 +195,6 @@ export default function Register() {
     </div>
   );
 }
-
-/* ================= COMPONENTS ================= */
 
 function Input({ label, value, onChange, error, type = "text" }) {
   return (
@@ -190,10 +204,8 @@ function Input({ label, value, onChange, error, type = "text" }) {
         placeholder={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full px-4 py-3 rounded-xl bg-white text-gray-900 border text-sm
-          ${error ? "border-red-500" : "border-gray-300"}
-          focus:outline-none focus:ring-2 focus:ring-purple-600
-          transition`}
+        className={`w-full px-4 py-3 rounded-xl border text-sm
+        ${error ? "border-red-500" : "border-gray-300"}`}
       />
       {error && (
         <p className="text-red-500 text-xs mt-1">{error}</p>

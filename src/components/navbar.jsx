@@ -53,14 +53,14 @@ const Navbar = () => {
             to="/login"
             className="px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold transform transition duration-300 hover:-translate-y-1 shadow-lg hover:shadow-2xl hover:shadow-orange-500/50"
           >
-            Login
+            🔐 Login
           </Link>
 
           <Link
             to="/signup"
             className="px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold transform transition duration-300 hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-orange-500/50"
           >
-            Signup
+            ✨ Signup
           </Link>
         </div>
 

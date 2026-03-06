@@ -1,8 +1,9 @@
-import ShoeRotate from "./shoerotate";
+import ShoeRotate from "./RegisterForm";
 import { useEffect, useState, useRef } from "react";
 import shoe1 from "../assets/slider/shoe1.jpg";
 import shoe2 from "../assets/slider/shoe2.jpg";
 import shoe3 from "../assets/slider/shoe3.jpg";
+import RegisterForm from "./RegisterForm";
 
 const sliderImages = [shoe1, shoe2, shoe3];
 
@@ -117,7 +118,7 @@ const Hero = () => {
 
           {/* 🔹 RIGHT SIDE — 40% */}
           <div className="w-full md:w-[40%] flex justify-center items-center mt-12 md:mt-0 reveal-item">
-            <ShoeRotate />
+         <RegisterForm/>
           </div>
 
         </div>
