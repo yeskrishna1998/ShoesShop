@@ -203,16 +203,16 @@ const RegisterForm = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
 
           <div className="bg-white p-6 rounded-xl text-center shadow-xl w-[300px]">
+<h3 className="text-xl font-bold mb-2 text-green-600 flex items-center justify-center gap-2">
+  <span className="text-2xl">✅</span>
+  Registration Successful
+</h3>
 
-            <h3 className="text-xl font-bold mb-2">
-              🎉 Registration Successful
-            </h3>
-
-            <p className="text-gray-600 text-sm mb-4">
-              Thanks for registering!  
-              Scroll down and book your time slot.  
-              Our team will contact you soon.
-            </p>
+<p className="text-gray-700 text-sm mb-4 text-center leading-relaxed">
+  Thanks for registering! <br />
+  Scroll down and book your time slot. <br />
+  Our team will contact you soon.
+</p>
 
             <button
               onClick={() => setShowPopup(false)}

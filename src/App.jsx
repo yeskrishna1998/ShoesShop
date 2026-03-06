@@ -9,6 +9,10 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
 import Booking from "./pages/Booking";
+import Services from "./components/service";
+import Pricing from "./components/pricing";
+
+
 
 function App() {
   const location = useLocation();
@@ -33,6 +37,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<Pricing />} />
         </Routes>
       </main>
 

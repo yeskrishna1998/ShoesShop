@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const shoeNames = [
   "Other",
   "Nike Air Max", "Nike Air Force 1", "Nike Blazer", "Nike Revolution", "Nike Flex", "Nike SB", "Nike Cortez",

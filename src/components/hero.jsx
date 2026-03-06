@@ -69,9 +69,19 @@ const Hero = () => {
             
             {/* Badge */}
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-gradient-to-r from-yellow-400/20 to-pink-400/20 backdrop-blur-md border border-yellow-300/40 text-xs font-bold reveal-item shadow-lg shadow-yellow-500/10">
-              ⭐ Rated 5.0 by Happy Customers
-            </div>
+           <div className="flex items-center gap-[50px] mb-6 reveal-item">
+
+  {/* Rating Badge */}
+  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-pink-400/20 backdrop-blur-md border border-yellow-300/40 text-xs font-bold shadow-lg shadow-yellow-500/10">
+    ⭐ Rated 5.0 by Happy Customers
+  </div>
+
+  {/* Home Delivery Badge */}
+  <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-yellow-400/30 to-orange-400/30 backdrop-blur-md border border-yellow-300/60 font-bold text-yellow-200 shadow-lg shadow-yellow-500/20 animate-pulse">
+    🚚 Free Home Pickup & Delivery
+  </span>
+
+</div>
 
             {/* Heading */}
             <h1 className="text-4xl md:text-6xl font-black leading-tight reveal-item">
@@ -87,6 +97,9 @@ const Hero = () => {
 
             {/* Trust points */}
             <div className="mt-8 flex flex-wrap gap-3 text-sm reveal-item">
+
+     
+
               <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-md border border-green-400/40 font-semibold shadow-lg shadow-green-500/10">
                 ✔ Same Day Repair
               </span>
@@ -96,6 +109,11 @@ const Hero = () => {
               <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-md border border-purple-400/40 font-semibold shadow-lg shadow-purple-500/10">
                 ✔ Trusted Experts
               </span>
+
+
+
+
+
             </div>
 
             {/* CTA */}
