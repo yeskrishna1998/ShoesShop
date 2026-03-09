@@ -18,6 +18,7 @@ const Home = () => {
     <>
        <Hero />
       
+      
       <Services />
       <WhyChoose/>
       <HowWorks/>

@@ -107,7 +107,7 @@ const RegisterForm = () => {
 
       {/* CARD */}
 
-      <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl w-[320px]">
+      <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl w-[380px]">
 
         <h2 className="text-2xl font-bold text-center text-white mb-4">
           Register Now

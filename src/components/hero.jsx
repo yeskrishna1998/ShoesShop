@@ -4,6 +4,7 @@ import shoe1 from "../assets/slider/shoe1.jpg";
 import shoe2 from "../assets/slider/shoe2.jpg";
 import shoe3 from "../assets/slider/shoe3.jpg";
 import RegisterForm from "./RegisterForm";
+import BeforeAfterSlider from "./BeforeAfterSlider";
 
 const sliderImages = [shoe1, shoe2, shoe3];
 
@@ -170,9 +171,18 @@ const Hero = () => {
           </div>
 
           {/* 🔹 RIGHT SIDE — 40% */}
-          <div className="w-full md:w-[40%] flex justify-center items-center mt-12 md:mt-0 reveal-item">
-         <RegisterForm/>
-          </div>
+        <div className="w-full md:w-[40%] flex flex-col items-center md:items-end mt-4 md:-mt-6 reveal-item gap-4">
+
+  <RegisterForm />
+
+  {/* Before After Slider */}
+  <div className="w-full max-w-[380px] mx-auto mr-1  rounded-xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-md">
+  
+    <BeforeAfterSlider />
+  </div>
+
+</div>
+          
 
         </div>
       </div>
