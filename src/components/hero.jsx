@@ -46,7 +46,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden py-10 md:py-12">
+    <section className="relative overflow-hidden py-8 md:py-8">
       
       {/* Background Image - Animated Slider */}
       <div
@@ -61,7 +61,7 @@ const Hero = () => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
 
       {/* CONTENT WRAPPER */}
-      <div ref={contentRef} className="relative z-20 max-w-6xl mx-auto px-6">
+      <div ref={contentRef} className="relative z-20 max-w-6xl mx-auto px-3">
 
         <div className="flex flex-col md:flex-row items-center min-h-[320px]">
           
@@ -71,45 +71,17 @@ const Hero = () => {
             {/* Badge */}
            {/* Badge */}
    
-<div className="flex flex-row items-center gap-2">
+<div className="flex flex-wrap items-center gap-3 mb-3 md:mb-4">
 
   {/* Rating Badge */}
-  <div className="inline-flex items-center gap-1
-  px-2.5 py-1
-  text-[10px]
-  sm:text-xs
-  md:text-sm
-  sm:px-3 sm:py-1.5
-  md:px-5 md:py-2
-  rounded-full
-  bg-gradient-to-r from-yellow-400/20 to-pink-400/20
-  backdrop-blur-md
-  border border-yellow-300/40
-  font-semibold
-  shadow-lg shadow-yellow-500/10">
-
+  <div className="inline-flex items-center gap-1 px-3 py-1 sm:px-3 sm:py-1.5 md:px-5 md:py-3 rounded-full bg-gradient-to-r from-yellow-400/20 to-pink-400/20 backdrop-blur-md border border-yellow-300/40 font-semibold text-xs sm:text-sm shadow-lg shadow-yellow-500/10">
     ⭐
     <span className="sm:hidden">Rated 5.0</span>
     <span className="hidden sm:inline">Rated 5.0 by Happy Customers</span>
   </div>
 
-
   {/* Pickup Badge */}
-  <div className="inline-flex items-center gap-1
-  px-2.5 py-1
-  text-[10px]
-  sm:text-xs
-  md:text-sm
-  sm:px-3 sm:py-1.5
-  md:px-5 md:py-2
-  rounded-full
-  bg-gradient-to-r from-green-900 to-green-900/30
-
-  border border-yellow-300/60
-  font-semibold text-yellow-200
-  shadow-lg shadow-yellow-500/20
-  animate-pulse">
-
+  <div className="inline-flex items-center gap-1 px-3 py-1 sm:px-3 sm:py-1.5 md:px-5 md:py-3 rounded-full bg-gradient-to-r from-green-900 to-green-900/30 border border-yellow-300/60 font-semibold text-yellow-200 text-xs sm:text-sm shadow-lg shadow-yellow-500/20 animate-pulse">
     🚚
     <span className="sm:hidden">Free Pickup</span>
     <span className="hidden sm:inline">Free Home Pickup & Delivery</span>
@@ -132,13 +104,11 @@ const Hero = () => {
             </p>
 
             {/* Trust points */}
-            <div className="mt-8 flex flex-wrap gap-3 text-sm reveal-item">
+            <div className="mt-3 flex flex-wrap gap-3 text-sm reveal-item">
 
      
 
-              <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-md border border-green-400/40 font-semibold shadow-lg shadow-green-500/10">
-                ✔ Same Day Repair
-              </span>
+            
               <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-blue-400/40 font-semibold shadow-lg shadow-blue-500/10">
                 ✔ Premium Quality
               </span>

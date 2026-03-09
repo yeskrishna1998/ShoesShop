@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 const RegisterForm = () => {
@@ -58,15 +57,25 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    console.log("Submitting form", form);
 
     if (!validate()) return;
 
     setLoading(true);
 
+    // WhatsApp message
+    const message = `New Shoe Repair Booking
+
+Name: ${form.name}
+Phone: ${form.phone}
+Address: ${form.address}`;
+
+    const whatsappURL =
+      `https://wa.me/916393072928?text=${encodeURIComponent(message)}`;
+
     try {
 
-      const response = await fetch("http://127.0.0.1:8000/quick-register", {
+      // Backend API try karega
+      await fetch("http://127.0.0.1:8000/quick-register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -74,29 +83,25 @@ const RegisterForm = () => {
         body: JSON.stringify(form)
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        alert(data.detail || "Registration failed");
-        setLoading(false);
-        return;
-      }
-
-      setShowPopup(true);
-
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        address: ""
-      });
-
     } catch (error) {
 
-      console.error(error);
-      alert("Server error");
+      console.log("API server not running");
 
     }
+
+    // Popup show
+    setShowPopup(true);
+
+    // WhatsApp open
+    window.open(whatsappURL, "_blank");
+
+    // Form reset
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      address: ""
+    });
 
     setLoading(false);
   };
@@ -116,7 +121,6 @@ const RegisterForm = () => {
         <form onSubmit={handleSubmit} className="space-y-3">
 
           {/* NAME */}
-
           <div>
             <input
               type="text"
@@ -133,7 +137,6 @@ const RegisterForm = () => {
           </div>
 
           {/* EMAIL */}
-
           <div>
             <input
               type="email"
@@ -150,7 +153,6 @@ const RegisterForm = () => {
           </div>
 
           {/* PHONE */}
-
           <div>
             <input
               type="text"
@@ -167,7 +169,6 @@ const RegisterForm = () => {
           </div>
 
           {/* ADDRESS */}
-
           <div>
             <textarea
               name="address"
@@ -184,7 +185,6 @@ const RegisterForm = () => {
           </div>
 
           {/* BUTTON */}
-
           <button
             type="submit"
             disabled={loading}
@@ -194,6 +194,7 @@ const RegisterForm = () => {
           </button>
 
         </form>
+
       </div>
 
       {/* SUCCESS POPUP */}
@@ -203,16 +204,15 @@ const RegisterForm = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
 
           <div className="bg-white p-6 rounded-xl text-center shadow-xl w-[300px]">
-<h3 className="text-xl font-bold mb-2 text-green-600 flex items-center justify-center gap-2">
-  <span className="text-2xl">✅</span>
-  Registration Successful
-</h3>
 
-<p className="text-gray-700 text-sm mb-4 text-center leading-relaxed">
-  Thanks for registering! <br />
-  Scroll down and book your time slot. <br />
-  Our team will contact you soon.
-</p>
+            <h3 className="text-xl font-bold mb-2 text-green-600 flex items-center justify-center gap-2">
+              <span className="text-2xl">✅</span>
+              Registration Successful
+            </h3>
+
+            <p className="text-gray-700 text-sm mb-4 text-center leading-relaxed">
+              WhatsApp is opening to confirm your booking.
+            </p>
 
             <button
               onClick={() => setShowPopup(false)}
