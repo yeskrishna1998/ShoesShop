@@ -131,12 +131,14 @@ const Hero = () => {
                 📞 Call Now
               </a>
 
-              <a
-                href="/contact"
-                className="px-9 py-3.5 rounded-full border-2 border-white/60 text-white font-bold text-lg backdrop-blur-sm hover:bg-white/10 hover:border-white hover:shadow-2xl hover:shadow-white/20 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-white/10"
-              >
-                Contact Us
-              </a>
+               <a
+            href="https://wa.me/916393072928"
+            target="_blank"
+            rel="noreferrer"
+                className="px-9 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-bold text-lg hover:shadow-2xl hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-yellow-500/30"
+          >
+            💬 WhatsApp
+          </a>
             </div>
           </div>
 

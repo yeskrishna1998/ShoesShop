@@ -9,21 +9,16 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import Booking from "./pages/Booking";
-
+import Services from "./components/service";
+import Pricing from "./components/pricing";
 import AdminLogin from "./Admin/AdminLogin";
 import AdminRoutes from "./Admin/AdminRoutes";
 
 function App() {
   const location = useLocation();
 
-  const hideLayoutRoutes = [
-    "/login",
-    "/register",
-    "/forgot-password",
-    "/admin-login"
-  ];
-
-  const hideLayout = hideLayoutRoutes.includes(location.pathname);
+ const hideLayout =
+    location.pathname.startsWith("/admin");
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -38,7 +33,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/signup" element={<Register />} />
 
+
+          <Route path="/services" element={<Services />} />
+
+          <Route path="/pricing" element={<Pricing />} />
           {/* Auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

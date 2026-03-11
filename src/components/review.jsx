@@ -1,21 +1,65 @@
+import { useState, useEffect } from "react";
+
 const reviews = [
   {
-    name: "Rahul Sharma",
+    name: "Ananya Sharma",
     location: "Gurgaon",
     review:
-      "Excellent shoe repair service. My shoes look brand new again. Highly recommended!",
+      "Really loved the service! My white sneakers were completely restored. They look almost brand new now.",
   },
   {
-    name: "Amit Verma",
-    location: "Noida",
-    review:
-      "Very professional work and quick delivery. Affordable pricing with great quality.",
-  },
-  {
-    name: "Neha Gupta",
+    name: "Ritika Mehra",
     location: "Delhi",
     review:
-      "Loved the service! Staff is friendly and repair quality is top-notch.",
+      "Very professional shoe repair service. The polish and stitching work was excellent.",
+  },
+  {
+    name: "Rahul Khanna",
+    location: "Gurgaon",
+    review:
+      "Great quality repair work. My formal shoes were fixed perfectly and delivered on time.",
+  },
+  {
+    name: "Sneha Kapoor",
+    location: "Delhi",
+    review:
+      "Amazing service! My favorite heels were repaired so well that they look fresh again.",
+  },
+  {
+    name: "Arjun Malhotra",
+    location: "Gurgaon",
+    review:
+      "Highly recommended. Affordable pricing and very skilled cobblers.",
+  },
+  {
+    name: "Priya Bansal",
+    location: "Delhi",
+    review:
+      "Very happy with the service. My leather boots were cleaned and polished beautifully.",
+  },
+  {
+    name: "Karan Arora",
+    location: "Gurgaon",
+    review:
+      "Quick and reliable repair service. My sneaker sole repair was done perfectly.",
+  },
+  {
+    name: "Neha Verma",
+    location: "Delhi",
+    review:
+      "Friendly staff and great quality work. Definitely coming back again!",
+  },
+  {
+    name: "Rohit Yadav",
+    location: "Gurgaon",
+    review:
+      "Excellent shoe repair service. My old shoes look fresh and comfortable again.",
+  },
+  {
+    name: "Simran Kaur",
+    location: "Delhi",
+    review:
+      "Really impressed with the repair quality. My shoes look almost new again!",
   },
 ];
 
@@ -26,53 +70,85 @@ const gradients = [
 ];
 
 const Reviews = () => {
+  const [index, setIndex] = useState(0);
+  const [pause, setPause] = useState(false);
+
+  useEffect(() => {
+    if (pause) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % reviews.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [pause]);
+
+  const review = reviews[index];
+
   return (
     <section className="py-16 bg-gradient-to-r from-indigo-50 via-pink-50 to-yellow-50">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6 text-center">
 
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            What Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">Customers Say</span>
-          </h2>
-          <p className="mt-3 text-gray-700 text-sm">
-            Trusted by customers across the city
-          </p>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          What Our{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">
+            Customers Say
+          </span>
+        </h2>
 
-        {/* Review Cards */}
-        <div ref={(el) => { if (el) { const items = el.querySelectorAll('.reveal-item'); items.forEach((node,i)=>{ node.style.transitionDelay = `${i*110}ms` }); const obs = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal-visible'); obs.unobserve(e.target); } }); }, {threshold:0.12}); items.forEach(n=>obs.observe(n)); } } } className="grid md:grid-cols-3 gap-6">
-          {reviews.map((item, index) => (
+        <p className="text-gray-600 mb-10 text-sm">
+          Trusted by customers across Gurgaon & Delhi
+        </p>
+
+        {/* Slider Card */}
+        <div
+          className="relative"
+          onMouseEnter={() => setPause(true)}
+          onMouseLeave={() => setPause(false)}
+        >
+
+          <div className="relative bg-white rounded-xl shadow-lg p-8 transition-all duration-500 hover:shadow-xl cursor-pointer">
+
+            {/* Gradient Border */}
             <div
-              key={index}
-              className="relative reveal-item"
-            >
-              <div className="rounded-xl overflow-hidden bg-white/80 backdrop-blur-md border border-white/30 shadow-lg transform-gpu transition-transform duration-300 hover:-translate-y-3 hover:scale-105 p-6">
-                <div className={`h-1 absolute top-0 left-0 right-0 bg-gradient-to-r ${gradients[index % gradients.length]}`} />
-                <div className="text-yellow-400 mb-4 text-lg">
-                  ⭐⭐⭐⭐⭐
-                </div>
+              className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${
+                gradients[index % gradients.length]
+              }`}
+            />
 
-                <p className="text-sm text-gray-700 mb-6 italic">
-                  "{item.review}"
-                </p>
+            {/* Stars */}
+            <div className="text-yellow-400 mb-4 text-lg">
+              ⭐⭐⭐⭐⭐
+            </div>
 
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md ${"bg-gradient-to-br " + gradients[index % gradients.length]}`}>
-                    {item.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-800">
-                      {item.name}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      {item.location}
-                    </div>
-                  </div>
+            {/* Review */}
+            <p className="text-gray-700 italic mb-6 text-lg">
+              "{review.review}"
+            </p>
+
+            {/* User */}
+            <div className="flex justify-center items-center gap-3">
+
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold bg-gradient-to-br ${
+                  gradients[index % gradients.length]
+                }`}
+              >
+                {review.name.charAt(0)}
+              </div>
+
+              <div className="text-left">
+                <div className="font-semibold">{review.name}</div>
+                <div className="text-xs text-gray-500">
+                  {review.location}
                 </div>
               </div>
+
             </div>
-          ))}
+
+          </div>
+
         </div>
 
       </div>

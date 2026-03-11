@@ -185,13 +185,12 @@ Address: ${form.address}`;
           </div>
 
           {/* BUTTON */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-yellow-400 text-black py-2 rounded-lg font-semibold hover:bg-yellow-300 transition disabled:opacity-50"
-          >
-            {loading ? "Registering..." : "Register"}
-          </button>
+         <button
+  type="submit"
+  disabled={loading}
+  className="w-full bg-yellow-400 text-black py-3 rounded-xl font-semibold text-lg hover:bg-yellow-500 hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2">
+  {loading ? "Processing..." : "🚚 Schedule Free Pickup"}
+</button>
 
         </form>
 

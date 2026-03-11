@@ -1,62 +1,69 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+function Sidebar({ open, setOpen }) {
 
-  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
- const logout = () => {
-  sessionStorage.removeItem("adminToken");
-  navigate("/admin-login");
-};
+  const logout = () => {
+    sessionStorage.removeItem("adminToken");
+    navigate("/admin-login");
+  };
 
   return (
-
     <>
-      {/* Mobile Topbar */}
-
-      <div className="md:hidden flex justify-between items-center bg-black text-white p-4">
-
-        <h2 className="font-bold">Admin</h2>
-
-        <button onClick={() => setOpen(!open)}>
-          ☰
-        </button>
-
-      </div>
+      {/* Overlay */}
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/40 md:hidden z-40"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
       {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-black text-white z-50 transform transition-transform duration-300
+        ${open ? "translate-x-0" : "-translate-x-full"}
+        md:translate-x-0 md:static`}
+      >
 
-      <div className={`bg-black text-white w-64 p-5 space-y-4 fixed md:static top-0 h-full z-50 transition-transform
-        ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}>
+        <div className="p-6">
 
-        <h2 className="text-xl font-bold mb-6">
-          Shoe Repair Admin
-        </h2>
+          <h2 className="text-xl font-bold mb-8">
+            Shoe Repair Admin
+          </h2>
 
-        <Link to="/admin" className="block hover:text-yellow-400">
-          Dashboard
-        </Link>
+          <nav className="flex flex-col gap-4">
 
-        <Link to="/admin/bookings" className="block hover:text-yellow-400">
-          Bookings
-        </Link>
+            <Link
+              to="/admin"
+              onClick={() => setOpen(false)}
+              className="hover:text-yellow-400"
+            >
+              Dashboard
+            </Link>
 
-        {/* Logout Button */}
+            <Link
+              to="/admin/bookings"
+              onClick={() => setOpen(false)}
+              className="hover:text-yellow-400"
+            >
+              Bookings
+            </Link>
 
-        <button
-          onClick={logout}
-          className="block text-red-400 hover:text-red-600 mt-10"
-        >
-          Logout
-        </button>
+            <button
+              onClick={logout}
+              className="text-red-400 text-left mt-6"
+            >
+              Logout
+            </button>
+
+          </nav>
+
+        </div>
 
       </div>
-
     </>
-
   );
-
-};
+}
 
 export default Sidebar;

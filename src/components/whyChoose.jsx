@@ -1,22 +1,22 @@
 const features = [
   {
     title: "Expert Cobblers",
-    desc: "Skilled professionals with years of experience",
+    desc: "Professional cobblers with years of experience in shoe repair",
     icon: "👞",
   },
   {
-    title: "Same Day Repair",
-    desc: "Quick service without compromising quality",
+    title: "Quick Repair Service",
+    desc: "Most shoe repairs completed within 24–48 hours",
     icon: "⚡",
   },
   {
     title: "Affordable Pricing",
-    desc: "Best prices with premium workmanship",
+    desc: "Quality shoe repair at fair and transparent prices",
     icon: "💰",
   },
   {
     title: "Trusted by Customers",
-    desc: "Hundreds of happy and repeat customers",
+    desc: "Hundreds of happy customers trust our repair service",
     icon: "⭐",
   },
 ];

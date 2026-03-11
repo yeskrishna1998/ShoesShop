@@ -2,18 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
   const [open, setOpen] = useState(false);
-  const [dark, setDark] = useState(false);
 
   return (
-    <header
-      className={`sticky top-0 z-50 backdrop-blur-xl border-b transition-all duration-300
-      ${
-        dark
-          ? "bg-black/80 border-yellow-500/20 text-white"
-          : "bg-white/90 border-purple-200 text-black shadow-lg"
-      }`}
-    >
+
+    <header className="sticky top-0 z-50 backdrop-blur-xl border-b bg-white shadow-lg">
+
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}
@@ -26,67 +21,51 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10 font-semibold text-sm uppercase tracking-wide">
-          {["Home", "Services", "Pricing", "Contact"].map((item) => (
-            <Link
-              key={item}
-              to={`/${item === "Home" ? "" : item.toLowerCase()}`}
-              className="relative group transition-colors hover:text-yellow-500"
-            >
-              {item}
-              <span
-                className={`absolute left-0 -bottom-1 h-[3px] w-0 group-hover:w-full transition-all duration-300 ${
-                  dark
-                    ? "bg-yellow-400"
-                    : "bg-gradient-to-r from-purple-600 to-pink-500"
-                }`}
-              />
-            </Link>
-          ))}
+
+          <Link to="/" className="hover:text-yellow-500">
+            Home
+          </Link>
+
+          <Link to="/services" className="hover:text-yellow-500">
+            Services
+          </Link>
+
+          <Link to="/pricing" className="hover:text-yellow-500">
+            Pricing
+          </Link>
+
+          <Link to="/contact" className="hover:text-yellow-500">
+            Contact
+          </Link>
+
         </div>
 
-        {/* RIGHT SIDE CONTROLS */}
-        <div className="hidden md:flex items-center gap-5">
+        {/* RIGHT SIDE BUTTON */}
 
-          {/* Theme Toggle */}
-          <div
-            onClick={() => setDark(!dark)}
-            className={`w-12 h-6 flex items-center rounded-full cursor-pointer p-1 transition ${
-              dark ? "bg-yellow-400" : "bg-gray-300"
-            }`}
-          >
-            <div
-              className={`w-4 h-4 rounded-full bg-white shadow-md transform transition ${
-                dark ? "translate-x-6" : "translate-x-0"
-              }`}
-            />
-          </div>
+        <div className="hidden md:flex items-center gap-4">
 
-          {/* Login */}
+          {/* Book Now */}
+
           <Link
-            to="/login"
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold hover:-translate-y-1 shadow-lg hover:shadow-2xl"
+            to="/booking"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 text-black font-bold hover:-translate-y-1 shadow-lg hover:shadow-2xl transition-all duration-300"
           >
-            🔐 Login
+            🚚 Book Now
           </Link>
 
-          {/* Signup */}
-          <Link
-            to="/signup"
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold hover:-translate-y-1 shadow-xl hover:shadow-2xl"
-          >
-            ✨ Signup
-          </Link>
+          {/* Admin */}
 
-          {/* ADMIN BUTTON (Desktop) */}
           <Link
             to="/admin-login"
-            className="px-6 py-2.5 rounded-full bg-black text-white font-semibold hover:bg-gray-800"
+            className="px-5 py-2 rounded-full bg-black text-white font-semibold hover:bg-gray-800"
           >
             🛠 Admin
           </Link>
+
         </div>
 
         {/* Mobile Menu Button */}
+
         <button
           className="md:hidden text-3xl"
           onClick={() => setOpen(!open)}
@@ -96,67 +75,41 @@ const Navbar = () => {
 
       </nav>
 
-      {/* MOBILE MENU */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div
-          className={`flex flex-col gap-4 px-6 py-4 backdrop-blur-md ${
-            dark ? "bg-black/80 text-white" : "bg-white/90 text-black"
-          }`}
-        >
-          {["Home", "Services", "Pricing", "Contact"].map((item) => (
-            <Link
-              key={item}
-              to={`/${item === "Home" ? "" : item.toLowerCase()}`}
-              onClick={() => setOpen(false)}
-              className="border-b pb-2"
-            >
-              {item}
-            </Link>
-          ))}
+      {/* Mobile Menu */}
 
-          {/* Theme Toggle Mobile */}
-          <div
-            onClick={() => setDark(!dark)}
-            className={`w-12 h-6 flex items-center rounded-full cursor-pointer p-1 transition mx-auto ${
-              dark ? "bg-yellow-400" : "bg-gray-300"
-            }`}
-          >
-            <div
-              className={`w-4 h-4 rounded-full bg-white shadow-md transform transition ${
-                dark ? "translate-x-6" : "translate-x-0"
-              }`}
-            />
-          </div>
+      {open && (
+
+        <div className="md:hidden flex flex-col gap-4 px-6 py-4 bg-white">
+
+          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
+          <Link to="/pricing" onClick={() => setOpen(false)}>Pricing</Link>
+          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
 
           <Link
-            to="/login"
-            className="py-2.5 text-center rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold"
+            to="/booking"
+            onClick={() => setOpen(false)}
+            className="text-center py-2 rounded-full bg-yellow-400 font-bold"
           >
-            Login
+            Book Now
           </Link>
 
-          <Link
-            to="/signup"
-            className="py-2.5 text-center rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold"
-          >
-            Signup
-          </Link>
-
-          {/* ADMIN MOBILE */}
           <Link
             to="/admin-login"
-            className="py-2.5 text-center rounded-full bg-black text-white font-semibold"
+            onClick={() => setOpen(false)}
+            className="text-center py-2 rounded-full bg-black text-white"
           >
             Admin
           </Link>
+
         </div>
-      </div>
+
+      )}
+
     </header>
+
   );
+
 };
 
 export default Navbar;

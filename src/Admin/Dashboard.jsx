@@ -6,24 +6,26 @@ function Dashboard() {
         Dashboard
       </h1>
 
-      <div className="grid grid-cols-3 gap-6">
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div className="bg-white shadow p-6 rounded">
-          <h3 className="text-gray-500">Total Orders</h3>
-          <p className="text-2xl font-bold">25</p>
-        </div>
+  <div className="bg-white shadow p-6 rounded">
+    <p className="text-gray-500">Total Orders</p>
+    <h2 className="text-2xl font-bold">25</h2>
+  </div>
 
-        <div className="bg-white shadow p-6 rounded">
-          <h3 className="text-gray-500">Pending Orders</h3>
-          <p className="text-2xl font-bold">10</p>
-        </div>
+  <div className="bg-white shadow p-6 rounded">
+    <p className="text-gray-500">Pending</p>
+    <h2 className="text-2xl font-bold">10</h2>
+  </div>
 
-        <div className="bg-white shadow p-6 rounded">
-          <h3 className="text-gray-500">Completed</h3>
-          <p className="text-2xl font-bold">12</p>
-        </div>
+  <div className="bg-white shadow p-6 rounded">
+    <p className="text-gray-500">Completed</p>
+    <h2 className="text-2xl font-bold">12</h2>
+  </div>
 
-      </div>
+</div>
+
+    
 
     </div>
   );
