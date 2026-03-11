@@ -13,6 +13,7 @@ import Services from "./components/service";
 import Pricing from "./components/pricing";
 import AdminLogin from "./Admin/AdminLogin";
 import AdminRoutes from "./Admin/AdminRoutes";
+import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
+        <ScrollToTop />
 
       {!hideLayout && <Navbar />}
 
