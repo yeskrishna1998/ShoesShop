@@ -6,45 +6,54 @@ import Footer from "./components/footer";
 import Home from "./pages/Home";
 import Contact from "./pages/contact";
 import Login from "./pages/Login";
-import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
 import Booking from "./pages/Booking";
-import Services from "./components/service";
-import Pricing from "./components/pricing";
-import ScrollToTop from "./pages/ScrollToTop";
 
-
+import AdminLogin from "./Admin/AdminLogin";
+import AdminRoutes from "./Admin/AdminRoutes";
 
 function App() {
   const location = useLocation();
 
-  const hideLayout =
-    location.pathname === "/login" ||
-    location.pathname === "/forgot-password" ||
-    location.pathname === "/register" ||
-    location.pathname === "/signup";
+  const hideLayoutRoutes = [
+    "/login",
+    "/register",
+    "/forgot-password",
+    "/admin-login"
+  ];
+
+  const hideLayout = hideLayoutRoutes.includes(location.pathname);
 
   return (
     <div className="min-h-screen flex flex-col">
-          <ScrollToTop />
+
       {!hideLayout && <Navbar />}
 
-      {/* IMPORTANT FIX */}
-      <main className="flex-1 w-full overflow-hidden">
+      <main className="flex-1">
+
         <Routes>
+
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/signup" element={<Register />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/pricing" element={<Pricing />} />
+
+          {/* Auth */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          {/* Admin */}
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin/*" element={<AdminRoutes />} />
+
         </Routes>
+
       </main>
 
       {!hideLayout && <Footer />}
+
     </div>
   );
 }
