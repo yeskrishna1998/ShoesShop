@@ -13,33 +13,26 @@ const RegisterForm = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // ================= VALIDATION =================
   const validate = () => {
 
     let newErrors = {};
 
-    if (!form.name.trim()) {
-      newErrors.name = "Name required";
-    }
+    if (!form.name.trim()) newErrors.name = "Please enter your name";
 
-    if (!/\S+@\S+\.\S+/.test(form.email)) {
-      newErrors.email = "Valid email required";
-    }
+    if (!/\S+@\S+\.\S+/.test(form.email))
+      newErrors.email = "Enter valid email";
 
-    if (!/^[0-9]{10}$/.test(form.phone)) {
-      newErrors.phone = "Enter valid 10 digit number";
-    }
+    if (!/^[0-9]{10}$/.test(form.phone))
+      newErrors.phone = "Enter valid number";
 
-    if (!form.address.trim()) {
+    if (!form.address.trim())
       newErrors.address = "Address required";
-    }
 
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
   };
 
-  // ================= INPUT CHANGE =================
   const handleChange = (e) => {
 
     setForm({
@@ -53,7 +46,6 @@ const RegisterForm = () => {
     });
   };
 
-  // ================= FORM SUBMIT =================
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -62,8 +54,7 @@ const RegisterForm = () => {
 
     setLoading(true);
 
-    // WhatsApp message
-    const message = `New Shoe Repair Booking
+    const message = `New Shoe Repair Pickup
 
 Name: ${form.name}
 Phone: ${form.phone}
@@ -74,28 +65,25 @@ Address: ${form.address}`;
 
     try {
 
-      // Backend API try karega
-     const response = await fetch("https://shoes-backend-1lip.onrender.com/quick-register", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(form)
-});
+      await fetch(
+        "https://shoes-backend-1lip.onrender.com/quick-register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form)
+        }
+      );
 
     } catch (error) {
 
-      console.log("API server not running");
+      console.log("API error");
 
     }
 
-    // Popup show
     setShowPopup(true);
 
-    // WhatsApp open
     window.open(whatsappURL, "_blank");
 
-    // Form reset
     setForm({
       name: "",
       email: "",
@@ -110,17 +98,20 @@ Address: ${form.address}`;
 
     <div className="flex justify-center items-center">
 
-      {/* CARD */}
+      <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-2xl shadow-2xl w-[380px] transition hover:scale-[1.02]">
 
-      <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl w-[380px]">
+        {/* HEADING */}
 
-        <h2 className="text-2xl font-bold text-center text-white mb-4">
-          Register Now
-        </h2>
+        <h2 className="text-2xl font-bold text-center mb-1 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+  Schedule Free Pickup
+</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
+        <p className="text-center text-gray-200 text-xs mb-3">
+          Doorstep shoe repair service
+        </p>
 
-          {/* NAME */}
+        <form onSubmit={handleSubmit} className="space-y-2.5">
+
           <div>
             <input
               type="text"
@@ -128,15 +119,10 @@ Address: ${form.address}`;
               placeholder="Full Name"
               value={form.name}
               onChange={handleChange}
-              className="w-full p-2 rounded-lg bg-white text-black outline-none"
+              className="w-full py-2 px-3 rounded-lg bg-white text-black outline-none focus:ring-2 focus:ring-green-400"
             />
-
-            {errors.name && (
-              <p className="text-red-400 text-xs mt-1">{errors.name}</p>
-            )}
           </div>
 
-          {/* EMAIL */}
           <div>
             <input
               type="email"
@@ -144,15 +130,10 @@ Address: ${form.address}`;
               placeholder="Email Address"
               value={form.email}
               onChange={handleChange}
-              className="w-full p-2 rounded-lg bg-white text-black outline-none"
+              className="w-full py-2 px-3 rounded-lg bg-white text-black outline-none focus:ring-2 focus:ring-green-400"
             />
-
-            {errors.email && (
-              <p className="text-red-400 text-xs mt-1">{errors.email}</p>
-            )}
           </div>
 
-          {/* PHONE */}
           <div>
             <input
               type="text"
@@ -160,71 +141,32 @@ Address: ${form.address}`;
               placeholder="Mobile Number"
               value={form.phone}
               onChange={handleChange}
-              className="w-full p-2 rounded-lg bg-white text-black outline-none"
+              className="w-full py-2 px-3 rounded-lg bg-white text-black outline-none focus:ring-2 focus:ring-green-400"
             />
-
-            {errors.phone && (
-              <p className="text-red-400 text-xs mt-1">{errors.phone}</p>
-            )}
           </div>
 
-          {/* ADDRESS */}
           <div>
             <textarea
               name="address"
-              placeholder="Address"
+              placeholder="Pickup Address"
               rows="2"
               value={form.address}
               onChange={handleChange}
-              className="w-full p-2 rounded-lg bg-white text-black outline-none"
+              className="w-full py-2 px-3 rounded-lg bg-white text-black outline-none focus:ring-2 focus:ring-green-400"
             />
-
-            {errors.address && (
-              <p className="text-red-400 text-xs mt-1">{errors.address}</p>
-            )}
           </div>
 
-          {/* BUTTON */}
-         <button
+        <button
   type="submit"
   disabled={loading}
-  className="w-full bg-yellow-400 text-black py-3 rounded-xl font-semibold text-lg hover:bg-yellow-500 hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2">
-  {loading ? "Processing..." : "🚚 Schedule Free Pickup"}
+  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-2.5 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-green-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-green-500/30"
+>
+  {loading ? "Processing..." : "🚚 Book Pickup"}
 </button>
 
         </form>
 
       </div>
-
-      {/* SUCCESS POPUP */}
-
-      {showPopup && (
-
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-
-          <div className="bg-white p-6 rounded-xl text-center shadow-xl w-[300px]">
-
-            <h3 className="text-xl font-bold mb-2 text-green-600 flex items-center justify-center gap-2">
-              <span className="text-2xl">✅</span>
-              Registration Successful
-            </h3>
-
-            <p className="text-gray-700 text-sm mb-4 text-center leading-relaxed">
-              WhatsApp is opening to confirm your booking.
-            </p>
-
-            <button
-              onClick={() => setShowPopup(false)}
-              className="bg-black text-white px-5 py-2 rounded-lg"
-            >
-              OK
-            </button>
-
-          </div>
-
-        </div>
-
-      )}
 
     </div>
   );

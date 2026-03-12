@@ -124,22 +124,24 @@ const Hero = () => {
 
             {/* CTA */}
             <div className="mt-9 flex flex-col sm:flex-row gap-4 reveal-item">
-              <a
-                href="tel:6393072928"
-                className="px-9 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-bold text-lg hover:shadow-2xl hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-yellow-500/30"
-              >
-                📞 Call Now
-              </a>
 
-               <a
-            href="https://wa.me/916393072928"
-            target="_blank"
-            rel="noreferrer"
-                className="px-9 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-bold text-lg hover:shadow-2xl hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-yellow-500/30"
-          >
-            💬 WhatsApp
-          </a>
-            </div>
+  <a
+    href="tel:6393072928"
+    className="px-9 py-3.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-green-500/30"
+  >
+    📞 Call Now
+  </a>
+
+  <a
+    href="https://wa.me/916393072928"
+    target="_blank"
+    rel="noreferrer"
+    className="px-9 py-3.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-green-500/30"
+  >
+    💬 WhatsApp
+  </a>
+
+</div>
           </div>
 
           {/* 🔹 RIGHT SIDE — 40% */}
