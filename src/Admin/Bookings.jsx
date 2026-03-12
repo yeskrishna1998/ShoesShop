@@ -6,7 +6,7 @@ function Bookings() {
 
   useEffect(() => {
 
-    fetch("http://localhost:8000/bookings")
+    fetch("https://shoes-backend-liip.onrender.com/bookings")
       .then((res) => res.json())
       .then((data) => setBookings(data));
 

@@ -12,12 +12,16 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}
-        <Link
-          to="/"
-          className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-black via-purple-600 to-yellow-500"
-        >
-          Shoes<span className="text-yellow-500">Repair</span> 👟
-        </Link>
+ {/* Logo */}
+<Link to="/" className="flex items-center">
+
+  <img
+    src="/zcoated.png"
+    alt="ZCoated Logo"
+    className="h-25 md:h-20 object-contain"
+  />
+
+</Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10 font-semibold text-sm uppercase tracking-wide">

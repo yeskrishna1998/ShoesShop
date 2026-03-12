@@ -75,7 +75,7 @@ Address: ${form.address}`;
     try {
 
       // Backend API try karega
-      await fetch("http://127.0.0.1:8000/quick-register", {
+      await fetch("https://shoes-backend-liip.onrender.com/quick-register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

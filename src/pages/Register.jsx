@@ -80,13 +80,13 @@ export default function Register() {
         pincode: form.pincode,
       };
 
-      const response = await fetch("http://127.0.0.1:8000/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch("https://shoes-backend-liip.onrender.com/register", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(payload),
+});
 
       const data = await response.json();
 
