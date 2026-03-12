@@ -106,18 +106,56 @@ const Booking = () => {
     setStep(step + 1);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // Show success message
+  try {
+
+    const response = await fetch(
+      "https://shoes-backend-1lip.onrender.com/booking",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          shoeType:
+            formData.shoeType === "Other"
+              ? formData.customShoeType
+              : formData.shoeType,
+          customShoeType: formData.customShoeType,
+          shoeSize: formData.shoeSize,
+          issueDescription: formData.issueDescription,
+          date: formData.date,
+          time: formData.time,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.detail || "Booking failed");
+      return;
+    }
+
+    console.log("Booking saved:", data);
+
     setShowSuccess(true);
-    console.log("Booking confirmed:", formData);
 
-    // Redirect to home after 3 seconds
     setTimeout(() => {
       navigate("/");
     }, 3000);
-  };
+
+  } catch (error) {
+    console.error("API error:", error);
+    alert("Server error");
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-pink-50 to-yellow-50 py-16">
