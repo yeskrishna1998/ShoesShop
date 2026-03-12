@@ -199,7 +199,7 @@ const Booking = () => {
                 placeholder="Full Name *"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
               />
               <input
                 type="email"
@@ -207,7 +207,7 @@ const Booking = () => {
                 placeholder="Email Address *"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
               />
               <input
                 type="tel"
@@ -215,7 +215,7 @@ const Booking = () => {
                 placeholder="Phone Number *"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
               />
               <input
                 type="text"
@@ -223,7 +223,7 @@ const Booking = () => {
                 placeholder="Delivery Address *"
                 value={formData.address}
                 onChange={handleInputChange}
-                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                className="px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
               />
             </div>
           </div>
@@ -239,13 +239,16 @@ const Booking = () => {
                 <label className="block text-sm font-bold mb-2">Shoe Name *</label>
                 <div className="relative">
                   <input
-                    type="text"
-                    placeholder="Search shoe name..."
-                    value={shoeSearch}
-                    onChange={(e) => setShoeSearch(e.target.value)}
-                    onFocus={() => setShowShoeDropdown(true)}
-                    className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
-                  />
+  type="text"
+  placeholder="Search shoe name..."
+  value={shoeSearch || formData.shoeType}
+  onChange={(e) => {
+    setShoeSearch(e.target.value);
+    setFormData({ ...formData, shoeType: "" });
+  }}
+  onFocus={() => setShowShoeDropdown(true)}
+  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
+/>
                   {shoeSearch && formData.shoeType && (
                     <div className="mt-2 px-4 py-2 bg-purple-50 rounded-lg text-sm text-gray-700">
                       Selected: <strong>{formData.shoeType}</strong>
@@ -289,7 +292,7 @@ const Booking = () => {
                   name="shoeSize"
                   value={formData.shoeSize}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
                   style={{ direction: "ltr" }}
                 >
                   <option value="">Select Size</option>
@@ -310,7 +313,7 @@ const Booking = () => {
                   placeholder="Enter your shoe name/brand"
                   value={formData.customShoeType}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
                 />
               </div>
             )}
@@ -322,7 +325,7 @@ const Booking = () => {
                 name="issueDescription"
                 value={formData.issueDescription}
                 onChange={handleInputChange}
-                className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
               >
                 <option value="">Select Issue</option>
                 {commonIssues.map((issue, idx) => (
@@ -346,7 +349,7 @@ const Booking = () => {
                   value={formData.date}
                   onChange={handleInputChange}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
                 />
               </div>
               <div>
@@ -355,7 +358,7 @@ const Booking = () => {
                   name="time"
                   value={formData.time}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition"
+                  className="w-full px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none transition cursor-pointer"
                 >
                   <option value="">Select Time Slot</option>
                   <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
@@ -419,11 +422,16 @@ const Booking = () => {
             </button>
           ) : (
             <button
-              onClick={handleSubmit}
-              className="px-8 py-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold transform transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/50 ml-auto text-lg"
-            >
-              Complete Booking
-            </button>
+  onClick={handleSubmit}
+  className="w-full sm:w-auto px-5 sm:px-8 py-2.5 sm:py-3 rounded-full 
+  bg-gradient-to-r from-green-500 to-emerald-500 text-white 
+  font-bold text-sm sm:text-base lg:text-lg 
+  transform transition hover:-translate-y-1 
+  hover:shadow-2xl hover:shadow-green-500/50 
+  ml-auto"
+>
+  Complete Booking
+</button>
           )}
         </div>
       </div>
