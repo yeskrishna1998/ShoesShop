@@ -75,13 +75,13 @@ Address: ${form.address}`;
     try {
 
       // Backend API try karega
-      await fetch("https://shoes-backend-liip.onrender.com/quick-register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(form)
-      });
+     const response = await fetch("https://shoes-backend-1lip.onrender.com/quick-register", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(form)
+});
 
     } catch (error) {
 
