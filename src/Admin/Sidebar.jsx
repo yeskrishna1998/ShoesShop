@@ -41,6 +41,13 @@ function Sidebar({ open, setOpen }) {
             >
               Dashboard
             </Link>
+            <Link
+  to="/admin/quick-registrations"
+  onClick={() => setOpen(false)}
+  className="hover:text-yellow-400"
+>
+  Quick Registrations
+</Link>
 
             <Link
               to="/admin/bookings"
@@ -49,6 +56,10 @@ function Sidebar({ open, setOpen }) {
             >
               Bookings
             </Link>
+
+
+            
+
 
             <button
               onClick={logout}

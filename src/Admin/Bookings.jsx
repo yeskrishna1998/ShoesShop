@@ -6,61 +6,103 @@ function Bookings() {
 
   useEffect(() => {
 
-    fetch("https://shoes-backend-liip.onrender.com/bookings")
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
+    const fetchBookings = async () => {
+
+      try {
+
+        const res = await fetch(
+          "https://shoes-backend-1lip.onrender.com/bookings"
+        );
+
+        const data = await res.json();
+
+        setBookings(data);
+
+      } catch (error) {
+
+        console.error("Error fetching bookings:", error);
+
+      }
+
+    };
+
+    fetchBookings();
 
   }, []);
 
   return (
-    <div>
+
+    <div className="p-6">
 
       <h1 className="text-2xl font-bold mb-6">
         Bookings
       </h1>
 
-      <table className="w-full bg-white shadow rounded">
+      <div className="overflow-x-auto">
 
-        <thead className="bg-gray-200">
+        <table className="w-full bg-white shadow rounded text-sm">
 
-          <tr>
-            <th className="p-3">Name</th>
-            <th className="p-3">Phone</th>
-            <th className="p-3">Shoe</th>
-            <th className="p-3">Issue</th>
-            <th className="p-3">Date</th>
-            <th className="p-3">Status</th>
-          </tr>
+          <thead className="bg-gray-200">
 
-        </thead>
-
-        <tbody>
-
-          {bookings.map((b, i) => (
-
-            <tr key={i} className="text-center border-t">
-
-              <td className="p-3">{b.name}</td>
-              <td>{b.phone}</td>
-              <td>{b.shoeType}</td>
-              <td>{b.issueDescription}</td>
-              <td>{b.date}</td>
-              <td>
-                <span className="bg-yellow-200 px-3 py-1 rounded">
-                  Pending
-                </span>
-              </td>
-
+            <tr>
+              <th className="p-3">ID</th>
+              <th className="p-3">Name</th>
+              <th className="p-3">Email</th>
+              <th className="p-3">Phone</th>
+              <th className="p-3">Address</th>
+              <th className="p-3">Shoe Type</th>
+              <th className="p-3">Custom Shoe</th>
+              <th className="p-3">Size</th>
+              <th className="p-3">Issue</th>
+              <th className="p-3">Pickup Date</th>
+              <th className="p-3">Pickup Time</th>
+              <th className="p-3">Created</th>
+              <th className="p-3">Status</th>
             </tr>
 
-          ))}
+          </thead>
 
-        </tbody>
+          <tbody>
 
-      </table>
+            {bookings.map((b) => (
+
+              <tr key={b.id} className="text-center border-t hover:bg-gray-50">
+
+                <td className="p-3">{b.id}</td>
+                <td className="p-3">{b.name}</td>
+                <td className="p-3">{b.email}</td>
+                <td className="p-3">{b.phone}</td>
+                <td className="p-3">{b.address}</td>
+                <td className="p-3">{b.shoe_type}</td>
+                <td className="p-3">{b.custom_shoe_type}</td>
+                <td className="p-3">{b.shoe_size}</td>
+                <td className="p-3">{b.issue_description}</td>
+                <td className="p-3">{b.date}</td>
+                <td className="p-3">{b.time}</td>
+                <td className="p-3">
+                  {new Date(b.created_at).toLocaleString()}
+                </td>
+
+                <td className="p-3">
+                  <span className="bg-yellow-200 px-3 py-1 rounded">
+                    Pending
+                  </span>
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </div>
+
   );
+
 }
 
 export default Bookings;

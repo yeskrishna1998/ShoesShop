@@ -22,7 +22,7 @@ import Dashboard from "./Dashboard";
 import Bookings from "./Bookings";
 import AdminLayout from "./AdminLayout";
 import ProtectedRoute from "./ProtectedRoute";
-
+import QuickRegistrations from "./QuickRegistrations";
 function AdminRoutes() {
   return (
 
@@ -34,6 +34,7 @@ function AdminRoutes() {
 
           <Route path="/" element={<Dashboard />} />
           <Route path="/bookings" element={<Bookings />} />
+        <Route path="/quick-registrations" element={<QuickRegistrations />} />
 
         </Routes>
 
