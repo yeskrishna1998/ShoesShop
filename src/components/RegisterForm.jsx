@@ -49,6 +49,7 @@ const RegisterForm = ({ scheduleMode = true }) => {
       ...errors,
       [e.target.name]: ""
     });
+
   };
 
   const handleSubmit = async (e) => {
@@ -68,7 +69,7 @@ Address: ${form.address}`;
     const whatsappURL =
       `https://wa.me/916393072928?text=${encodeURIComponent(message)}`;
 
-    // ✅ API only when schedule pickup
+    // API only for Schedule Pickup
     if (scheduleMode) {
 
       try {
@@ -100,15 +101,18 @@ Address: ${form.address}`;
     });
 
     setLoading(false);
+
   };
 
   return (
 
-<div className="flex justify-center items-center">
+<div className="flex justify-center items-center w-full">
 
-<div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-xl w-[380px] transition hover:shadow-2xl">
+{/* FORM CARD */}
 
-<h2 className="text-2xl font-bold text-center mb-1 text-black">
+<div className="bg-white border border-gray-200 p-5 md:p-6 rounded-2xl shadow-xl w-full max-w-md transition hover:shadow-2xl relative">
+
+<h2 className="text-xl md:text-2xl font-bold text-center mb-1 text-black">
 Schedule Free Pickup
 </h2>
 
@@ -121,13 +125,14 @@ Doorstep shoe repair service
 {/* NAME */}
 
 <div>
+
 <input
 type="text"
 name="name"
 placeholder="Full Name"
 value={form.name}
 onChange={handleChange}
-className={`w-full py-2.5 px-3 rounded-lg border outline-none ${
+className={`w-full py-2.5 px-3 rounded-lg border outline-none text-sm md:text-base ${
 errors.name ? "border-red-500" : "focus:border-black"
 }`}
 />
@@ -135,18 +140,20 @@ errors.name ? "border-red-500" : "focus:border-black"
 {errors.name && (
 <p className="text-red-500 text-xs mt-1">{errors.name}</p>
 )}
+
 </div>
 
 {/* EMAIL */}
 
 <div>
+
 <input
 type="email"
 name="email"
 placeholder="Email Address"
 value={form.email}
 onChange={handleChange}
-className={`w-full py-2.5 px-3 rounded-lg border outline-none ${
+className={`w-full py-2.5 px-3 rounded-lg border outline-none text-sm md:text-base ${
 errors.email ? "border-red-500" : "focus:border-black"
 }`}
 />
@@ -154,18 +161,20 @@ errors.email ? "border-red-500" : "focus:border-black"
 {errors.email && (
 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
 )}
+
 </div>
 
 {/* PHONE */}
 
 <div>
+
 <input
 type="text"
 name="phone"
 placeholder="Mobile Number"
 value={form.phone}
 onChange={handleChange}
-className={`w-full py-2.5 px-3 rounded-lg border outline-none ${
+className={`w-full py-2.5 px-3 rounded-lg border outline-none text-sm md:text-base ${
 errors.phone ? "border-red-500" : "focus:border-black"
 }`}
 />
@@ -173,18 +182,20 @@ errors.phone ? "border-red-500" : "focus:border-black"
 {errors.phone && (
 <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
 )}
+
 </div>
 
 {/* ADDRESS */}
 
 <div>
+
 <textarea
 name="address"
 placeholder="Pickup Address"
 rows="2"
 value={form.address}
 onChange={handleChange}
-className={`w-full py-2.5 px-3 rounded-lg border outline-none ${
+className={`w-full py-2.5 px-3 rounded-lg border outline-none text-sm md:text-base ${
 errors.address ? "border-red-500" : "focus:border-black"
 }`}
 />
@@ -192,12 +203,15 @@ errors.address ? "border-red-500" : "focus:border-black"
 {errors.address && (
 <p className="text-red-500 text-xs mt-1">{errors.address}</p>
 )}
+
 </div>
+
+{/* BUTTON */}
 
 <button
 type="submit"
 disabled={loading}
-className="w-full py-3 rounded-lg bg-black text-white font-semibold hover:bg-gray-900 transition"
+className="w-full py-3 rounded-lg bg-black text-white font-semibold hover:bg-gray-900 transition text-sm md:text-base"
 >
 
 {loading ? "Processing..." : "Book Pickup"}
@@ -212,11 +226,20 @@ className="w-full py-3 rounded-lg bg-black text-white font-semibold hover:bg-gra
 
 {showPopup && (
 
-<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+<div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 px-4">
 
-<div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center">
+<div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full text-center relative">
 
-<h2 className="text-2xl font-bold text-black mb-2">
+{/* CLOSE BUTTON */}
+
+<button
+onClick={() => setShowPopup(false)}
+className="absolute top-2 right-3 text-gray-600 text-xl"
+>
+×
+</button>
+
+<h2 className="text-xl md:text-2xl font-bold text-black mb-2">
 Booking Confirmed!
 </h2>
 
@@ -240,6 +263,7 @@ OK
 </div>
 
   );
+
 };
 
 export default RegisterForm;
