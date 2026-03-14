@@ -47,142 +47,126 @@ const gradients = [
 
 const Services = () => {
 
-const [showPopup,setShowPopup]=useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
-return (
+  return (
+    <section className="py-12 bg-white">
 
-<section className="py-7 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
 
-<div className="max-w-6xl mx-auto px-6">
+        {/* Heading */}
 
-{/* Heading */}
+        <div className="text-center mb-12">
 
-<div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Our
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 ml-2">
+              Services
+            </span>
+          </h2>
 
-<h2 className="text-3xl md:text-4xl font-bold">
-Our
-<span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">
- Services
-</span>
-</h2>
+          <p className="mt-3 text-gray-700 text-sm">
+            Professional shoe repairing services
+          </p>
 
-<p className="mt-3 text-gray-700 text-sm">
-Professional shoe repairing services
-</p>
+        </div>
 
-</div>
+        {/* Cards */}
 
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-{/* Cards */}
+          {services.map((item, index) => (
 
-<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div key={index}>
 
-{services.map((item,index)=>(
+              <div className="rounded-xl overflow-hidden bg-white border shadow-lg hover:-translate-y-2 hover:shadow-2xl transition">
 
-<div key={index} className="relative">
+                <div
+                  className={`h-1 bg-gradient-to-r ${
+                    gradients[index % gradients.length]
+                  }`}
+                />
 
-<div className="rounded-xl overflow-hidden bg-white border shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+                <div className="p-6 flex items-start gap-4">
 
-<div className={`h-1 bg-gradient-to-r ${gradients[index % gradients.length]}`} />
+                  <div
+                    className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl text-white bg-gradient-to-br ${
+                      gradients[index % gradients.length]
+                    }`}
+                  >
+                    {item.icon}
+                  </div>
 
-<div className="p-6 flex items-start gap-4">
+                  <div className="flex-1">
 
-<div className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl text-white ${"bg-gradient-to-br " + gradients[index % gradients.length]}`}>
-{item.icon}
-</div>
+                    <div className="flex items-center gap-3">
 
-<div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        {item.title}
+                      </h3>
 
-<div className="flex items-center gap-3">
+                      {item.premium && (
+                        <span className="ml-auto px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs rounded-full font-medium">
+                          Premium
+                        </span>
+                      )}
 
-<h3 className="text-lg font-semibold text-gray-800">
-{item.title}
-</h3>
+                    </div>
 
-{item.premium && (
-<span className="ml-auto px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs rounded-full font-medium">
-Premium
-</span>
-)}
+                    <p className="mt-2 text-sm text-gray-600">
+                      {item.desc}
+                    </p>
 
-</div>
+                    <div className="mt-4">
 
-<p className="mt-2 text-sm text-gray-600">
-{item.desc}
-</p>
+                      <button
+                        onClick={() => setShowPopup(true)}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-gray-900 to-yellow-500 text-white text-sm shadow"
+                      >
+                        Book Now
+                      </button>
 
-<div className="mt-4">
+                    </div>
 
-<button
-onClick={()=>setShowPopup(true)}
-className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-gradient-to-r from-gray-900 to-yellow-500 text-white text-sm shadow cursor-pointer"
->
+                  </div>
 
-Book Now
+                </div>
 
-<svg
-xmlns="http://www.w3.org/2000/svg"
-className="h-4 w-4"
-fill="none"
-viewBox="0 0 24 24"
-stroke="currentColor"
->
+              </div>
 
-<path
-strokeLinecap="round"
-strokeLinejoin="round"
-strokeWidth={2}
-d="M14 5l7 7m0 0l-7 7m7-7H3"
-/>
+            </div>
 
-</svg>
+          ))}
 
-</button>
+        </div>
 
-</div>
+      </div>
 
-</div>
+      {/* POPUP (Hero same style) */}
 
-</div>
+      {showPopup && (
 
-</div>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
 
-</div>
+          <div className="bg-white p-6 rounded-xl relative">
 
-))}
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-2 right-3 text-gray-500 text-xl"
+            >
+              ×
+            </button>
 
-</div>
+            <RegisterForm scheduleMode={true} />
 
-</div>
+          </div>
 
+        </div>
 
-{/* POPUP FORM */}
+      )}
 
-{showPopup && (
-
-<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-
-<div className="relative">
-
-<button
-onClick={()=>setShowPopup(false)}
-className="absolute -top-3 -right-3 bg-black text-white w-8 h-8 rounded-full"
->
-×
-</button>
-
-<RegisterForm scheduleMode={true} />
-
-</div>
-
-</div>
-
-)}
-
-</section>
-
-);
-
+    </section>
+  );
 };
 
-export default Services;
+export default Services;  

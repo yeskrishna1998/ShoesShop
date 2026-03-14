@@ -58,7 +58,7 @@ onClick={()=>{
 setIsSchedule(true);
 setShowPopup(true);
 }}
-className="flex items-center gap-2 px-5 py-2 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow"
+className="flex items-center gap-2 px-5 py-2 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow cursor-pointer"
 >
 📦 Schedule Free Pickup
 </button>
