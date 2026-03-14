@@ -26,10 +26,10 @@ const steps = [
 ];
 
 const gradients = [
-  "from-pink-500 to-yellow-400",
-  "from-indigo-500 to-pink-500",
-  "from-green-400 to-teal-500",
-  "from-purple-500 to-indigo-500",
+  // "from-pink-500 to-yellow-400",
+  // "from-indigo-500 to-pink-500",
+  // "from-green-400 to-teal-500",
+  // "from-purple-500 to-indigo-500",
 ];
 
 const HowWorks = () => {

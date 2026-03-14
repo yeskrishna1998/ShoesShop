@@ -45,20 +45,20 @@ const Hero = () => {
 
   return(
 
-<section className="bg-white pt-4 pb-10">
+<section className="bg-white pt-14 pb-10">
 
 <div className="max-w-7xl mx-auto px-5">
 
 {/* DESKTOP TOP BAR */}
 
-<div className="hidden md:flex items-center justify-center gap-6 mb-6">
+<div className="hidden md:flex items-center justify-center gap-18 mb-19">
 
 <button
 onClick={()=>{
 setIsSchedule(true);
 setShowPopup(true);
 }}
-className="flex items-center gap-2 px-5 py-2 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow cursor-pointer"
+className="flex items-center gap-2 px-5 py-4 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow cursor-pointer"
 >
 📦 Schedule Free Pickup
 </button>
@@ -82,12 +82,12 @@ interval={2000}
 href="https://wa.me/916393072928"
 target="_blank"
 rel="noreferrer"
-className="flex items-center gap-2 px-5 py-2 rounded-full bg-green-500 text-white text-sm font-semibold hover:bg-green-600 transition shadow"
+className="flex items-center gap-2 px-5 py-4 rounded-full bg-green-500 text-white text-sm font-semibold hover:bg-green-600 transition shadow"
 >
 
 <img
 src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-className="w-4 h-4"
+className="w-4 h-5"
 />
 
 Book on WhatsApp

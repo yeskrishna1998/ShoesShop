@@ -37,12 +37,12 @@ const services = [
 ];
 
 const gradients = [
-  "from-pink-500 to-yellow-400",
-  "from-indigo-500 to-pink-500",
-  "from-green-400 to-teal-500",
-  "from-purple-500 to-indigo-500",
-  "from-red-400 to-orange-400",
-  "from-amber-400 to-rose-400",
+  // "from-pink-500 to-yellow-400",
+  // "from-indigo-500 to-pink-500",
+  // "from-green-400 to-teal-500",
+  // "from-purple-500 to-indigo-500",
+  // "from-red-400 to-orange-400",
+  // "from-amber-400 to-rose-400",
 ];
 
 const Services = () => {
@@ -90,7 +90,7 @@ const Services = () => {
                 <div className="p-6 flex items-start gap-4">
 
                   <div
-                    className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl text-white bg-gradient-to-br ${
+                    className={`w-14 h-14 flex items-center  mx-auto mb-4 rounded-full   shadow-md justify-center text-2xl text-white bg-gradient-to-br ${
                       gradients[index % gradients.length]
                     }`}
                   >
@@ -121,7 +121,7 @@ const Services = () => {
 
                       <button
                         onClick={() => setShowPopup(true)}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-gray-900 to-yellow-500 text-white text-sm shadow cursor-pointer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold bg-[#110707] text-white shadow cursor-pointer"
                       >
                         Book Now
                       </button>
