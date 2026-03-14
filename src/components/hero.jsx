@@ -45,7 +45,7 @@ const Hero = () => {
 
   return(
 
-<section className="bg-white pt-14 pb-10">
+<section className="bg-white pt-10 md:pt-14 pb-10">
 
 <div className="max-w-7xl mx-auto px-5">
 
