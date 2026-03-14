@@ -91,8 +91,7 @@ Address: ${form.address}`;
 
     setShowPopup(true);
 
-    window.open(whatsappURL, "_blank");
-
+       window.location.href = whatsappURL;
     setForm({
       name: "",
       email: "",
