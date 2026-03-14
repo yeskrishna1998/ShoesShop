@@ -1,179 +1,262 @@
-import ShoeRotate from "./RegisterForm";
-import { useEffect, useState, useRef } from "react";
-import shoe1 from "../assets/slider/shoe1.jpg";
-import shoe2 from "../assets/slider/shoe2.jpg";
-import shoe3 from "../assets/slider/shoe3.jpg";
-import RegisterForm from "./RegisterForm";
-import BeforeAfterSlider from "./BeforeAfterSlider";
+import { useEffect, useState } from "react";
 
-const sliderImages = [shoe1, shoe2, shoe3];
+import p1 from "../assets/slider/p-1.jpg";
+import p2 from "../assets/slider/p-2.jpg";
+import p3 from "../assets/slider/p-3.jpg";
+import p4 from "../assets/slider/p-4.jpg";
+import p5 from "../assets/slider/p-5.jpg";
+import p6 from "../assets/slider/p-6.jpg";
+import p7 from "../assets/slider/p-7.jpg";
+import p8 from "../assets/slider/p-8.jpg";
+import p9 from "../assets/slider/p-9.jpg";
+
+import BlurText from "./BlurText";
+import RotatingText from "./RotatingText";
+import RegisterForm from "./RegisterForm";
+
+const images = [p1,p2,p3,p4,p5,p6,p7,p8,p9];
+
+const services = [
+  { name: "Shoe Cleaning", icon: "👟" },
+  { name: "Shoe Repair", icon: "🧵" },
+  { name: "Sole Fix", icon: "🛠" },
+  { name: "Sneaker Whitening", icon: "✨" },
+  { name: "Waterproofing", icon: "💧" },
+  { name: "Polishing", icon: "🧴" }
+];
 
 const Hero = () => {
-  const [bgIndex, setBgIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setBgIndex((prev) => (prev + 1) % sliderImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const [index,setIndex]=useState(0);
 
-  const contentRef = useRef(null);
+  const [showPopup,setShowPopup]=useState(false);
 
-  useEffect(() => {
-    const container = contentRef.current;
-    if (!container) return;
-    const items = container.querySelectorAll('.reveal-item');
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            el.classList.add('reveal-visible');
-            obs.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
+  const [isSchedule,setIsSchedule]=useState(true);
 
-    items.forEach((el, i) => {
-      el.style.transitionDelay = `${i * 100}ms`;
-      obs.observe(el);
-    });
+  useEffect(()=>{
 
-    return () => obs.disconnect();
-  }, []);
+    const timer=setInterval(()=>{
+      setIndex((prev)=>(prev+1)%images.length);
+    },3000);
 
-  return (
-    <section className="relative overflow-hidden py-8 md:py-8">
-      
-      {/* Background Image - Animated Slider */}
-      <div
-        className="absolute inset-0 -z-20 bg-cover bg-center transition-all duration-1000"
-        style={{
-          backgroundImage: `url('${sliderImages[bgIndex]}')`,
-        }}
-      />
+    return ()=>clearInterval(timer);
 
-      {/* Overlays */}
-      <div className="absolute inset-0 -z-10 bg-black/60"></div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-black/20"></div>
+  },[]);
 
-      {/* CONTENT WRAPPER */}
-      <div ref={contentRef} className="relative z-20 max-w-6xl mx-auto px-3">
+  return(
 
-        <div className="flex flex-col md:flex-row items-center min-h-[320px]">
-          
-          {/* 🔹 LEFT SIDE — 60% */}
-          <div className="w-full md:w-[60%] text-center md:text-left text-white">
-            
-            {/* Badge */}
-           {/* Badge */}
-   
-<div className="flex flex-wrap items-center gap-3 mb-3 md:mb-4">
+<section className="bg-white pt-4 pb-10">
 
-  {/* Rating Badge */}
-  <div className="inline-flex items-center gap-1 px-3 py-1 sm:px-3 sm:py-1.5 md:px-5 md:py-3 rounded-full bg-gradient-to-r from-yellow-400/20 to-pink-400/20 backdrop-blur-md border border-yellow-300/40 font-semibold text-xs sm:text-sm shadow-lg shadow-yellow-500/10">
-    ⭐
-    <span className="sm:hidden">Rated 5.0</span>
-    <span className="hidden sm:inline">Rated 5.0 by Happy Customers</span>
-  </div>
+<div className="max-w-7xl mx-auto px-5">
 
-  {/* Pickup Badge */}
-  <div className="inline-flex items-center gap-1 px-3 py-1 sm:px-3 sm:py-1.5 md:px-5 md:py-3 rounded-full bg-gradient-to-r from-green-900 to-green-900/30 border border-yellow-300/60 font-semibold text-yellow-200 text-xs sm:text-sm shadow-lg shadow-yellow-500/20 animate-pulse">
-    🚚
-    <span className="sm:hidden">Free Pickup</span>
-    <span className="hidden sm:inline">Free Home Pickup & Delivery</span>
-  </div>
+{/* DESKTOP TOP BAR */}
+
+<div className="hidden md:flex items-center justify-center gap-6 mb-6">
+
+<button
+onClick={()=>{
+setIsSchedule(true);
+setShowPopup(true);
+}}
+className="flex items-center gap-2 px-5 py-2 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition shadow"
+>
+📦 Schedule Free Pickup
+</button>
+
+<h2 className="flex items-center gap-2 text-2xl font-semibold">
+
+<span className="text-gray-800">Feel</span>
+
+<div className="px-3 py-1 rounded-lg text-white font-bold bg-gradient-to-r from-indigo-500 to-purple-600">
+
+<RotatingText
+words={["New","Fresh","Clean","Revived"]}
+interval={2000}
+/>
 
 </div>
 
+</h2>
 
+<a
+href="https://wa.me/916393072928"
+target="_blank"
+rel="noreferrer"
+className="flex items-center gap-2 px-5 py-2 rounded-full bg-green-500 text-white text-sm font-semibold hover:bg-green-600 transition shadow"
+>
 
-            {/* Heading */}
-            <h1 className="text-4xl md:text-6xl font-black leading-tight reveal-item">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-yellow-400">Premium Shoe</span> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-300 to-yellow-400">Repair Services</span>
-            </h1>
+<img
+src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+className="w-4 h-4"
+/>
 
-            {/* Sub text */}
-            <p className="mt-6 max-w-xl text-base md:text-lg text-gray-100 leading-relaxed reveal-item font-medium">
-              Professional shoe repair, cleaning, and restoration —
-              trusted craftsmanship with fast service.
-            </p>
+Book on WhatsApp
 
-            {/* Trust points */}
-            <div className="mt-3 flex flex-wrap gap-3 text-sm reveal-item">
-
-     
-
-            
-              <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-blue-400/40 font-semibold shadow-lg shadow-blue-500/10">
-                ✔ Premium Quality
-              </span>
-              <span className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-md border border-purple-400/40 font-semibold shadow-lg shadow-purple-500/10">
-                ✔ Trusted Experts
-              </span>
-
-
-
-
-
-            </div>
-
-            {/* CTA */}
-            <div className="mt-9 flex flex-col sm:flex-row gap-4 reveal-item">
-
-  <a
-    href="tel:6393072928"
-    className="px-9 py-3.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-green-500/30"
-  >
-    📞 Call Now
-  </a>
-
-  <a
-    href="https://wa.me/916393072928"
-    target="_blank"
-    rel="noreferrer"
-    className="px-9 py-3.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transform hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-green-500/30"
-  >
-    💬 WhatsApp
-  </a>
+</a>
 
 </div>
-          </div>
 
-          {/* 🔹 RIGHT SIDE — 40% */}
-        <div className="w-full md:w-[40%] flex flex-col items-center md:items-end mt-4 md:-mt-6 reveal-item gap-4">
+{/* MOBILE TOP BAR */}
 
-  <RegisterForm />
+<div className="flex md:hidden flex-col items-center mb-6 text-center">
 
-  {/* Before After Slider */}
-  <div className="w-full max-w-[380px] mx-auto mr-1  rounded-xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-md">
-  
-    <BeforeAfterSlider />
-  </div>
+<h2 className="flex items-center gap-2 text-lg font-semibold">
+
+<span className="text-gray-800">Feel</span>
+
+<div className="px-2.5 py-1 rounded-md text-white font-bold bg-gradient-to-r from-indigo-500 to-purple-600">
+
+<RotatingText
+words={["New","Fresh","Clean","Revived"]}
+interval={2000}
+/>
 
 </div>
-          
 
-        </div>
-      </div>
+</h2>
 
-      {/* Image Indicator Dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {sliderImages.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setBgIndex(i)}
-            className={`w-2.5 h-2.5 rounded-full transition ${
-              bgIndex === i ? "bg-yellow-400" : "bg-white/50 hover:bg-white/75"
-            }`}
-          />
-        ))}
-      </div>
-    </section>
+<div className="flex flex-col gap-2 mt-3">
+
+<button
+onClick={()=>{
+setIsSchedule(true);
+setShowPopup(true);
+}}
+className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-semibold"
+>
+Schedule Free Pickup
+</button>
+
+<a
+href="https://wa.me/916393072928"
+target="_blank"
+rel="noreferrer"
+className="flex items-center justify-center gap-1 px-4 py-1.5 rounded-full bg-green-500 text-white text-xs font-semibold"
+>
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+className="w-3.5 h-3.5"
+/>
+
+Book on WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+{/* MAIN GRID */}
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+{/* LEFT */}
+
+<div>
+
+<BlurText
+text="Premium Shoe Repair Services"
+delay={120}
+animateBy="words"
+direction="top"
+className="text-2xl md:text-4xl font-bold text-gray-900"
+/>
+
+<p className="mt-3 text-gray-600 text-sm md:text-lg">
+Professional shoe cleaning and repair services at your doorstep.
+</p>
+
+{/* SERVICES */}
+
+<div className="mt-6 bg-gray-100 rounded-xl p-4 md:p-6">
+
+<h3 className="text-md md:text-lg font-semibold text-gray-800 mb-4">
+What service do you need?
+</h3>
+
+<div className="grid grid-cols-3 gap-3 md:gap-4">
+
+{services.map((service,i)=>(
+<div
+key={i}
+onClick={()=>{
+setIsSchedule(false);
+setShowPopup(true);
+}}
+className="bg-white rounded-lg p-3 md:p-4 flex flex-col items-center justify-center shadow hover:shadow-md cursor-pointer transition hover:scale-105"
+>
+
+<span className="text-xl md:text-2xl mb-1">{service.icon}</span>
+
+<span className="text-[11px] md:text-sm font-medium text-gray-700 text-center">
+{service.name}
+</span>
+
+</div>
+))}
+
+</div>
+
+</div>
+
+</div>
+
+{/* RIGHT IMAGES */}
+
+<div>
+
+<div className="hidden md:grid grid-cols-2 gap-4">
+
+<img src={p9} className="rounded-xl object-cover h-[200px] w-full"/>
+<img src={p1} className="rounded-xl object-cover h-[200px] w-full"/>
+<img src={p7} className="rounded-xl object-cover h-[200px] w-full"/>
+<img src={p4} className="rounded-xl object-cover h-[200px] w-full"/>
+
+</div>
+
+<div className="md:hidden">
+
+<img
+src={images[index]}
+className="rounded-xl object-cover w-full h-[220px]"
+/>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{/* POPUP */}
+
+{showPopup && (
+
+<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+
+<div className="bg-white p-6 rounded-xl relative">
+
+<button
+onClick={()=>setShowPopup(false)}
+className="absolute top-2 right-3 text-gray-500 text-xl"
+>
+×
+</button>
+
+<RegisterForm
+scheduleMode={isSchedule}
+/>
+
+</div>
+
+</div>
+
+)}
+
+</section>
+
   );
 };
 

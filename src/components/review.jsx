@@ -86,7 +86,7 @@ const Reviews = () => {
   const review = reviews[index];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-indigo-50 via-pink-50 to-yellow-50">
+    <section className="py-16 bg-gradient-to-r bg-[fff]">
       <div className="max-w-4xl mx-auto px-6 text-center">
 
         {/* Heading */}
