@@ -121,7 +121,7 @@ const Services = () => {
 
                       <button
                         onClick={() => setShowPopup(true)}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-gray-900 to-yellow-500 text-white text-sm shadow"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-gray-900 to-yellow-500 text-white text-sm shadow cursor-pointer"
                       >
                         Book Now
                       </button>
