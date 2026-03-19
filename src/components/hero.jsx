@@ -512,14 +512,23 @@
 
 import { useState } from "react";
 import RegisterForm from "./RegisterForm";
+import heroPoster from "../assets/slider/shoe4.jpg";
 
 const Hero = () => {
 
   const [showPopup,setShowPopup]=useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   return(
 
 <section className="relative h-[84vh] min-h-[560px] sm:h-[88vh] md:h-[92vh] flex items-center overflow-hidden bg-black">
+
+<img
+src={heroPoster}
+alt=""
+aria-hidden="true"
+className="absolute inset-0 h-full w-full object-cover"
+/>
 
 {/* VIDEO BACKGROUND */}
 <video
@@ -527,7 +536,12 @@ autoPlay
 loop
 muted
 playsInline
-className="absolute top-0 left-0 w-full h-full object-cover"
+preload="metadata"
+poster={heroPoster}
+onCanPlayThrough={() => setVideoReady(true)}
+className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-700 ${
+  videoReady ? "opacity-100" : "opacity-0"
+}`}
 >
 <source src="/Video/shoes.mp4" type="video/mp4"/>
 </video>
@@ -621,7 +635,6 @@ className="absolute top-2 right-3 text-gray-500 text-xl"
 };
 
 export default Hero;
-
 
 
 

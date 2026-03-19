@@ -33,9 +33,17 @@ const services = [
 const ServicesClean = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedService, setSelectedService] = useState("");
+  const [videoReady, setVideoReady] = useState(false);
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-20">
+
+      <img
+        src={p2}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
 
       {/* 🎬 VIDEO BACKGROUND */}
       <video
@@ -43,7 +51,12 @@ const ServicesClean = () => {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        preload="metadata"
+        poster={p2}
+        onCanPlayThrough={() => setVideoReady(true)}
+        className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-700 ${
+          videoReady ? "opacity-100" : "opacity-0"
+        }`}
       >
         <source src="/Video/service page.mp4" type="video/mp4" />
       </video>
