@@ -51,7 +51,129 @@ const initialReviews = [
       "Reliable service for premium footwear. They handled leather care and finishing with real expertise.",
     rating: 5,
   },
+  {
+    name: "Kabir Malhotra",
+    handle: "@kabirmalhotra",
+    email: "kabir@example.com",
+    review:
+      "Pickup was on time and my sneakers came back noticeably brighter with neat finishing.",
+    rating: 5,
+  },
+  {
+    name: "Ishita Arora",
+    handle: "@ishitaarora",
+    email: "ishita@example.com",
+    review:
+      "My suede shoes were handled carefully and the cleaning results were genuinely impressive.",
+    rating: 4,
+  },
+  {
+    name: "Dev Khanna",
+    handle: "@devkhanna",
+    email: "dev@example.com",
+    review:
+      "Excellent restoration work on an old pair. The shape, sole, and color all looked refreshed.",
+    rating: 5,
+  },
+  {
+    name: "Tanya Sethi",
+    handle: "@tanyasethi",
+    email: "tanya@example.com",
+    review:
+      "Very convenient service. Booking, pickup, and delivery all felt smooth and professional.",
+    rating: 5,
+  },
+  {
+    name: "Rahul Bedi",
+    handle: "@rahulbedi",
+    email: "rahul@example.com",
+    review:
+      "They repaired the sole and cleaned the upper perfectly. My formal shoes feel new again.",
+    rating: 4,
+  },
+  {
+    name: "Meera Nanda",
+    handle: "@meerananda",
+    email: "meera@example.com",
+    review:
+      "Loved the care they took with my premium pair. Great communication and clean packaging too.",
+    rating: 5,
+  },
+  {
+    name: "Samar Juneja",
+    handle: "@samarjuneja",
+    email: "samar@example.com",
+    review:
+      "Very solid cleaning quality. My running shoes came back fresh and stain-free.",
+    rating: 4,
+  },
+  {
+    name: "Ritika Ahuja",
+    handle: "@ritikaahuja",
+    email: "ritika@example.com",
+    review:
+      "The white sole cleanup was excellent and the pair looked much brighter after service.",
+    rating: 5,
+  },
+  {
+    name: "Yash Oberoi",
+    handle: "@yashoberoi",
+    email: "yash@example.com",
+    review:
+      "Fast turnaround and nice finishing. The pickup experience was smooth from start to end.",
+    rating: 5,
+  },
+  {
+    name: "Niharika Sood",
+    handle: "@niharikasood",
+    email: "niharika@example.com",
+    review:
+      "My leather pair was cleaned very carefully and the polish finish looked premium.",
+    rating: 4,
+  },
+  {
+    name: "Arjun Talwar",
+    handle: "@arjuntalwar",
+    email: "arjun@example.com",
+    review:
+      "Good service and clear updates. The repair work on the sole was neat and durable.",
+    rating: 5,
+  },
+  {
+    name: "Simran Kohli",
+    handle: "@simrankohli",
+    email: "simran@example.com",
+    review:
+      "Really liked the restoration quality. My pair looked cleaner without losing its original texture.",
+    rating: 5,
+  },
+  {
+    name: "Harsh Vardhan",
+    handle: "@harshvardhan",
+    email: "harsh@example.com",
+    review:
+      "One of the better shoe-care services I have used. Delivery and finishing both were on point.",
+    rating: 4,
+  },
+  {
+    name: "Palak Jain",
+    handle: "@palakjain",
+    email: "palak@example.com",
+    review:
+      "Bag and sneaker cleaning both were handled well. The results felt premium and reliable.",
+    rating: 5,
+  },
 ];
+
+const dedupeReviews = (items) => {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = `${item.email || ""}-${item.name || ""}`.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+};
 
 const makeHandle = (name, email) => {
   const fromEmail = email.split("@")[0]?.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
@@ -64,7 +186,7 @@ const ReviewCard = ({ review, onPause, onResume }) => {
     <article
       onMouseEnter={onPause}
       onMouseLeave={onResume}
-      className="w-[250px] sm:w-[270px] lg:w-[285px] flex-shrink-0 rounded-2xl border border-fuchsia-500/25 bg-gradient-to-br from-[#1a0011] via-[#0f0813] to-[#12000a] p-4 shadow-[0_0_0_1px_rgba(236,72,153,0.08),0_16px_40px_-24px_rgba(236,72,153,0.6)] text-left cursor-pointer"
+      className="w-[235px] sm:w-[260px] lg:w-[285px] flex-shrink-0 rounded-2xl border border-fuchsia-500/25 bg-gradient-to-br from-[#1a0011] via-[#0f0813] to-[#12000a] p-4 shadow-[0_0_0_1px_rgba(236,72,153,0.08),0_16px_40px_-24px_rgba(236,72,153,0.6)] text-left cursor-pointer"
     >
       <div className="mb-3 flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-semibold text-white sm:h-11 sm:w-11">
@@ -83,7 +205,7 @@ const ReviewCard = ({ review, onPause, onResume }) => {
         </div>
       </div>
 
-      <p className="min-h-[72px] text-sm leading-relaxed text-slate-300">{review.review}</p>
+      <p className="min-h-[84px] text-sm leading-relaxed text-slate-300">{review.review}</p>
 
       <div className="mt-3 text-sm tracking-wide text-amber-300">{"★".repeat(review.rating || 5)}</div>
     </article>
@@ -95,7 +217,7 @@ const Reviews = () => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       const parsed = saved ? JSON.parse(saved) : [];
-      return Array.isArray(parsed) && parsed.length ? parsed : initialReviews;
+      return Array.isArray(parsed) && parsed.length ? dedupeReviews(parsed) : initialReviews;
     } catch {
       return initialReviews;
     }
@@ -149,7 +271,7 @@ const Reviews = () => {
       rating: Number(form.rating) || 5,
     };
 
-    setReviews((prev) => [newReview, ...prev]);
+    setReviews((prev) => dedupeReviews([newReview, ...prev]));
     setForm({ name: "", email: "", message: "", rating: 5 });
     setShowForm(false);
   };

@@ -137,7 +137,7 @@ Contact
 </li>
 
 <li>
-<a href="mailto:shoesrepair@gmail.com" className="hover:text-yellow-400 transition">
+<a href="mailto:shoesrepair@gmail.com" className="break-all hover:text-yellow-400 transition">
 📧 shoesrepair@gmail.com
 </a>
 </li>

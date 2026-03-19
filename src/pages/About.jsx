@@ -1,113 +1,120 @@
 import React from "react";
 
+const services = [
+  {
+    title: "Deep Cleaning",
+    desc: "Complete sneaker cleaning to remove dirt, stains, odor, and surface buildup.",
+  },
+  {
+    title: "Shoe Repair",
+    desc: "Professional repair work for soles, stitches, heels, and damaged structure.",
+  },
+  {
+    title: "Protection Coating",
+    desc: "Premium protection treatment to reduce stains, moisture damage, and daily wear impact.",
+  },
+];
+
+const aboutHighlights = [
+  "Professional Sneaker Cleaning",
+  "Shoe Restoration",
+  "Pickup & Delivery Service",
+  "Premium Protection Coating",
+];
+
 const About = () => {
   return (
+    <section className="relative min-h-screen overflow-hidden bg-[#060606] text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(254,152,116,0.22),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(255,214,102,0.16),_transparent_28%)]" />
 
-<div className="bg-black text-white min-h-screen">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+        <section className="mx-auto max-w-4xl text-center">
+          <div className="mb-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <img
+              src="/zcoated.png"
+              alt="ZCoated logo"
+              className="h-12 w-14 rounded-lg bg-black object-contain p-1"
+            />
+            <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-200">
+              About ZCoated
+            </span>
+          </div>
 
-{/* HERO */}
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            Premium Shoe Care Built Around Craft, Convenience, and Trust
+          </h1>
 
-<section className="max-w-6xl mx-auto px-6 py-20 text-center">
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-base">
+            ZCoated is a premium shoe care startup dedicated to bringing life back to your favorite sneakers and footwear through expert cleaning, restoration, and protection services.
+          </p>
+        </section>
 
-<div className="mb-6 flex items-center justify-center gap-3">
-<img
-src="/zcoated.png"
-alt="ZCoated logo"
-className="h-12 w-14 rounded-lg bg-black object-contain p-1"
-/>
-<h1 className="text-4xl md:text-5xl font-bold">
-About <span className="text-yellow-400">ZCoated</span>
-</h1>
-</div>
+        <section className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="rounded-[30px] border border-white/10 bg-white/6 p-6 backdrop-blur-xl sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+              Our Startup Story
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+              We started with one simple idea
+            </h2>
 
-<p className="text-gray-300 max-w-3xl mx-auto text-lg">
-ZCoated is a premium shoe care startup dedicated to bringing life back to
-your favorite sneakers and footwear. Our goal is to provide professional
-cleaning, restoration, and protection services that keep your shoes looking
-brand new.
-</p>
+            <p className="mt-4 text-sm leading-relaxed text-gray-300 sm:text-base">
+              People love their shoes, but they often do not have the time, tools, or expertise to maintain them properly. ZCoated was built to solve that problem with professional sneaker cleaning and restoration backed by pickup and delivery.
+            </p>
 
-</section>
+            <p className="mt-4 text-sm leading-relaxed text-gray-400 sm:text-base">
+              Our mission is to make premium shoe care more accessible while helping customers extend the life, look, and comfort of the pairs they value most.
+            </p>
+          </div>
 
-{/* STORY */}
+          <div className="rounded-[30px] border border-white/10 bg-[#121212]/95 p-6 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.65)] sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+              Why Choose ZCoated
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">
+              A cleaner, smarter, more premium service experience
+            </h3>
 
-<section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+            <div className="mt-6 grid gap-3">
+              {aboutHighlights.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300"
+                >
+                  <span className="mr-2 text-orange-300">✔</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-<div>
-<h2 className="text-3xl font-bold mb-4 text-yellow-400">
-Our Startup Story
-</h2>
+        <section className="mt-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+              Our Services
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+              Care options designed for everyday wear and premium pairs
+            </h2>
+          </div>
 
-<p className="text-gray-300 leading-relaxed">
-ZCoated started with a simple idea — people love their shoes, but they often
-don't have the time or tools to maintain them properly.
-We built ZCoated to solve that problem by offering professional sneaker
-cleaning and restoration services with pickup and delivery.
-</p>
-
-<p className="text-gray-300 mt-4">
-Our mission is to make premium shoe care affordable and accessible while
-helping customers extend the life of their favorite footwear.
-</p>
-
-</div>
-
-<div className="bg-gradient-to-r from-yellow-400 to-orange-400 p-1 rounded-xl">
-<div className="bg-black p-10 rounded-xl text-center">
-<h3 className="text-2xl font-bold mb-2">Why Choose ZCoated?</h3>
-
-<ul className="text-gray-300 space-y-2">
-<li>✔ Professional Sneaker Cleaning</li>
-<li>✔ Shoe Restoration</li>
-<li>✔ Pickup & Delivery Service</li>
-<li>✔ Premium Protection Coating</li>
-</ul>
-</div>
-</div>
-
-</section>
-
-{/* SERVICES */}
-
-<section className="bg-gray-900 py-20">
-
-<div className="max-w-6xl mx-auto px-6">
-
-<h2 className="text-3xl font-bold text-center mb-12">
-Our Services
-</h2>
-
-<div className="grid md:grid-cols-3 gap-8">
-
-<div className="bg-black p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition">
-<h3 className="text-xl font-semibold mb-3">Deep Cleaning</h3>
-<p className="text-gray-400">
-Complete sneaker cleaning to remove dirt, stains, and odors.
-</p>
-</div>
-
-<div className="bg-black p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition">
-<h3 className="text-xl font-semibold mb-3">Shoe Repair</h3>
-<p className="text-gray-400">
-Professional repair services to restore damaged footwear.
-</p>
-</div>
-
-<div className="bg-black p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition">
-<h3 className="text-xl font-semibold mb-3">Protection Coating</h3>
-<p className="text-gray-400">
-Special coating to protect shoes from water and stains.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
-
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[26px] border border-white/10 bg-white/6 p-6 backdrop-blur-xl transition hover:border-[#FE9874]/40 hover:bg-white/10"
+              >
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </section>
   );
 };
 

@@ -25,9 +25,9 @@ const Navbar = () => {
             />
           </div>
 
-          <div className="flex flex-col leading-tight -mt-0.5 sm:-mt-1">
-            <span className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-wide">ZCoated</span>
-            <span className="text-[12px] sm:text-[13px] md:text-[14px] text-gray-500 tracking-[0.24em] uppercase -mt-0.5">
+          <div className="flex min-w-0 flex-col leading-tight -mt-0.5 sm:-mt-1">
+            <span className="truncate text-xl font-bold tracking-wide text-gray-900 sm:text-3xl">ZCoated</span>
+            <span className="hidden text-[12px] uppercase tracking-[0.24em] text-gray-500 -mt-0.5 sm:block sm:text-[13px] md:text-[14px]">
               Premium Shoe Care
             </span>
           </div>

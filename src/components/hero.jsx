@@ -550,7 +550,7 @@ className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity 
 <div className="absolute inset-0 bg-black/45 md:bg-black/30"></div>
 
 {/* CONTENT */}
-<div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-16 pb-12 sm:pb-10 md:pb-0">
+<div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 sm:px-6 sm:pb-10 md:px-16 md:pb-0">
 
 <p className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.18em] text-gray-300 font-semibold">
 FREE PICKUP & DELIVERY
@@ -591,7 +591,7 @@ WHATSAPP →
 
 </div>
 
-<div className="mt-8 flex items-center gap-8 sm:gap-12">
+<div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-12">
   <div>
     <p className="text-3xl sm:text-4xl font-semibold text-white">4,200+</p>
     <p className="text-gray-300 text-sm sm:text-base">Pairs Restored</p>
@@ -635,7 +635,6 @@ className="absolute top-2 right-3 text-gray-500 text-xl"
 };
 
 export default Hero;
-
 
 
 
