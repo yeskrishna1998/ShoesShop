@@ -172,7 +172,45 @@ button:focus-visible {
   opacity: 1;
   transform: translateY(0);
 }
+html, body {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+
+
+
 
 .reveal-stagger-quick { transition-duration: 420ms; }
 .reveal-stagger-slow { transition-duration: 680ms; }
 
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 30s linear infinite reverse;
+}

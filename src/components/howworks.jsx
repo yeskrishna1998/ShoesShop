@@ -1,94 +1,114 @@
 const steps = [
   {
-    step: "01",
-    title: "Book Repair",
-    desc: "Choose your shoe issue and book repair service online",
-    icon: "📅",
+    title: "Book Your Service",
+    desc: "Choose your service and schedule your order in just a few clicks.",
+    icon: "📲",
   },
   {
-    step: "02",
-    title: "Pickup From Home",
-    desc: "Our partner collects your shoes from your doorstep",
+    title: "Free Doorstep Pickup",
+    desc: "We pick up your shoes & bags from your home at your convenience.",
     icon: "🚚",
   },
   {
-    step: "03",
-    title: "Repair & Restore",
-    desc: "Experts repair, clean and restore your shoes",
-    icon: "🛠️",
+    title: "Professional Cleaning & Repair",
+    desc: "Our experts clean, restore, and repair your items with premium care.",
+    icon: "🧼",
   },
   {
-    step: "04",
     title: "Delivered Like New",
-    desc: "Get your shoes back looking fresh and brand new",
+    desc: "Get your items delivered back fresh, clean, and looking brand new.",
     icon: "✨",
   },
 ];
 
-const gradients = [
-  // "from-pink-500 to-yellow-400",
-  // "from-indigo-500 to-pink-500",
-  // "from-green-400 to-teal-500",
-  // "from-purple-500 to-indigo-500",
+const cardStyles = [
+  "bg-orange-500/10 border-orange-300/30",
+  "bg-amber-500/10 border-amber-300/30",
+  "bg-emerald-500/10 border-emerald-300/30",
+  "bg-cyan-500/10 border-cyan-300/30",
 ];
 
-const HowWorks = () => {
+const iconBg = [
+  "bg-red-400/80",
+  "bg-yellow-400/80",
+  "bg-purple-400/80",
+  "bg-pink-400/80",
+];
+
+const HowItWorks = () => {
   return (
-    <section className="py-7 bg-gradient-to-r bg-[fff]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative py-28 bg-gradient-to-br from-[#080808] via-[#111317] to-[#1a130b] text-center overflow-hidden">
+      <div className="absolute inset-0 bg-black/45"></div>
+      <div className="absolute -top-24 -left-16 w-72 h-72 rounded-full bg-orange-500/20 blur-3xl"></div>
+      <div className="absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-emerald-400/20 blur-3xl"></div>
+      <div className="relative z-10">
 
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            How It <span className="text-purple-600">Works</span>
-          </h2>
-          <p className="mt-3 text-gray-600 text-sm">
-            Simple steps to get your shoes repaired
-          </p>
-        </div>
+      {/* HEADING */}
+      <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+        How It <span className="text-orange-300">Works</span>
+      </h2>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <p className="text-gray-300 mb-16 text-sm md:text-base">
+        Simple, hassle-free process from pickup to delivery
+      </p>
 
-          {steps.map((item, index) => (
-            <div key={index} className="relative">
+      {/* STEPS */}
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto px-6">
 
-              <div className="rounded-xl overflow-hidden bg-white/80 backdrop-blur-md border border-white/30 shadow-lg transform transition duration-300 hover:-translate-y-2">
+        {/* 🔗 CONNECTING LINE (desktop only) */}
+        <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-orange-300/30 via-white/20 to-emerald-300/30 z-0"></div>
 
-                <div className={`h-1 bg-gradient-to-r ${gradients[index]}`} />
+        {steps.map((item, index) => (
+          <div key={index} className="relative z-10">
 
-                <div className="p-6 text-center">
+            {/* CARD */}
+            <div
+              className={`
+                ${cardStyles[index]}
+                border
+                p-8 rounded-3xl
+                text-center
+                backdrop-blur-md
+                transition duration-300
+                hover:-translate-y-2
+                hover:shadow-xl hover:shadow-orange-950/30
+              `}
+            >
 
-                  <div
-                    className={`w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl shadow-md text-white bg-gradient-to-br ${gradients[index]}`}
-                  >
-                    {item.icon}
-                  </div>
-
-                  <div className="text-xs font-bold mb-2 text-gray-700">
-                    STEP {item.step}
-                  </div>
-
-                  <h3 className="font-semibold mb-2 text-gray-800">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-600">
-                    {item.desc}
-                  </p>
-
-                </div>
-
+              {/* STEP NUMBER CIRCLE */}
+              <div className="w-8 h-8 mx-auto mb-3 rounded-full bg-white/95 text-black text-sm flex items-center justify-center">
+                {index + 1}
               </div>
 
-            </div>
-          ))}
+              {/* ICON BOX */}
+              <div
+                className={`
+                  w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center
+                  ${iconBg[index]} text-white text-3xl shadow-md shadow-black/25
+                `}
+              >
+                {item.icon}
+              </div>
 
-        </div>
+              {/* TITLE */}
+              <h3 className="font-semibold text-lg mb-2 text-white">
+                {item.title}
+              </h3>
+
+              {/* DESC */}
+              <p className="text-sm text-gray-200 leading-relaxed">
+                {item.desc}
+              </p>
+
+            </div>
+          </div>
+        ))}
 
       </div>
+      </div>
+
     </section>
   );
 };
 
-export default HowWorks;
+export default HowItWorks;

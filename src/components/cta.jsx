@@ -1,39 +1,34 @@
 const CTA = () => {
   return (
-    <section className="py-14 bg-white border-t">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section className="bg-[#f5f5f5] py-20 px-6">
 
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          Need Shoe Repair Today?
-        </h2>
+      <div className="max-w-6xl mx-auto">
 
-        <p className="text-gray-600 max-w-xl mx-auto mb-6 text-sm">
-          Contact us now for fast, affordable, and professional shoe repairing services.
-        </p>
+        {/* BLACK CARD */}
+        <div className="bg-black rounded-[40px] py-16 px-6 md:px-16 text-center shadow-lg">
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-         
+          {/* HEADING */}
+          <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">
+            Give Your Shoes <br className="hidden md:block" />
+            a New Life
+          </h2>
 
-          {/* Call Button */}
-          <a
-            href="tel:6393072928"
-            className="px-8 py-3 rounded-full border border-gray-900 text-gray-900 font-semibold hover:bg-gray-900 hover:text-white transition"
-          >
-            📞 Call Now
-          </a>
+          {/* SUBTEXT */}
+          <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Schedule your free pickup today and experience laboratory-grade restoration.
+          </p>
 
-          {/* WhatsApp Button */}
-          <a
-            href="https://wa.me/916393072928"
-            target="_blank"
-            rel="noreferrer"
-            className="px-8 py-3 rounded-full border border-gray-900 text-gray-900 font-semibold hover:bg-gray-900 hover:text-white transition"
-          >
-            💬 WhatsApp
-          </a>
+          {/* BUTTON */}
+          <div className="mt-10">
+            <button className="bg-[#FE9874] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#f07f56] transition">
+              Book Now
+            </button>
+          </div>
+
         </div>
 
       </div>
+
     </section>
   );
 };

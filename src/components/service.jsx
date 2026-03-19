@@ -1,172 +1,139 @@
 import { useState } from "react";
 import RegisterForm from "./RegisterForm";
 
+// ✅ IMPORT IMAGES
+import p1 from "../assets/slider/wash.jpg";
+import p2 from "../assets/slider/Repair.jpg";
+import p3 from "../assets/slider/Bag repair.jpg";
+import p4 from "../assets/slider/p-7.jpg"; // 👈 NEW (bag image)
+
 const services = [
   {
-    title: "Sole Repair",
-    desc: "Worn-out soles repaired to last longer",
-    icon: "👞",
-    premium: true,
+    title: "Shoe Cleaning",
+    desc: "Deep cleaning that removes dirt, stains, and odors using laboratory-grade solutions.",
+    image: p1,
   },
   {
-    title: "Heel Repair",
-    desc: "Broken or damaged heels fixed perfectly",
-    icon: "🦶",
-    premium: true,
+    title: "Shoe Repair",
+    desc: "Expert sole replacement, stitching, and structural repairs by master craftsmen.",
+    image: p2,
   },
   {
-    title: "Shoe Polish",
-    desc: "Premium polish for brand-new shine",
-    icon: "✨",
+    title: "Bag Cleaning and Repair",
+    desc: "Luxury handbag and backpack restoration with premium leather conditioning and stain care.",
+    image: p3,
   },
   {
-    title: "Leather Fix",
-    desc: "Cracks & cuts repaired professionally",
-    icon: "🧵",
-  },
-  {
-    title: "Deep Cleaning",
-    desc: "Remove dirt, stains & odor completely",
-    icon: "🧼",
-  },
-  {
-    title: "Stitch Repair",
-    desc: "Strong stitching for longer life",
-    icon: "🪡",
+    title: "Sneaker Restoration",
+    desc: "Full restoration including repainting, de-yellowing, and custom finishing for a like-new look.",
+    image: p4,
   },
 ];
 
-const gradients = [
-  // "from-pink-500 to-yellow-400",
-  // "from-indigo-500 to-pink-500",
-  // "from-green-400 to-teal-500",
-  // "from-purple-500 to-indigo-500",
-  // "from-red-400 to-orange-400",
-  // "from-amber-400 to-rose-400",
-];
-
-const Services = () => {
-
+const ServicesClean = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   return (
-    <section className="py-12 bg-white">
+    <section className="relative py-20 overflow-hidden">
 
-      <div className="max-w-6xl mx-auto px-6">
+      {/* 🎬 VIDEO BACKGROUND */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/Video/service page.mp4" type="video/mp4" />
+      </video>
 
-        {/* Heading */}
+      {/* 🔥 OVERLAY */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
 
-        <div className="text-center mb-12">
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-10 text-white">
 
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Our
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 ml-2">
-              Services
-            </span>
-          </h2>
+        {/* HEADING */}
+        <h2 className="text-3xl md:text-6xl font-bold text-center mb-4 tracking-tight">
+          Signature Care Collection
+        </h2>
 
-          <p className="mt-3 text-gray-700 text-sm">
-            Professional shoe repairing services
-          </p>
+        {/* TAGLINE */}
+        <p className="text-center text-gray-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+          Hand-finished luxury care for shoes, sneakers, and bags with precision cleaning, expert repair, and restoration.
+          <span className="block mt-2 text-white/95 font-medium tracking-wide">
+            Crafted for people who value premium footwear care.
+          </span>
+        </p>
 
-        </div>
-
-        {/* Cards */}
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-7 mt-12">
 
           {services.map((item, index) => (
+            <div key={index} className="group">
 
-            <div key={index}>
+              {/* CARD */}
+              <div className="relative bg-white/10 backdrop-blur-xl border border-white/25 p-6 rounded-3xl hover:-translate-y-2 hover:shadow-[0_18px_45px_-20px_rgba(0,0,0,0.95)] transition duration-300 text-center h-full overflow-hidden">
+                <div className="absolute inset-x-5 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent"></div>
 
-              <div className="rounded-xl overflow-hidden bg-white border shadow-lg hover:-translate-y-2 hover:shadow-2xl transition">
-
-                <div
-                  className={`h-1 bg-gradient-to-r ${
-                    gradients[index % gradients.length]
-                  }`}
+                {/* IMAGE */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-44 sm:h-48 object-cover rounded-2xl group-hover:scale-105 transition duration-300"
                 />
 
-                <div className="p-6 flex items-start gap-4">
+                {/* TITLE */}
+                <h3 className="mt-5 text-lg md:text-xl font-semibold tracking-wide">
+                  {item.title}
+                </h3>
 
-                  <div
-                    className={`w-14 h-14 flex items-center  mx-auto mb-4 rounded-full   shadow-md justify-center text-2xl text-white bg-gradient-to-br ${
-                      gradients[index % gradients.length]
-                    }`}
-                  >
-                    {item.icon}
-                  </div>
+                {/* DESC */}
+                <p className="mt-3 text-xs sm:text-sm text-gray-200 leading-relaxed min-h-[72px]">
+                  {item.desc}
+                </p>
 
-                  <div className="flex-1">
-
-                    <div className="flex items-center gap-3">
-
-                      <h3 className="text-lg font-semibold text-gray-800">
-                        {item.title}
-                      </h3>
-
-                      {item.premium && (
-                        <span className="ml-auto px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs rounded-full font-medium">
-                          Premium
-                        </span>
-                      )}
-
-                    </div>
-
-                    <p className="mt-2 text-sm text-gray-600">
-                      {item.desc}
-                    </p>
-
-                    <div className="mt-4">
-
-                      <button
-                        onClick={() => setShowPopup(true)}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold bg-[#110707] text-white shadow cursor-pointer"
-                      >
-                        Book Now
-                      </button>
-
-                    </div>
-
-                  </div>
-
-                </div>
+                {/* CTA */}
+                <button
+                  onClick={() => {
+                    setSelectedService(item.title);
+                    setShowPopup(true);
+                  }}
+                  className="mt-5 px-5 py-2.5 text-xs sm:text-sm rounded-full text-white font-semibold bg-[#FE9874] hover:bg-[#f07f56] transition shadow-lg shadow-orange-900/30"
+                >
+                  Book Now
+                </button>
 
               </div>
 
             </div>
-
           ))}
 
         </div>
 
       </div>
 
-      {/* POPUP (Hero same style) */}
-
+      {/* POPUP */}
       {showPopup && (
-
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-
-          <div className="bg-white p-6 rounded-xl relative">
-
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-4">
+          <div className="bg-white p-5 rounded-xl relative w-full max-w-md">
             <button
-              onClick={() => setShowPopup(false)}
+              onClick={() => {
+                setShowPopup(false);
+                setSelectedService("");
+              }}
               className="absolute top-2 right-3 text-gray-500 text-xl"
             >
               ×
             </button>
-
-            <RegisterForm scheduleMode={true} />
-
+            <RegisterForm scheduleMode={true} prefilledService={selectedService} />
           </div>
-
         </div>
-
       )}
 
     </section>
   );
 };
 
-export default Services;  
+export default ServicesClean;

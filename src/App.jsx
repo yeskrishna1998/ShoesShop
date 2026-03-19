@@ -15,7 +15,7 @@ import AdminLogin from "./Admin/AdminLogin";
 import AdminRoutes from "./Admin/AdminRoutes";
 import ScrollToTop from "./pages/ScrollToTop";
 import About from "./pages/About";
-import FloatingButtons from "./components/FloatingButtons";
+import TopBar from "./components/TopBar";
 
 function App() {
   const location = useLocation();
@@ -27,12 +27,10 @@ function App() {
     <div className="min-h-screen flex flex-col">
         <ScrollToTop />
 
-
+          <TopBar /> 
       {!hideLayout && <Navbar />}
 
       <main className="flex-1">
-        <FloatingButtons />
-
         <Routes>
 
           {/* Public Routes */}
