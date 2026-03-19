@@ -1,5 +1,11 @@
+import { useState } from "react";
+import RegisterForm from "./RegisterForm";
+
 const CTA = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
+    <>
     <section className="bg-[#f5f5f5] py-20 px-6">
 
       <div className="max-w-6xl mx-auto">
@@ -20,7 +26,10 @@ const CTA = () => {
 
           {/* BUTTON */}
           <div className="mt-10">
-            <button className="bg-[#FE9874] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#f07f56] transition">
+            <button
+              onClick={() => setShowPopup(true)}
+              className="bg-[#FE9874] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#f07f56] transition"
+            >
               Book Now
             </button>
           </div>
@@ -30,6 +39,21 @@ const CTA = () => {
       </div>
 
     </section>
+
+    {showPopup && (
+      <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-4">
+        <div className="bg-white p-5 rounded-xl relative w-full max-w-md">
+          <button
+            onClick={() => setShowPopup(false)}
+            className="absolute top-2 right-3 text-gray-500 text-xl"
+          >
+            ×
+          </button>
+          <RegisterForm scheduleMode={true} />
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 

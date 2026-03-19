@@ -9,9 +9,16 @@ const About = () => {
 
 <section className="max-w-6xl mx-auto px-6 py-20 text-center">
 
-<h1 className="text-4xl md:text-5xl font-bold mb-6">
+<div className="mb-6 flex items-center justify-center gap-3">
+<img
+src="/zcoated.png"
+alt="ZCoated logo"
+className="h-12 w-14 rounded-lg bg-black object-contain p-1"
+/>
+<h1 className="text-4xl md:text-5xl font-bold">
 About <span className="text-yellow-400">ZCoated</span>
 </h1>
+</div>
 
 <p className="text-gray-300 max-w-3xl mx-auto text-lg">
 ZCoated is a premium shoe care startup dedicated to bringing life back to

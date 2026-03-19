@@ -1,0 +1,21 @@
+{
+  "name": "ZCoated",
+  "short_name": "ZCoated",
+  "description": "Premium shoe cleaning, repair, restoration and protection services by ZCoated.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f10",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/zcoated.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/zcoated.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -17,8 +17,12 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 border-y border-black/10 bg-white/95 backdrop-blur-xl shadow-[0_12px_40px_-30px_rgba(0,0,0,0.4)]">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-b from-yellow-300 via-yellow-400 to-orange-400 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-yellow-500/25">
-            Z
+          <div className="flex h-10 w-12 items-center justify-center overflow-hidden rounded-lg bg-black shadow-lg shadow-black/20 sm:h-11 sm:w-14">
+            <img
+              src="/zcoated.png"
+              alt="ZCoated logo"
+              className="h-full w-full object-contain scale-125"
+            />
           </div>
 
           <div className="flex flex-col leading-tight -mt-0.5 sm:-mt-1">

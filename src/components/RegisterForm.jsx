@@ -12,9 +12,6 @@ const RegisterForm = ({ scheduleMode = true, prefilledService = "" }) => {
   });
 
   const [errors, setErrors] = useState({});
-  const [showPopup, setShowPopup] = useState(false);
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     if (!prefilledService) return;
     setForm((prev) => ({ ...prev, service: prefilledService }));
@@ -71,8 +68,6 @@ const RegisterForm = ({ scheduleMode = true, prefilledService = "" }) => {
 
     if (!validate()) return;
 
-    setLoading(true);
-
     const message = `New Shoe Service Request
 
 Name: ${form.name}
@@ -83,44 +78,44 @@ Shoe Requirement: ${form.requirement}
 Address: ${form.address}`;
 
     const whatsappURL = `https://wa.me/916393072928?text=${encodeURIComponent(message)}`;
+    const whatsappTab = window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    if (!whatsappTab) {
+      window.location.href = whatsappURL;
+    }
 
     // API only for Schedule Pickup
     if (scheduleMode) {
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        service: form.service.trim(),
+        requirement: form.requirement.trim(),
+        address: form.address.trim(),
+      };
 
       try {
-        const payload = {
-          name: form.name.trim(),
-          email: form.email.trim(),
-          phone: form.phone.trim(),
-          address: form.address.trim(),
-        };
-
-        await fetch("https://shoes-backend-1lip.onrender.com/quick-register", {
+        console.log("Quick register API start", payload);
+        const response = await fetch("https://shoes-backend-1lip.onrender.com/quick-register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-
+        console.log("Quick register API response", response.status, response.ok);
       } catch (error) {
-        console.log("Quick register API error");
+        console.error("Quick register API error", error);
       }
 
     }
 
-    setShowPopup(true);
-    window.location.href = whatsappURL;
-
-    setTimeout(() => {
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        requirement: "",
-        address: "",
-      });
-      setLoading(false);
-    }, 150);
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      requirement: "",
+      address: "",
+    });
 
   };
 
@@ -277,11 +272,9 @@ errors.address ? "border-red-500" : "border-[#e6c2b3] focus:border-[#FE9874]"
 
 <button
 type="submit"
-disabled={loading}
 className="w-full py-3 rounded-lg bg-[#FE9874] text-white font-semibold hover:bg-[#f07f56] transition text-sm md:text-base shadow-[0_10px_22px_-10px_rgba(254,152,116,0.9)]"
 >
-
-{loading ? "Processing..." : "Book Pickup"}
+Book Pickup
 
 </button>
 
@@ -290,42 +283,6 @@ className="w-full py-3 rounded-lg bg-[#FE9874] text-white font-semibold hover:bg
 </div>
 
 {/* SUCCESS POPUP */}
-
-{showPopup && (
-
-<div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 px-4">
-
-<div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-sm w-full text-center relative">
-
-{/* CLOSE BUTTON */}
-
-<button
-onClick={() => setShowPopup(false)}
-className="absolute top-2 right-3 text-gray-600 text-xl"
->
-×
-</button>
-
-<h2 className="text-xl md:text-2xl font-bold text-black mb-2">
-Booking Confirmed!
-</h2>
-
-<p className="text-gray-600 text-sm mb-4">
-Our team will contact you shortly to confirm your pickup.
-</p>
-
-<button
-onClick={() => setShowPopup(false)}
-className="bg-black text-white px-6 py-2 rounded-lg"
->
-OK
-</button>
-
-</div>
-
-</div>
-
-)}
 
 </div>
 

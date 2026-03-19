@@ -14,9 +14,19 @@ const Footer = () => {
 
 <div className="col-span-2 md:col-span-1">
 
+<div className="flex items-center gap-3">
+<div className="flex h-10 w-12 items-center justify-center overflow-hidden rounded-lg bg-black shadow-lg shadow-black/20">
+<img
+src="/zcoated.png"
+alt="ZCoated logo"
+className="h-full w-full object-contain scale-125"
+/>
+</div>
+
 <h2 className="text-2xl font-bold text-white">
 Z<span className="text-yellow-400">Coated</span>
 </h2>
+</div>
 
 
 <div className="flex flex-col leading-tight">
@@ -145,7 +155,14 @@ Contact
 
 <div className="border-t border-gray-700 text-center py-4 text-xs text-gray-400">
 
-© {year} ZCoated. All rights reserved.
+<div className="flex items-center justify-center gap-2">
+<img
+src="/zcoated.png"
+alt="ZCoated logo"
+className="h-5 w-6 object-contain"
+/>
+<span>© {year} ZCoated. All rights reserved.</span>
+</div>
 
 </div>
 
