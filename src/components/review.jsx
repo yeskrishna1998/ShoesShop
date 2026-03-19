@@ -64,10 +64,10 @@ const ReviewCard = ({ review, onPause, onResume }) => {
     <article
       onMouseEnter={onPause}
       onMouseLeave={onResume}
-      className="w-[300px] sm:w-[340px] flex-shrink-0 rounded-2xl border border-fuchsia-500/25 bg-gradient-to-br from-[#1a0011] via-[#0f0813] to-[#12000a] p-5 shadow-[0_0_0_1px_rgba(236,72,153,0.08),0_16px_40px_-24px_rgba(236,72,153,0.6)] text-left cursor-pointer"
+      className="w-[260px] sm:w-[280px] lg:w-[300px] flex-shrink-0 rounded-2xl border border-fuchsia-500/25 bg-gradient-to-br from-[#1a0011] via-[#0f0813] to-[#12000a] p-4 sm:p-5 shadow-[0_0_0_1px_rgba(236,72,153,0.08),0_16px_40px_-24px_rgba(236,72,153,0.6)] text-left cursor-pointer"
     >
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-semibold">
+      <div className="mb-4 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-semibold text-white sm:h-11 sm:w-11">
           {review.name
             .split(" ")
             .map((w) => w[0])
@@ -75,17 +75,17 @@ const ReviewCard = ({ review, onPause, onResume }) => {
             .slice(0, 2)}
         </div>
         <div>
-          <div className="font-semibold text-white leading-tight">
+          <div className="text-sm font-semibold leading-tight text-white sm:text-base">
             {review.name}
             <span className="ml-1 text-sky-400">●</span>
           </div>
-          <div className="text-sm text-slate-400">{review.handle}</div>
+          <div className="text-xs text-slate-400 sm:text-sm">{review.handle}</div>
         </div>
       </div>
 
-      <p className="text-lg leading-relaxed text-slate-300 min-h-[96px]">{review.review}</p>
+      <p className="min-h-[88px] text-sm leading-relaxed text-slate-300 sm:text-[15px]">{review.review}</p>
 
-      <div className="mt-5 text-amber-300 tracking-wide">{"★".repeat(review.rating || 5)}</div>
+      <div className="mt-4 text-sm tracking-wide text-amber-300 sm:text-base">{"★".repeat(review.rating || 5)}</div>
     </article>
   );
 };
@@ -155,25 +155,25 @@ const Reviews = () => {
   };
 
   return (
-    <section className="py-24 bg-black">
+    <section className="bg-black py-16 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-5xl font-semibold text-white mb-3">
+        <h2 className="mb-3 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">
           What Our <span className="text-white">Customers Say</span>
         </h2>
 
-        <p className="text-gray-400 mb-6 text-sm md:text-base">Trusted by customers across India</p>
+        <p className="mb-6 text-sm text-gray-400 sm:text-base">Trusted by customers across India</p>
 
         <button
           onClick={() => setShowForm(true)}
-          className="mb-12 px-6 py-3 rounded-full bg-[#FE9874] text-white font-semibold hover:bg-[#f07f56] transition"
+          className="mb-10 rounded-full bg-[#FE9874] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#f07f56] sm:mb-12 sm:text-base"
         >
           Give Review
         </button>
 
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           <div className="overflow-hidden">
             <div
-              className="flex w-max gap-6 animate-marquee"
+              className="flex w-max gap-4 sm:gap-5 lg:gap-6 animate-marquee"
               style={{ animationPlayState: isPaused ? "paused" : "running" }}
             >
               {rowOne.map((review, i) => (
@@ -189,7 +189,7 @@ const Reviews = () => {
 
           <div className="overflow-hidden">
             <div
-              className="flex w-max gap-6 animate-marquee-reverse"
+              className="flex w-max gap-4 sm:gap-5 lg:gap-6 animate-marquee-reverse"
               style={{ animationPlayState: isPaused ? "paused" : "running" }}
             >
               {rowTwo.map((review, i) => (

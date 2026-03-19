@@ -35,7 +35,7 @@ const ServicesClean = () => {
   const [selectedService, setSelectedService] = useState("");
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative overflow-hidden py-16 sm:py-20">
 
       {/* 🎬 VIDEO BACKGROUND */}
       <video
@@ -52,15 +52,15 @@ const ServicesClean = () => {
       <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-10 text-white">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 text-white sm:px-6 lg:px-8">
 
         {/* HEADING */}
-        <h2 className="text-3xl md:text-6xl font-bold text-center mb-4 tracking-tight">
+        <h2 className="mb-4 text-center text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl">
           Signature Care Collection
         </h2>
 
         {/* TAGLINE */}
-        <p className="text-center text-gray-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+        <p className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-gray-300 sm:text-base">
           Hand-finished luxury care for shoes, sneakers, and bags with precision cleaning, expert repair, and restoration.
           <span className="block mt-2 text-white/95 font-medium tracking-wide">
             Crafted for people who value premium footwear care.
@@ -68,29 +68,29 @@ const ServicesClean = () => {
         </p>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-7 mt-12">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 xl:grid-cols-4">
 
           {services.map((item, index) => (
-            <div key={index} className="group">
+            <div key={index} className="group h-full">
 
               {/* CARD */}
-              <div className="relative bg-white/10 backdrop-blur-xl border border-white/25 p-6 rounded-3xl hover:-translate-y-2 hover:shadow-[0_18px_45px_-20px_rgba(0,0,0,0.95)] transition duration-300 text-center h-full overflow-hidden">
+              <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/25 bg-white/10 p-5 text-center backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:shadow-[0_18px_45px_-20px_rgba(0,0,0,0.95)] sm:p-6">
                 <div className="absolute inset-x-5 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent"></div>
 
                 {/* IMAGE */}
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-44 sm:h-48 object-cover rounded-2xl group-hover:scale-105 transition duration-300"
+                  className="h-44 w-full rounded-2xl object-cover transition duration-300 group-hover:scale-105 sm:h-48"
                 />
 
                 {/* TITLE */}
-                <h3 className="mt-5 text-lg md:text-xl font-semibold tracking-wide">
+                <h3 className="mt-5 text-lg font-semibold tracking-wide sm:text-xl">
                   {item.title}
                 </h3>
 
                 {/* DESC */}
-                <p className="mt-3 text-xs sm:text-sm text-gray-200 leading-relaxed min-h-[72px]">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-200">
                   {item.desc}
                 </p>
 
@@ -100,7 +100,7 @@ const ServicesClean = () => {
                     setSelectedService(item.title);
                     setShowPopup(true);
                   }}
-                  className="mt-5 px-5 py-2.5 text-xs sm:text-sm rounded-full text-white font-semibold bg-[#FE9874] hover:bg-[#f07f56] transition shadow-lg shadow-orange-900/30"
+                  className="mt-6 self-center rounded-full bg-[#FE9874] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-900/30 transition hover:bg-[#f07f56]"
                 >
                   Book Now
                 </button>
