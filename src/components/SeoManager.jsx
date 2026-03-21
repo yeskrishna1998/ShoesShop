@@ -148,7 +148,8 @@ const SeoManager = () => {
 
   useEffect(() => {
     const seo = pageSeo[location.pathname] || pageSeo["/"];
-    const canonicalUrl = `${SITE_URL}${location.pathname}`;
+    const canonicalUrl =
+      location.pathname === "/" ? SITE_URL : `${SITE_URL}${location.pathname}`;
 
     document.title = seo.title;
 
