@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 const SITE_URL = "https://zcoated.com";
 const DEFAULT_IMAGE = `${SITE_URL}/zcoated.png`;
 const BRAND_ALIASES = [
+  "Z Coated",
   "Zcoated",
   "ZCoated",
   "zcoated",
@@ -14,9 +15,9 @@ const BRAND_ALIASES = [
 
 const pageSeo = {
   "/": {
-    title: "Zcoated | Premium Shoe Cleaning, Repair & Restoration in Gurgaon",
+    title: "Z Coated | Premium Shoe Cleaning, Repair & Restoration in Gurgaon",
     description:
-      "Official Zcoated website for premium shoe cleaning, sneaker restoration, shoe repair and protection coating with free pickup and delivery in Gurgaon.",
+      "Official Z Coated website for premium shoe cleaning, sneaker restoration, shoe repair and protection coating with free pickup and delivery in Gurgaon.",
     keywords: [
       ...BRAND_ALIASES,
       "shoe cleaning Gurgaon",
@@ -31,7 +32,7 @@ const pageSeo = {
         "@context": "https://schema.org",
         "@type": "Organization",
         "@id": `${SITE_URL}/#organization`,
-        name: "Zcoated",
+        name: "Z Coated",
         alternateName: BRAND_ALIASES,
         url: SITE_URL,
         logo: DEFAULT_IMAGE,
@@ -43,13 +44,13 @@ const pageSeo = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "@id": `${SITE_URL}/#localbusiness`,
-        name: "Zcoated",
+        name: "Z Coated",
         alternateName: BRAND_ALIASES,
         url: SITE_URL,
         logo: DEFAULT_IMAGE,
         image: DEFAULT_IMAGE,
         description:
-          "Zcoated is a premium shoe cleaning, repair, restoration and protection service with free pickup and delivery in Gurgaon.",
+          "Z Coated is a premium shoe cleaning, repair, restoration and protection service with free pickup and delivery in Gurgaon.",
         email: "shoesrepair@gmail.com",
         telephone: "+91 6393072928",
         address: {
@@ -65,7 +66,7 @@ const pageSeo = {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
-        name: "Zcoated",
+        name: "Z Coated",
         alternateName: BRAND_ALIASES,
         url: SITE_URL,
         potentialAction: {
@@ -77,15 +78,15 @@ const pageSeo = {
     ],
   },
   "/about": {
-    title: "About Zcoated | Premium Shoe Care Brand in Gurgaon",
+    title: "About Z Coated | Premium Shoe Care Brand in Gurgaon",
     description:
-      "Learn about Zcoated, the Gurgaon-based premium shoe care brand for sneaker cleaning, restoration, repair and protection services.",
-    keywords: [...BRAND_ALIASES, "about Zcoated", "shoe care brand Gurgaon"],
+      "Learn about Z Coated, the Gurgaon-based premium shoe care brand for sneaker cleaning, restoration, repair and protection services.",
+    keywords: [...BRAND_ALIASES, "about Z Coated", "shoe care brand Gurgaon"],
   },
   "/services": {
-    title: "Shoe Cleaning & Repair Services | Zcoated Gurgaon",
+    title: "Shoe Cleaning & Repair Services | Z Coated Gurgaon",
     description:
-      "Explore Zcoated services including shoe cleaning, sneaker restoration, sole repair, polishing and protection coating in Gurgaon.",
+      "Explore Z Coated services including shoe cleaning, sneaker restoration, sole repair, polishing and protection coating in Gurgaon.",
     keywords: [
       ...BRAND_ALIASES,
       "shoe cleaning services",
@@ -94,21 +95,21 @@ const pageSeo = {
     ],
   },
   "/pricing": {
-    title: "Pricing | Zcoated Shoe Cleaning & Repair",
+    title: "Pricing | Z Coated Shoe Cleaning & Repair",
     description:
-      "Check Zcoated pricing for shoe cleaning, sneaker restoration, repair and premium shoe care services.",
+      "Check Z Coated pricing for shoe cleaning, sneaker restoration, repair and premium shoe care services.",
     keywords: [...BRAND_ALIASES, "shoe cleaning price", "shoe repair price"],
   },
   "/contact": {
-    title: "Contact Zcoated | Shoe Care Pickup in Gurgaon",
+    title: "Contact Z Coated | Shoe Care Pickup in Gurgaon",
     description:
-      "Contact Zcoated for shoe cleaning, restoration, repair and pickup support in Gurgaon.",
-    keywords: [...BRAND_ALIASES, "contact Zcoated", "shoe pickup Gurgaon"],
+      "Contact Z Coated for shoe cleaning, restoration, repair and pickup support in Gurgaon.",
+    keywords: [...BRAND_ALIASES, "contact Z Coated", "shoe pickup Gurgaon"],
   },
   "/booking": {
-    title: "Book Shoe Pickup | Zcoated Gurgaon",
+    title: "Book Shoe Pickup | Z Coated Gurgaon",
     description:
-      "Book a free pickup with Zcoated for shoe cleaning, sneaker restoration and repair services in Gurgaon.",
+      "Book a free pickup with Z Coated for shoe cleaning, sneaker restoration and repair services in Gurgaon.",
     keywords: [...BRAND_ALIASES, "book shoe cleaning", "shoe pickup booking"],
   },
 };
@@ -191,7 +192,7 @@ const SeoManager = () => {
     });
     ensureMetaTag('meta[property="og:site_name"]', {
       property: "og:site_name",
-      content: "Zcoated",
+      content: "Z Coated",
     });
     ensureMetaTag('meta[name="twitter:card"]', {
       name: "twitter:card",

@@ -32,11 +32,11 @@ const About = () => {
           <div className="mb-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <img
               src="/zcoated.png"
-              alt="Zcoated logo"
+              alt="Z Coated logo"
               className="h-12 w-14 rounded-lg bg-black object-contain p-1"
             />
             <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-200">
-              About Zcoated
+              About Z Coated
             </span>
           </div>
 
@@ -45,7 +45,7 @@ const About = () => {
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-base">
-            Zcoated is a premium shoe care startup dedicated to bringing life back to your favorite sneakers and footwear through expert cleaning, restoration, and protection services.
+            Z Coated is a premium shoe care startup dedicated to bringing life back to your favorite sneakers and footwear through expert cleaning, restoration, and protection services.
           </p>
         </section>
 
@@ -59,7 +59,7 @@ const About = () => {
             </h2>
 
             <p className="mt-4 text-sm leading-relaxed text-gray-300 sm:text-base">
-              People love their shoes, but they often do not have the time, tools, or expertise to maintain them properly. Zcoated was built to solve that problem with professional sneaker cleaning and restoration backed by pickup and delivery.
+              People love their shoes, but they often do not have the time, tools, or expertise to maintain them properly. Z Coated was built to solve that problem with professional sneaker cleaning and restoration backed by pickup and delivery.
             </p>
 
             <p className="mt-4 text-sm leading-relaxed text-gray-400 sm:text-base">
@@ -69,7 +69,7 @@ const About = () => {
 
           <div className="rounded-[30px] border border-white/10 bg-[#121212]/95 p-6 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.65)] sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
-              Why Choose Zcoated
+              Why Choose Z Coated
             </p>
             <h3 className="mt-3 text-2xl font-semibold text-white">
               A cleaner, smarter, more premium service experience

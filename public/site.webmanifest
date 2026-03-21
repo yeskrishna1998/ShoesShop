@@ -1,7 +1,7 @@
 {
-  "name": "Zcoated",
-  "short_name": "Zcoated",
-  "description": "Official Zcoated app for premium shoe cleaning, repair, restoration and protection services.",
+  "name": "Z Coated",
+  "short_name": "Z Coated",
+  "description": "Official Z Coated app for premium shoe cleaning, repair, restoration and protection services.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f0f10",

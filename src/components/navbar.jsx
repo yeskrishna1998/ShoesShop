@@ -20,13 +20,13 @@ const Navbar = () => {
           <div className="flex h-10 w-12 items-center justify-center overflow-hidden rounded-lg bg-black shadow-lg shadow-black/20 sm:h-11 sm:w-14">
             <img
               src="/zcoated.png"
-              alt="Zcoated logo"
+              alt="Z Coated logo"
               className="h-full w-full object-contain scale-125"
             />
           </div>
 
           <div className="flex min-w-0 flex-col leading-tight -mt-0.5 sm:-mt-1">
-            <span className="truncate text-xl font-bold tracking-wide text-gray-900 sm:text-3xl">Zcoated</span>
+            <span className="truncate text-xl font-bold tracking-wide text-gray-900 sm:text-3xl">Z Coated</span>
             <span className="hidden text-[12px] uppercase tracking-[0.24em] text-gray-500 -mt-0.5 sm:block sm:text-[13px] md:text-[14px]">
               Premium Shoe Care
             </span>
