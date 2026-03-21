@@ -68,7 +68,7 @@ const Contact = () => {
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-200">
-            Contact ZCoated
+            Contact Zcoated
           </span>
           <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
             Let&apos;s Bring Your Favorite Pair Back to Life
@@ -133,7 +133,7 @@ const Contact = () => {
 
                 <div className="min-h-[260px] sm:min-h-[300px]">
                   <iframe
-                    title="ZCoated Gurgaon location"
+                    title="Zcoated Gurgaon location"
                     src="https://www.google.com/maps?q=Gurgaon+Sector+45+Haryana+122003&output=embed"
                     className="h-full min-h-[260px] w-full sm:min-h-[300px]"
                     loading="lazy"

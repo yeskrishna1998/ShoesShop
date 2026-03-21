@@ -16,6 +16,7 @@ import AdminRoutes from "./Admin/AdminRoutes";
 import ScrollToTop from "./pages/ScrollToTop";
 import About from "./pages/About";
 import TopBar from "./components/TopBar";
+import SeoManager from "./components/SeoManager";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
+        <SeoManager />
         <ScrollToTop />
 
           <TopBar /> 
