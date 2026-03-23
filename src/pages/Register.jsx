@@ -129,8 +129,12 @@ export default function Register() {
 </div>
 
           <h1 className="text-3xl font-bold mb-6 text-gray-900">
-            Create <span className="text-purple-600">Account</span>
+            Create Your <span className="text-purple-600">Zcoated</span> Account
           </h1>
+
+          <p className="mb-6 text-sm text-gray-600">
+            Sign up to book pickups, manage your details, and stay connected with Zcoated.
+          </p>
 
           <form onSubmit={submit} className="space-y-4">
 
@@ -320,4 +324,3 @@ function Input({ label, value, onChange, error, type = "text" }) {
     </div>
   );
 }
-

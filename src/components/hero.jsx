@@ -556,17 +556,16 @@ className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity 
 FREE PICKUP & DELIVERY
 </p>
 
-<h1 className="text-3xl sm:text-5xl md:text-7xl text-white font-semibold leading-tight max-w-2xl tracking-tight">
+<h1 className="text-3xl sm:text-5xl md:text-7xl text-white font-semibold leading-tight max-w-3xl tracking-tight">
 
-Premium Shoe Care  
+Zcoated Premium Shoe Care
 <span className="block text-gray-200 font-light">Wear Them Like New</span>
 
 </h1>
 
 <p className="mt-5 sm:mt-6 text-gray-200 text-sm sm:text-base md:text-xl max-w-lg leading-relaxed">
 
-Cleaning • Repair • Restoration  
-Free Pickup & Delivery at your doorstep.
+Zcoated offers shoe cleaning, repair, and restoration with free pickup and delivery at your doorstep in Gurgaon.
 
 </p>
 
@@ -635,7 +634,6 @@ className="absolute top-2 right-3 text-gray-500 text-xl"
 };
 
 export default Hero;
-
 
 
 

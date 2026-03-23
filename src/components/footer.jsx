@@ -36,13 +36,13 @@ const Footer = () => {
 <div className="flex h-10 w-12 items-center justify-center overflow-hidden rounded-lg bg-black shadow-lg shadow-black/20">
 <img
 src="/zcoated.png"
-alt="Z Coated logo"
+alt="Zcoated logo"
 className="h-full w-full object-contain scale-125"
 />
 </div>
 
 <h2 className="text-2xl font-bold text-white">
-Z<span className="text-[#ffffff]">Coated</span>
+Zcoated
 </h2>
 </div>
 
@@ -181,7 +181,7 @@ Contact
 <div className="flex items-center justify-center gap-2">
 <img
 src="/zcoated.png"
-alt="Z Coated logo"
+alt="Zcoated logo"
 className="h-5 w-6 object-contain"
 />
 <span>© {year} Zcoated. All rights reserved.</span>

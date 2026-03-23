@@ -94,10 +94,10 @@ export default function Login() {
 
         <div className="text-center mb-8">
           <h1 className="text-3xl font-extrabold text-gray-900">
-            Shoes<span className="text-purple-600">Shop</span>
+            <span className="text-purple-600">Zcoated</span>
           </h1>
           <p className="text-gray-600 text-sm mt-2">
-            Step into style. Login to continue 👟
+            Log in to manage your Zcoated bookings and account.
           </p>
         </div>
 

@@ -12,7 +12,7 @@ const NotFound = () => {
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-gray-300 sm:text-base">
           The link may be outdated, or the page may have moved. You can return
-          to the homepage and continue exploring Z Coated services.
+          to the homepage and continue exploring Zcoated services.
         </p>
         <Link
           to="/"

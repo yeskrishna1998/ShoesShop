@@ -1,6 +1,6 @@
 const SITE_URL = "https://zcoated.com";
 const DEFAULT_IMAGE = `${SITE_URL}/zcoated.png`;
-const BRAND_NAME = "Z Coated";
+const BRAND_NAME = "Zcoated";
 const BUSINESS_PHONE = "+91 8368385923";
 const BUSINESS_EMAIL = "support.zcoated@gmail.com";
 const BUSINESS_ADDRESS = {
@@ -35,6 +35,16 @@ const baseOrganizationSchema = {
   image: DEFAULT_IMAGE,
   email: BUSINESS_EMAIL,
   telephone: BUSINESS_PHONE,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: BUSINESS_PHONE,
+      contactType: "customer service",
+      email: BUSINESS_EMAIL,
+      areaServed: "IN",
+      availableLanguage: ["en", "hi"],
+    },
+  ],
 };
 
 const baseLocalBusinessSchema = {
@@ -47,18 +57,20 @@ const baseLocalBusinessSchema = {
   logo: DEFAULT_IMAGE,
   image: DEFAULT_IMAGE,
   description:
-    "Z Coated is a premium shoe cleaning, repair, restoration and protection service with free pickup and delivery in Gurgaon.",
+    "Zcoated is a premium shoe cleaning, repair, restoration and protection service with free pickup and delivery in Gurgaon.",
   email: BUSINESS_EMAIL,
   telephone: BUSINESS_PHONE,
   address: BUSINESS_ADDRESS,
+  priceRange: "INR",
   areaServed: ["Gurgaon", "Gurugram"],
+  openingHours: "Mo-Su 10:00-20:00",
   sameAs: [SITE_URL],
 };
 
 const defaultSeo = {
-  title: "Z Coated | Premium Shoe Cleaning, Repair & Restoration in Gurgaon",
+  title: "Zcoated | Premium Shoe Cleaning, Repair & Restoration in Gurgaon",
   description:
-    "Official Z Coated website for premium shoe cleaning, sneaker restoration, shoe repair and protection coating with free pickup and delivery in Gurgaon.",
+    "Official Zcoated website for premium shoe cleaning, sneaker restoration, shoe repair and protection coating with free pickup and delivery in Gurgaon.",
   keywords: [
     ...BRAND_ALIASES,
     "shoe cleaning Gurgaon",
@@ -81,6 +93,11 @@ const defaultSeo = {
       name: BRAND_NAME,
       alternateName: BRAND_ALIASES,
       url: SITE_URL,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
     },
   ],
 };
@@ -102,18 +119,18 @@ export const pageSeo = {
     ],
   },
   "/about": {
-    title: "About Z Coated | Premium Shoe Care Brand in Gurgaon",
+    title: "About Zcoated | Premium Shoe Care Brand in Gurgaon",
     description:
-      "Learn about Z Coated, the Gurgaon-based premium shoe care brand for sneaker cleaning, restoration, repair and protection services.",
-    keywords: [...BRAND_ALIASES, "about Z Coated", "shoe care brand Gurgaon"],
+      "Learn about Zcoated, the Gurgaon-based premium shoe care brand for sneaker cleaning, restoration, repair and protection services.",
+    keywords: [...BRAND_ALIASES, "about Zcoated", "shoe care brand Gurgaon"],
     image: DEFAULT_IMAGE,
     robots: defaultSeo.robots,
     googlebot: defaultSeo.googlebot,
   },
   "/services": {
-    title: "Shoe Cleaning & Repair Services | Z Coated Gurgaon",
+    title: "Shoe Cleaning & Repair Services | Zcoated Gurgaon",
     description:
-      "Explore Z Coated services including shoe cleaning, sneaker restoration, sole repair, polishing and protection coating in Gurgaon.",
+      "Explore Zcoated services including shoe cleaning, sneaker restoration, sole repair, polishing and protection coating in Gurgaon.",
     keywords: [
       ...BRAND_ALIASES,
       "shoe cleaning services Gurgaon",
@@ -128,7 +145,7 @@ export const pageSeo = {
       {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "Z Coated services",
+        name: "Zcoated services",
         itemListElement: [
           "Shoe Cleaning",
           "Shoe Repair",
@@ -143,9 +160,9 @@ export const pageSeo = {
     ],
   },
   "/pricing": {
-    title: "Pricing | Z Coated Shoe Cleaning & Repair",
+    title: "Pricing | Zcoated Shoe Cleaning & Repair",
     description:
-      "Check Z Coated pricing for shoe cleaning, sneaker restoration, repair and premium shoe care services.",
+      "Check Zcoated pricing for shoe cleaning, sneaker restoration, repair and premium shoe care services.",
     keywords: [
       ...BRAND_ALIASES,
       "shoe cleaning price Gurgaon",
@@ -159,7 +176,7 @@ export const pageSeo = {
       {
         "@context": "https://schema.org",
         "@type": "OfferCatalog",
-        name: "Z Coated pricing",
+        name: "Zcoated pricing",
         itemListElement: [
           {
             "@type": "Offer",
@@ -184,10 +201,10 @@ export const pageSeo = {
     ],
   },
   "/contact": {
-    title: "Contact Z Coated | Shoe Care Pickup in Gurgaon",
+    title: "Contact Zcoated | Shoe Care Pickup in Gurgaon",
     description:
-      "Contact Z Coated for shoe cleaning, restoration, repair and pickup support in Gurgaon.",
-    keywords: [...BRAND_ALIASES, "contact Z Coated", "shoe pickup Gurgaon"],
+      "Contact Zcoated for shoe cleaning, restoration, repair and pickup support in Gurgaon.",
+    keywords: [...BRAND_ALIASES, "contact Zcoated", "shoe pickup Gurgaon"],
     image: DEFAULT_IMAGE,
     robots: defaultSeo.robots,
     googlebot: defaultSeo.googlebot,
@@ -195,15 +212,15 @@ export const pageSeo = {
       {
         "@context": "https://schema.org",
         "@type": "ContactPage",
-        name: "Contact Z Coated",
+        name: "Contact Zcoated",
         url: `${SITE_URL}/contact`,
       },
     ],
   },
   "/booking": {
-    title: "Book Shoe Pickup | Z Coated Gurgaon",
+    title: "Book Shoe Pickup | Zcoated Gurgaon",
     description:
-      "Book a free pickup with Z Coated for shoe cleaning, sneaker restoration and repair services in Gurgaon.",
+      "Book a free pickup with Zcoated for shoe cleaning, sneaker restoration and repair services in Gurgaon.",
     keywords: [
       ...BRAND_ALIASES,
       "book shoe cleaning Gurgaon",
@@ -230,33 +247,33 @@ export const pageSeo = {
     ],
   },
   "/login": {
-    title: "Login | Z Coated",
-    description: "Login to your Z Coated account.",
-    keywords: [...BRAND_ALIASES, "Z Coated login"],
+    title: "Login | Zcoated",
+    description: "Login to your Zcoated account.",
+    keywords: [...BRAND_ALIASES, "Zcoated login"],
     image: DEFAULT_IMAGE,
     robots: "noindex, nofollow, noarchive",
     googlebot: "noindex, nofollow, noarchive",
   },
   "/register": {
-    title: "Create Account | Z Coated",
-    description: "Create your Z Coated account for bookings and order updates.",
-    keywords: [...BRAND_ALIASES, "Z Coated register"],
+    title: "Create Account | Zcoated",
+    description: "Create your Zcoated account for bookings and order updates.",
+    keywords: [...BRAND_ALIASES, "Zcoated register"],
     image: DEFAULT_IMAGE,
     robots: "noindex, nofollow, noarchive",
     googlebot: "noindex, nofollow, noarchive",
   },
   "/forgot-password": {
-    title: "Forgot Password | Z Coated",
-    description: "Reset your Z Coated account password.",
-    keywords: [...BRAND_ALIASES, "Z Coated forgot password"],
+    title: "Forgot Password | Zcoated",
+    description: "Reset your Zcoated account password.",
+    keywords: [...BRAND_ALIASES, "Zcoated forgot password"],
     image: DEFAULT_IMAGE,
     robots: "noindex, nofollow, noarchive",
     googlebot: "noindex, nofollow, noarchive",
   },
   "/admin-login": {
-    title: "Admin Login | Z Coated",
-    description: "Admin login for Z Coated.",
-    keywords: ["Z Coated admin login"],
+    title: "Admin Login | Zcoated",
+    description: "Admin login for Zcoated.",
+    keywords: ["Zcoated admin login"],
     image: DEFAULT_IMAGE,
     robots: "noindex, nofollow, noarchive",
     googlebot: "noindex, nofollow, noarchive",
@@ -266,9 +283,9 @@ export const pageSeo = {
 export const getSeoForPath = (pathname) => {
   if (pathname.startsWith("/admin")) {
     return {
-      title: "Admin Dashboard | Z Coated",
-      description: "Private administration area for Z Coated.",
-      keywords: ["Z Coated admin"],
+      title: "Admin Dashboard | Zcoated",
+      description: "Private administration area for Zcoated.",
+      keywords: ["Zcoated admin"],
       image: DEFAULT_IMAGE,
       robots: "noindex, nofollow, noarchive",
       googlebot: "noindex, nofollow, noarchive",
@@ -277,7 +294,7 @@ export const getSeoForPath = (pathname) => {
 
   return (
     pageSeo[pathname] || {
-      title: "Page Not Found | Z Coated",
+      title: "Page Not Found | Zcoated",
       description: "The page you requested could not be found.",
       keywords: [...BRAND_ALIASES, "page not found"],
       image: DEFAULT_IMAGE,
