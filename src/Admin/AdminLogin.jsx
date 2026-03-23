@@ -11,7 +11,7 @@ function AdminLogin() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    if (email === "admin@gmail.com" && password === "123456") {
+    if (email === "support.zcoated@gmail.com" && password === "Jmjpk4370r") {
 
  sessionStorage.setItem("adminToken", "true");
       navigate("/admin");
