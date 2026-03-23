@@ -21,6 +21,11 @@
       ],
       "destination": "https://zcoated.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/signup",
+      "destination": "/register",
+      "permanent": true
     }
   ],
   "rewrites": [

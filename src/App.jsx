@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -15,6 +15,7 @@ import AdminLogin from "./Admin/AdminLogin";
 import AdminRoutes from "./Admin/AdminRoutes";
 import ScrollToTop from "./pages/ScrollToTop";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 import TopBar from "./components/TopBar";
 import SeoManager from "./components/SeoManager";
 
@@ -39,7 +40,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/signup" element={<Register />} />
+          <Route path="/signup" element={<Navigate to="/register" replace />} />
 
 
           <Route path="/services" element={<Services />} />
@@ -53,6 +54,7 @@ function App() {
           {/* Admin */}
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin/*" element={<AdminRoutes />} />
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
 

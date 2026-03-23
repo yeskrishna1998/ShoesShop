@@ -1,118 +1,13 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
-const SITE_URL = "https://zcoated.com";
-const DEFAULT_IMAGE = `${SITE_URL}/zcoated.png`;
-const BRAND_ALIASES = [
-  "Z Coated",
-  "Zcoated",
-  "ZCoated",
-  "zcoated",
-  "z coated",
-  "Zcoted",
-  "Z coated shoes",
-];
-
-const pageSeo = {
-  "/": {
-    title: "Z Coated | Premium Shoe Cleaning, Repair & Restoration in Gurgaon",
-    description:
-      "Official Z Coated website for premium shoe cleaning, sneaker restoration, shoe repair and protection coating with free pickup and delivery in Gurgaon.",
-    keywords: [
-      ...BRAND_ALIASES,
-      "shoe cleaning Gurgaon",
-      "shoe repair Gurgaon",
-      "sneaker cleaning",
-      "sneaker restoration",
-      "premium shoe care",
-      "shoe laundry Gurgaon",
-    ],
-    schema: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#organization`,
-        name: "Z Coated",
-        alternateName: BRAND_ALIASES,
-        url: SITE_URL,
-        logo: DEFAULT_IMAGE,
-        image: DEFAULT_IMAGE,
-        email: "support.zcoated@gmail.com",
-        telephone: "+91 8368385923",
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": `${SITE_URL}/#localbusiness`,
-        name: "Z Coated",
-        alternateName: BRAND_ALIASES,
-        url: SITE_URL,
-        logo: DEFAULT_IMAGE,
-        image: DEFAULT_IMAGE,
-        description:
-          "Z Coated is a premium shoe cleaning, repair, restoration and protection service with free pickup and delivery in Gurgaon.",
-        email: "support.zcoated@gmail.com",
-        telephone: "+91 8368385923",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Gurgaon",
-          addressRegion: "Haryana",
-          addressCountry: "IN",
-        },
-        areaServed: ["Gurgaon", "Gurugram"],
-        sameAs: [SITE_URL],
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": `${SITE_URL}/#website`,
-        name: "Z Coated",
-        alternateName: BRAND_ALIASES,
-        url: SITE_URL,
-        potentialAction: {
-          "@type": "SearchAction",
-          target: `${SITE_URL}/?q={search_term_string}`,
-          "query-input": "required name=search_term_string",
-        },
-      },
-    ],
-  },
-  "/about": {
-    title: "About Z Coated | Premium Shoe Care Brand in Gurgaon",
-    description:
-      "Learn about Z Coated, the Gurgaon-based premium shoe care brand for sneaker cleaning, restoration, repair and protection services.",
-    keywords: [...BRAND_ALIASES, "about Z Coated", "shoe care brand Gurgaon"],
-  },
-  "/services": {
-    title: "Shoe Cleaning & Repair Services | Z Coated Gurgaon",
-    description:
-      "Explore Z Coated services including shoe cleaning, sneaker restoration, sole repair, polishing and protection coating in Gurgaon.",
-    keywords: [
-      ...BRAND_ALIASES,
-      "shoe cleaning services",
-      "shoe repair services",
-      "sneaker restoration Gurgaon",
-    ],
-  },
-  "/pricing": {
-    title: "Pricing | Z Coated Shoe Cleaning & Repair",
-    description:
-      "Check Z Coated pricing for shoe cleaning, sneaker restoration, repair and premium shoe care services.",
-    keywords: [...BRAND_ALIASES, "shoe cleaning price", "shoe repair price"],
-  },
-  "/contact": {
-    title: "Contact Z Coated | Shoe Care Pickup in Gurgaon",
-    description:
-      "Contact Z Coated for shoe cleaning, restoration, repair and pickup support in Gurgaon.",
-    keywords: [...BRAND_ALIASES, "contact Z Coated", "shoe pickup Gurgaon"],
-  },
-  "/booking": {
-    title: "Book Shoe Pickup | Z Coated Gurgaon",
-    description:
-      "Book a free pickup with Z Coated for shoe cleaning, sneaker restoration and repair services in Gurgaon.",
-    keywords: [...BRAND_ALIASES, "book shoe cleaning", "shoe pickup booking"],
-  },
-};
+import {
+  BRAND_NAME,
+  DEFAULT_IMAGE,
+  SITE_URL,
+  buildCanonicalUrl,
+  defaultSeo,
+  getSeoForPath,
+} from "../seo/pageSeo";
 
 const ensureMetaTag = (selector, attributes) => {
   let element = document.head.querySelector(selector);
@@ -148,9 +43,11 @@ const SeoManager = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const seo = pageSeo[location.pathname] || pageSeo["/"];
-    const canonicalUrl =
-      location.pathname === "/" ? SITE_URL : `${SITE_URL}${location.pathname}`;
+    const seo = {
+      ...defaultSeo,
+      ...getSeoForPath(location.pathname),
+    };
+    const canonicalUrl = buildCanonicalUrl(location.pathname);
 
     document.title = seo.title;
 
@@ -164,11 +61,19 @@ const SeoManager = () => {
     });
     ensureMetaTag('meta[name="robots"]', {
       name: "robots",
-      content: "index, follow, max-image-preview:large",
+      content: seo.robots,
     });
     ensureMetaTag('meta[name="googlebot"]', {
       name: "googlebot",
-      content: "index, follow, max-image-preview:large",
+      content: seo.googlebot,
+    });
+    ensureMetaTag('meta[name="author"]', {
+      name: "author",
+      content: BRAND_NAME,
+    });
+    ensureMetaTag('meta[name="application-name"]', {
+      name: "application-name",
+      content: BRAND_NAME,
     });
     ensureMetaTag('meta[property="og:type"]', {
       property: "og:type",
@@ -188,11 +93,11 @@ const SeoManager = () => {
     });
     ensureMetaTag('meta[property="og:image"]', {
       property: "og:image",
-      content: DEFAULT_IMAGE,
+      content: seo.image || DEFAULT_IMAGE,
     });
     ensureMetaTag('meta[property="og:site_name"]', {
       property: "og:site_name",
-      content: "Z Coated",
+      content: BRAND_NAME,
     });
     ensureMetaTag('meta[name="twitter:card"]', {
       name: "twitter:card",
@@ -208,10 +113,20 @@ const SeoManager = () => {
     });
     ensureMetaTag('meta[name="twitter:image"]', {
       name: "twitter:image",
-      content: DEFAULT_IMAGE,
+      content: seo.image || DEFAULT_IMAGE,
     });
     ensureLinkTag('link[rel="canonical"]', {
       rel: "canonical",
+      href: canonicalUrl,
+    });
+    ensureLinkTag('link[rel="alternate"][hreflang="en-IN"]', {
+      rel: "alternate",
+      hreflang: "en-IN",
+      href: canonicalUrl,
+    });
+    ensureLinkTag('link[rel="alternate"][hreflang="x-default"]', {
+      rel: "alternate",
+      hreflang: "x-default",
       href: canonicalUrl,
     });
 

@@ -1,10 +1,31 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin-login
+Disallow: /login
+Disallow: /register
+Disallow: /signup
+Disallow: /forgot-password
 
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin-login
+Disallow: /login
+Disallow: /register
+Disallow: /signup
+Disallow: /forgot-password
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin-login
+Disallow: /login
+Disallow: /register
+Disallow: /signup
+Disallow: /forgot-password
 
 Sitemap: https://zcoated.com/sitemap.xml
