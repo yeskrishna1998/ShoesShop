@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import RegisterForm from "./RegisterForm";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -12,8 +13,10 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-y border-black/10 bg-white/95 backdrop-blur-xl shadow-[0_12px_40px_-30px_rgba(0,0,0,0.4)]">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
@@ -43,12 +46,13 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center">
-          <Link
-            to="/booking"
+          <button
+            type="button"
+            onClick={() => setShowPopup(true)}
             className="relative inline-flex items-center justify-center px-8 py-3 font-bold text-white rounded-full bg-[#FE9874] hover:bg-[#f07f56] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-8px_rgba(249,115,22,0.65)]"
           >
             Book Now
-          </Link>
+          </button>
         </div>
 
         <button
@@ -77,16 +81,36 @@ const Navbar = () => {
             </Link>
           ))}
 
-          <Link
-            to="/booking"
-            onClick={() => setOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              setShowPopup(true);
+            }}
             className="mt-1 w-full text-center px-6 py-2.5 rounded-full bg-[#FE9874] hover:bg-[#f07f56] text-white font-bold"
           >
             Book Now
-          </Link>
+          </button>
         </div>
       </div>
     </header>
+
+    {showPopup && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+        <div className="relative w-full max-w-md rounded-xl bg-white p-5">
+          <button
+            type="button"
+            onClick={() => setShowPopup(false)}
+            className="absolute right-3 top-2 text-xl text-gray-500"
+          >
+            ×
+          </button>
+          <RegisterForm scheduleMode={true} />
+        </div>
+      </div>
+    )}
+
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ const TopBar = () => {
           rel="noreferrer"
           className="font-medium transition hover:text-emerald-300"
         >
-          WhatsApp: <span className="font-semibold text-emerald-400">8368385923</span>
+          WhatsApp: <span className="font-semibold text-emerald-400">+918368385923</span>
         </a>
         <a
           href="mailto:support.zcoated@gmail.com"

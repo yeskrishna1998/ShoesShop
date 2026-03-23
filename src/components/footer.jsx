@@ -1,11 +1,29 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import RegisterForm from "./RegisterForm";
 
 const Footer = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   const year = new Date().getFullYear();
+  const footerServices = [
+    "Sole Repair",
+    "Heel Repair",
+    "Shoe Polishing",
+    "Leather Fix",
+    "Shoe Cleaning",
+    "Shoe Stitching",
+  ];
+
+  const handleServiceClick = (service) => {
+    setSelectedService(service);
+    setShowPopup(true);
+  };
 
   return (
 
+<>
 <footer className="bg-gray-900 text-gray-300">
 
 <div className="max-w-7xl mx-auto px-5 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -24,7 +42,7 @@ className="h-full w-full object-contain scale-125"
 </div>
 
 <h2 className="text-2xl font-bold text-white">
-Z<span className="text-yellow-400">Coated</span>
+Z<span className="text-[#ffffff]">Coated</span>
 </h2>
 </div>
 
@@ -66,7 +84,7 @@ WhatsApp
 
 <a
 href="tel:+918368385923"
-className="flex items-center gap-2 px-3 py-2 rounded-md bg-red-500 hover:bg-red-600 text-white text-sm transition"
+className="flex items-center gap-2 px-3 py-2 rounded-md bg-[#FE9874] hover:bg-red-500 text-white text-sm transition"
 >
 📞 Call
 </a>
@@ -86,12 +104,17 @@ Services
 
 <ul className="space-y-2 text-sm">
 
-<li><Link to="/booking?service=sole-repair" className="hover:text-yellow-400 transition">Sole Repair</Link></li>
-<li><Link to="/booking?service=heel-repair" className="hover:text-yellow-400 transition">Heel Repair</Link></li>
-<li><Link to="/booking?service=polishing" className="hover:text-yellow-400 transition">Shoe Polishing</Link></li>
-<li><Link to="/booking?service=leather-fix" className="hover:text-yellow-400 transition">Leather Fix</Link></li>
-<li><Link to="/booking?service=cleaning" className="hover:text-yellow-400 transition">Shoe Cleaning</Link></li>
-<li><Link to="/booking?service=stitching" className="hover:text-yellow-400 transition">Shoe Stitching</Link></li>
+{footerServices.map((service) => (
+<li key={service}>
+<button
+type="button"
+onClick={() => handleServiceClick(service)}
+className="text-left hover:text-yellow-400 transition"
+>
+{service}
+</button>
+</li>
+))}
 
 </ul>
 
@@ -142,7 +165,7 @@ Contact
 </a>
 </li>
 
-<li>🕒 Mon – Sat : 10 AM – 8 PM</li>
+<li>🕒 Mon – Sun : 10 AM – 8 PM</li>
 
 </ul>
 
@@ -161,12 +184,32 @@ src="/zcoated.png"
 alt="Z Coated logo"
 className="h-5 w-6 object-contain"
 />
-<span>© {year} Z Coated. All rights reserved.</span>
+<span>© {year} Zcoated. All rights reserved.</span>
 </div>
 
 </div>
 
 </footer>
+
+{showPopup && (
+<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+<div className="relative w-full max-w-md rounded-xl bg-white p-5">
+<button
+type="button"
+onClick={() => {
+setShowPopup(false);
+setSelectedService("");
+}}
+className="absolute right-3 top-2 text-xl text-gray-500"
+>
+×
+</button>
+<RegisterForm scheduleMode={true} prefilledService={selectedService} />
+</div>
+</div>
+)}
+
+</>
 
   );
 };
