@@ -7,7 +7,7 @@ const FloatingButtons = () => {
 {/* WhatsApp */}
 
 <a
-href="https://wa.me/916393072928"
+href="https://wa.me/918368385923"
 target="_blank"
 rel="noreferrer"
 className="bg-green-500 hover:bg-green-600 p-3 flex items-center justify-center"
@@ -23,7 +23,7 @@ className="w-6 h-6"
 {/* Call */}
 
 <a
-href="tel:6393072928"
+href="tel:+918368385923"
 className="bg-red-500 hover:bg-red-600 p-3 flex items-center justify-center"
 >
 

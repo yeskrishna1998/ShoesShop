@@ -79,7 +79,7 @@
 // // </h2>
 
 // // <a
-// // href="https://wa.me/916393072928"
+// // href="https://wa.me/918368385923"
 // // target="_blank"
 // // rel="noreferrer"
 // // className="flex items-center gap-2 px-5 py-4 rounded-full bg-green-500 text-white text-sm font-semibold hover:bg-green-600 transition shadow"
@@ -128,7 +128,7 @@
 // // </button>
 
 // // <a
-// // href="https://wa.me/916393072928"
+// // href="https://wa.me/918368385923"
 // // target="_blank"
 // // rel="noreferrer"
 // // className="flex items-center justify-center gap-1 px-4 py-1.5 rounded-full bg-green-500 text-white text-xs font-semibold"
@@ -373,7 +373,7 @@
 // </h2>
 
 // <a
-// href="https://wa.me/916393072928"
+// href="https://wa.me/918368385923"
 // target="_blank"
 // rel="noreferrer"
 // className="flex items-center gap-2 px-6 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:scale-105 transition"
@@ -581,7 +581,7 @@ BOOK SERVICE
 </button>
 
 <a
-href="https://wa.me/91XXXXXXXXXX"
+href="https://wa.me/918368385923"
 target="_blank"
 rel="noreferrer"
 className="text-white border border-white/35 sm:border-0 rounded-full sm:rounded-none px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base text-center hover:opacity-70 transition w-full sm:w-auto"
@@ -635,8 +635,6 @@ className="absolute top-2 right-3 text-gray-500 text-xl"
 };
 
 export default Hero;
-
-
 
 
 

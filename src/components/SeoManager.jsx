@@ -37,8 +37,8 @@ const pageSeo = {
         url: SITE_URL,
         logo: DEFAULT_IMAGE,
         image: DEFAULT_IMAGE,
-        email: "shoesrepair@gmail.com",
-        telephone: "+91 6393072928",
+        email: "support.zcoated@gmail.com",
+        telephone: "+91 8368385923",
       },
       {
         "@context": "https://schema.org",
@@ -51,8 +51,8 @@ const pageSeo = {
         image: DEFAULT_IMAGE,
         description:
           "Z Coated is a premium shoe cleaning, repair, restoration and protection service with free pickup and delivery in Gurgaon.",
-        email: "shoesrepair@gmail.com",
-        telephone: "+91 6393072928",
+        email: "support.zcoated@gmail.com",
+        telephone: "+91 8368385923",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Gurgaon",

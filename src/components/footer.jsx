@@ -49,7 +49,7 @@ We restore your shoes to look brand new again.
 <div className="flex gap-3 mt-4">
 
 <a
-href="https://wa.me/916393072928"
+href="https://wa.me/918368385923"
 target="_blank"
 rel="noreferrer"
 className="flex items-center gap-2 px-3 py-2 rounded-md bg-green-500 hover:bg-green-600 text-white text-sm transition"
@@ -65,7 +65,7 @@ WhatsApp
 </a>
 
 <a
-href="tel:+916393072928"
+href="tel:+918368385923"
 className="flex items-center gap-2 px-3 py-2 rounded-md bg-red-500 hover:bg-red-600 text-white text-sm transition"
 >
 📞 Call
@@ -131,14 +131,14 @@ Contact
 <li>📍 Sector-45, Gurgaon</li>
 
 <li>
-<a href="tel:+916393072928" className="hover:text-yellow-400 transition">
-📞 +91 6393072928
+<a href="tel:+918368385923" className="hover:text-yellow-400 transition">
+📞 +91 8368385923
 </a>
 </li>
 
 <li>
-<a href="mailto:shoesrepair@gmail.com" className="break-all hover:text-yellow-400 transition">
-📧 shoesrepair@gmail.com
+<a href="mailto:support.zcoated@gmail.com" className="break-all hover:text-yellow-400 transition">
+📧 support.zcoated@gmail.com
 </a>
 </li>
 

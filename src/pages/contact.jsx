@@ -3,14 +3,14 @@ import { useState } from "react";
 const contactHighlights = [
   {
     title: "Call Us",
-    value: "+91 6393072928",
-    href: "tel:+916393072928",
+    value: "+91 8368385923",
+    href: "tel:+918368385923",
     note: "Quick assistance for bookings and service questions.",
   },
   {
     title: "Email",
-    value: "shoesrepair@gmail.com",
-    href: "mailto:shoesrepair@gmail.com",
+    value: "support.zcoated@gmail.com",
+    href: "mailto:support.zcoated@gmail.com",
     note: "Best for pickup details, pricing, and custom requests.",
   },
   {

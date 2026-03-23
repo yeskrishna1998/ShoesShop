@@ -5,7 +5,7 @@ const FloatingWhatsApp = () => {
 <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999]">
 
 <a
-href="https://wa.me/916393072928"
+href="https://wa.me/918368385923"
 target="_blank"
 rel="noreferrer"
 className="relative flex items-center gap-2.5 bg-gradient-to-r from-emerald-500 to-green-500 pl-3 pr-4 md:pl-4 md:pr-5 py-2.5 md:py-3.5 rounded-full border border-white/25 shadow-[0_12px_28px_-8px_rgba(34,197,94,0.75)]"
