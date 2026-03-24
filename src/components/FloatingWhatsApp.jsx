@@ -8,7 +8,7 @@ const FloatingWhatsApp = () => {
 href="https://wa.me/918368385923"
 target="_blank"
 rel="noreferrer"
-className="relative flex items-center gap-2.5 bg-gradient-to-r from-emerald-500 to-green-500 pl-3 pr-4 md:pl-4 md:pr-5 py-2.5 md:py-3.5 rounded-full border border-white/25 shadow-[0_12px_28px_-8px_rgba(34,197,94,0.75)]"
+className="relative flex items-center gap-2.5 rounded-full border border-white/25 bg-[#25D366] pl-3 pr-4 py-2.5 shadow-[0_12px_28px_-8px_rgba(37,211,102,0.78)] transition hover:bg-[#20bd5a] md:pl-4 md:pr-5 md:py-3.5"
 >
 
 <img

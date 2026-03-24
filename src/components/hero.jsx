@@ -521,7 +521,7 @@ const Hero = () => {
 
   return(
 
-<section className="relative h-[84vh] min-h-[560px] sm:h-[88vh] md:h-[92vh] flex items-center overflow-hidden bg-black">
+<section className="relative flex min-h-[560px] items-center overflow-hidden bg-black sm:min-h-[620px] lg:min-h-[640px] xl:min-h-[76vh]">
 
 <img
 src={heroPoster}
@@ -550,31 +550,33 @@ className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity 
 <div className="absolute inset-0 bg-black/45 md:bg-black/30"></div>
 
 {/* CONTENT */}
-<div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-12 sm:px-6 sm:pb-10 md:px-16 md:pb-0">
+<div className="relative z-10 mx-auto flex w-full max-w-7xl items-center px-5 py-16 sm:px-6 sm:py-20 md:px-12 lg:px-16 lg:py-16 xl:py-20">
 
-<p className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.18em] text-gray-300 font-semibold">
+<div className="max-w-3xl lg:max-w-2xl xl:max-w-3xl">
+
+<p className="text-[10px] uppercase tracking-[0.18em] text-gray-300 font-semibold sm:text-xs md:text-sm">
 FREE PICKUP & DELIVERY
 </p>
 
-<h1 className="text-3xl sm:text-5xl md:text-7xl text-white font-semibold leading-tight max-w-3xl tracking-tight">
+<h1 className="max-w-3xl text-2xl font-semibold leading-[1.02] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.6rem] xl:text-[4.4rem]">
 
-Zcoated Premium Shoe Care
-<span className="block text-gray-200 font-light">Wear Them Like New</span>
+Premium Shoe Care
+<span className="block text-[0.96em] font-normal text-gray-200 sm:text-[0.86em]">Wear Them Like New</span>
 
 </h1>
 
-<p className="mt-5 sm:mt-6 text-gray-200 text-sm sm:text-base md:text-xl max-w-lg leading-relaxed">
+<p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-200 sm:mt-5 sm:text-base lg:text-[1.05rem] xl:text-lg">
 
 Zcoated offers shoe cleaning, repair, and restoration with free pickup and delivery at your doorstep in Gurgaon.
 
 </p>
 
 {/* BUTTONS */}
-<div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+<div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:gap-4">
 
 <button
 onClick={()=>setShowPopup(true)}
-className="border border-white text-white px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base tracking-wide hover:bg-white hover:text-black transition w-full sm:w-auto rounded-full"
+className="w-full rounded-full border border-white px-6 py-3 text-sm tracking-wide text-white transition hover:bg-white hover:text-black sm:w-auto sm:px-7 sm:py-3.5 sm:text-base"
 >
 BOOK SERVICE
 </button>
@@ -583,22 +585,24 @@ BOOK SERVICE
 href="https://wa.me/918368385923"
 target="_blank"
 rel="noreferrer"
-className="text-white border border-white/35 sm:border-0 rounded-full sm:rounded-none px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base text-center hover:opacity-70 transition w-full sm:w-auto"
+className="w-full rounded-full border border-white/35 px-6 py-3 text-center text-sm text-white transition hover:opacity-70 sm:w-auto sm:rounded-none sm:border-0 sm:px-7 sm:py-3.5 sm:text-base"
 >
 WHATSAPP →
 </a>
 
 </div>
 
-<div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-12">
+<div className="mt-6 flex flex-wrap items-center gap-5 sm:mt-7 sm:gap-10">
   <div>
-    <p className="text-3xl sm:text-4xl font-semibold text-white">4,200+</p>
-    <p className="text-gray-300 text-sm sm:text-base">Pairs Restored</p>
+    <p className="text-2xl font-semibold text-white sm:text-3xl lg:text-[2rem]">4,200+</p>
+    <p className="text-xs text-gray-300 sm:text-sm">Pairs Restored</p>
   </div>
   <div>
-    <p className="text-3xl sm:text-4xl font-semibold text-white">98.4%</p>
-    <p className="text-gray-300 text-sm sm:text-base">Stains Removed</p>
+    <p className="text-2xl font-semibold text-white sm:text-3xl lg:text-[2rem]">98.4%</p>
+    <p className="text-xs text-gray-300 sm:text-sm">Stains Removed</p>
   </div>
+</div>
+
 </div>
 
 </div>
@@ -634,7 +638,3 @@ className="absolute top-2 right-3 text-gray-500 text-xl"
 };
 
 export default Hero;
-
-
-
-
