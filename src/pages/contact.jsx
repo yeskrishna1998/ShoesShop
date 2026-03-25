@@ -120,7 +120,7 @@ const Contact = () => {
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                       <p className="font-semibold text-white">Working Hours</p>
-                      <p className="mt-1 text-gray-400">Mon - Sat | 9:00 AM - 8:00 PM</p>
+                      <p className="mt-1 text-gray-400">Mon - Sun | 8:00 AM - 10:00 PM</p>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                       <p className="font-semibold text-white">WhatsApp Friendly</p>
