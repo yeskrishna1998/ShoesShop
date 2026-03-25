@@ -113,6 +113,22 @@ const About = () => {
             ))}
           </div>
         </section>
+
+        <section className="mt-10 rounded-[30px] border border-white/10 bg-white/6 p-6 backdrop-blur-xl sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+            Local Brand Context
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+            Zcoated is building a premium shoe care brand for Gurgaon
+          </h2>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-gray-300 sm:text-base">
+            People often search for a trusted local name before booking premium
+            shoe cleaning, sneaker restoration, or shoe repair. This page makes
+            it clearer that Zcoated is a Gurgaon-focused brand offering premium
+            shoe care, pickup support, restoration knowledge, and a more
+            dependable service experience for customers who care about quality.
+          </p>
+        </section>
       </div>
     </section>
   );

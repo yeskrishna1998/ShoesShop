@@ -73,6 +73,9 @@ const defaultSeo = {
     "Official Zcoated website for premium shoe cleaning, sneaker restoration, shoe repair and protection coating with free pickup and delivery in Gurgaon.",
   keywords: [
     ...BRAND_ALIASES,
+    "Zcoated Gurgaon",
+    "Zcoated shoe care",
+    "premium shoe care",
     "shoe cleaning Gurgaon",
     "shoe repair Gurgaon",
     "sneaker cleaning Gurgaon",
@@ -116,13 +119,48 @@ export const pageSeo = {
         },
         areaServed: ["Gurgaon", "Gurugram"],
       },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Why choose Zcoated for premium shoe care in Gurgaon?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Zcoated offers premium shoe cleaning, sneaker restoration, repair support, and pickup and delivery for Gurgaon customers.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Does Zcoated provide sneaker cleaning in Gurgaon?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Zcoated provides sneaker cleaning, deep cleaning, stain reduction, and restoration support in Gurgaon.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I book shoe pickup and delivery with Zcoated?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Customers can contact Zcoated to arrange pickup and delivery for shoe cleaning and repair services in Gurgaon.",
+            },
+          },
+        ],
+      },
     ],
   },
   "/about": {
     title: "About Zcoated | Premium Shoe Care Brand in Gurgaon",
     description:
       "Learn about Zcoated, the Gurgaon-based premium shoe care brand for sneaker cleaning, restoration, repair and protection services.",
-    keywords: [...BRAND_ALIASES, "about Zcoated", "shoe care brand Gurgaon"],
+    keywords: [
+      ...BRAND_ALIASES,
+      "about Zcoated",
+      "shoe care brand Gurgaon",
+      "premium shoe care brand Gurgaon",
+    ],
     image: DEFAULT_IMAGE,
     robots: defaultSeo.robots,
     googlebot: defaultSeo.googlebot,
@@ -137,6 +175,7 @@ export const pageSeo = {
       "shoe repair services Gurgaon",
       "bag cleaning Gurgaon",
       "sneaker restoration Gurgaon",
+      "premium shoe cleaning Gurgaon",
     ],
     image: DEFAULT_IMAGE,
     robots: defaultSeo.robots,
@@ -157,6 +196,15 @@ export const pageSeo = {
           name,
         })),
       },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Premium shoe cleaning and repair services",
+        provider: {
+          "@id": `${SITE_URL}/#localbusiness`,
+        },
+        areaServed: ["Gurgaon", "Gurugram"],
+      },
     ],
   },
   "/pricing": {
@@ -168,6 +216,7 @@ export const pageSeo = {
       "shoe cleaning price Gurgaon",
       "shoe repair price Gurgaon",
       "sneaker cleaning price Gurgaon",
+      "premium shoe care price Gurgaon",
     ],
     image: DEFAULT_IMAGE,
     robots: defaultSeo.robots,
@@ -204,7 +253,13 @@ export const pageSeo = {
     title: "Contact Zcoated | Shoe Care Pickup in Gurgaon",
     description:
       "Contact Zcoated for shoe cleaning, restoration, repair and pickup support in Gurgaon.",
-    keywords: [...BRAND_ALIASES, "contact Zcoated", "shoe pickup Gurgaon"],
+    keywords: [
+      ...BRAND_ALIASES,
+      "contact Zcoated",
+      "shoe pickup Gurgaon",
+      "Zcoated phone number",
+      "Zcoated Gurgaon contact",
+    ],
     image: DEFAULT_IMAGE,
     robots: defaultSeo.robots,
     googlebot: defaultSeo.googlebot,

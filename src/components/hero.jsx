@@ -606,9 +606,8 @@ WHATSAPP →
 </div>
 
 </div>
-
 {/* SCROLL INDICATOR */}
-<div className="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-2xl animate-bounce">
+<div className="hidden lg:block absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-2xl animate-bounce">
   ↓
 </div>
 

@@ -2,22 +2,22 @@ const steps = [
   {
     title: "Book Your Service",
     desc: "Choose your service and schedule your order in just a few clicks.",
-    icon: "📲",
+    tag: "Quick Booking",
   },
   {
     title: "Free Doorstep Pickup",
     desc: "We pick up your shoes & bags from your home at your convenience.",
-    icon: "🚚",
+    tag: "Pickup Support",
   },
   {
     title: "Professional Cleaning & Repair",
     desc: "Our experts clean, restore, and repair your items with premium care.",
-    icon: "🧼",
+    tag: "Expert Care",
   },
   {
     title: "Delivered Like New",
     desc: "Get your items delivered back fresh, clean, and looking brand new.",
-    icon: "✨",
+    tag: "Fresh Return",
   },
 ];
 
@@ -28,11 +28,11 @@ const cardStyles = [
   "bg-cyan-500/10 border-cyan-300/30",
 ];
 
-const iconBg = [
-  "bg-red-400/80",
-  "bg-yellow-400/80",
-  "bg-purple-400/80",
-  "bg-pink-400/80",
+const accentBars = [
+  "from-orange-300 via-orange-400 to-orange-500",
+  "from-amber-300 via-amber-400 to-yellow-500",
+  "from-emerald-300 via-emerald-400 to-teal-500",
+  "from-cyan-300 via-sky-400 to-blue-500",
 ];
 
 const HowItWorks = () => {
@@ -80,14 +80,13 @@ const HowItWorks = () => {
                 {index + 1}
               </div>
 
-              {/* ICON BOX */}
-              <div
-                className={`
-                  w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center
-                  ${iconBg[index]} text-white text-3xl shadow-md shadow-black/25
-                `}
-              >
-                {item.icon}
+              <div className="mx-auto mb-5 max-w-[180px]">
+                <div
+                  className={`h-1.5 rounded-full bg-gradient-to-r ${accentBars[index]}`}
+                ></div>
+                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">
+                  {item.tag}
+                </p>
               </div>
 
               {/* TITLE */}

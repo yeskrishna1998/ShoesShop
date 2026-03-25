@@ -235,6 +235,23 @@ const Contact = () => {
             </button>
           </div>
         </div>
+
+        <div className="mt-8 rounded-[30px] border border-white/10 bg-white/6 p-6 backdrop-blur-xl sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+            Gurgaon Pickup Support
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+            Contact Zcoated for shoe cleaning, repair, and restoration in Gurgaon
+          </h2>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-gray-300 sm:text-base">
+            This contact page is built for customers looking for a quick way to
+            reach Zcoated for shoe cleaning in Gurgaon, sneaker cleaning,
+            premium shoe care, repair queries, and pickup scheduling. If
+            someone is searching for the Zcoated phone number, Zcoated contact
+            details, or shoe pickup service in Gurgaon, this page now provides
+            a stronger local signal.
+          </p>
+        </div>
       </div>
     </section>
   );

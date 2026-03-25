@@ -1,36 +1,29 @@
 import img from "../assets/slider/p-9.jpg";
-import { Sparkles } from "lucide-react";
 
 const features = [
   {
     title: "Sneaker Specialists",
     desc: "Dedicated experts for premium sneakers, formal shoes, and luxury bags.",
-    icon: "👟",
   },
   {
     title: "Free Pickup & Delivery",
     desc: "Doorstep pickup and safe return with easy scheduling and live support.",
-    icon: "🚚",
   },
   {
     title: "Laboratory-Grade Cleaning",
     desc: "Safe solutions for stain removal, odor control, and material protection.",
-    icon: "🧼",
   },
   {
     title: "Repair & Restoration",
     desc: "Sole work, stitching, recoloring, and full restoration for like-new finish.",
-    icon: "🛠️",
   },
   {
     title: "Trusted Process",
     desc: "Quality checks at every stage to ensure premium and consistent results.",
-    icon: "✅",
   },
   {
     title: "Fast Turnaround",
     desc: "Quick delivery timeline without compromising care and craftsmanship.",
-    icon: "⚡",
   },
 ];
 
@@ -54,8 +47,7 @@ const WhyChoose = () => {
 
         {/* RIGHT CONTENT */}
         <div>
-          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-orange-300/40 bg-orange-500/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-orange-200 shadow-[0_0_24px_-10px_rgba(251,146,60,0.9)] sm:text-sm">
-            <Sparkles size={14} className="text-orange-200" />
+          <p className="mb-3 inline-flex items-center rounded-full border border-orange-300/40 bg-orange-500/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-orange-200 shadow-[0_0_24px_-10px_rgba(251,146,60,0.9)] sm:text-sm">
             Why Choose Us
           </p>
 
@@ -73,8 +65,14 @@ const WhyChoose = () => {
                 key={item.title}
                 className="rounded-2xl border border-white/15 bg-white/5 p-3.5 backdrop-blur-md transition hover:bg-white/10 sm:p-4 lg:p-3"
               >
-                <p className="mb-2 text-xl sm:text-2xl">{item.icon}</p>
-                <h3 className="mb-1 text-sm font-semibold sm:text-base lg:text-[15px]">{item.title}</h3>
+                <div className="mb-2 flex items-start gap-2.5">
+                  <span className="mt-0.5 text-base font-bold text-orange-300 sm:text-lg">
+                    ✔
+                  </span>
+                  <h3 className="text-sm font-semibold sm:text-base lg:text-[15px]">
+                    {item.title}
+                  </h3>
+                </div>
                 <p className="text-xs leading-relaxed text-gray-300 sm:text-sm lg:text-[13px]">{item.desc}</p>
               </div>
             ))}

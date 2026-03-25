@@ -124,6 +124,19 @@ const Pricing = () => {
             </div>
           ))}
         </div>
+
+        <div className="mt-8 rounded-[28px] border border-white/10 bg-white/5 p-5 text-white backdrop-blur-xl sm:p-6">
+          <h3 className="text-xl font-semibold sm:text-2xl">
+            Pricing for premium shoe care in Gurgaon
+          </h3>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-gray-300 sm:text-base">
+            This pricing section is designed for customers comparing shoe
+            cleaning price in Gurgaon, sneaker cleaning price, shoe repair
+            cost, and premium restoration packages. Zcoated keeps pricing clear
+            so users can understand the difference between basic cleaning, deep
+            cleaning, premium sneaker care, and full restoration support.
+          </p>
+        </div>
       </div>
     </section>
   );

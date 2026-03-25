@@ -125,6 +125,53 @@ const ServicesClean = () => {
 
         </div>
 
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="rounded-[28px] border border-white/10 bg-white/6 p-6 backdrop-blur-xl sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+              Shoe Cleaning Services In Gurgaon
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+              Premium shoe cleaning, repair, and sneaker restoration by Zcoated
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-gray-200 sm:text-base">
+              Zcoated offers professional shoe cleaning services in Gurgaon for
+              daily wear shoes, premium sneakers, leather pairs, and footwear
+              that needs careful restoration. Our service mix includes deep
+              cleaning, stain reduction, repair support, bag care, and premium
+              finishing for customers looking for a more polished result.
+            </p>
+            <p className="mt-4 text-sm leading-7 text-gray-300 sm:text-base">
+              This page helps explain that Zcoated is not limited to one simple
+              shoe wash. It covers premium shoe care, sneaker restoration,
+              repair options, and local pickup convenience for Gurgaon and
+              Gurugram customers.
+            </p>
+          </div>
+
+          <div className="rounded-[28px] border border-white/10 bg-[#0b0b0c]/95 p-6 shadow-[0_24px_70px_-34px_rgba(0,0,0,0.9)] sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+              Popular Searches
+            </p>
+            <div className="mt-5 grid gap-3">
+              {[
+                "shoe cleaning Gurgaon",
+                "premium shoe care Gurgaon",
+                "sneaker cleaning Gurgaon",
+                "shoe repair Gurgaon",
+                "sneaker restoration Gurgaon",
+                "bag cleaning Gurgaon",
+              ].map((term) => (
+                <div
+                  key={term}
+                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300"
+                >
+                  {term}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
 
       {/* POPUP */}
