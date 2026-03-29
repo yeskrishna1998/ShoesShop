@@ -54,12 +54,38 @@ const Contact = () => {
     return Object.keys(err).length === 0;
   };
 
-  const handleSubmit = () => {
-    if (!validate()) return;
-    setSuccess(true);
-    setForm({ name: "", email: "", mobile: "", address: "", message: "" });
-    setTimeout(() => setSuccess(false), 3000);
-  };
+  const handleSubmit = async () => {
+  if (!validate()) return;
+
+  try {
+    await fetch("https://shoes-backend-1lip.onrender.com/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        phone: form.mobile,   // ⚠ mobile → phone
+        address: form.address,
+        message: form.message,
+      }),
+    });
+
+    alert("✅ Message sent successfully!\nWe will contact you soon.");
+
+    setForm({
+      name: "",
+      email: "",
+      mobile: "",
+      address: "",
+      message: "",
+    });
+
+  } catch (error) {
+    alert("❌ Something went wrong!");
+  }
+};
 
   return (
     <section className="relative overflow-hidden bg-[#060606] text-white">
