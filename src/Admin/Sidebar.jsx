@@ -58,6 +58,25 @@ function Sidebar({ open, setOpen }) {
             </Link>
 
 
+            {/* ⭐ Reviews Section */}
+            <Link
+              to="/admin/reviews"
+              onClick={() => setOpen(false)}
+              className="hover:text-yellow-400"
+            >
+              Reviews ⭐
+            </Link>
+
+            {/* 📩 Contacts Section */}
+            <Link
+              to="/admin/contact"
+              onClick={() => setOpen(false)}
+              className="hover:text-yellow-400"
+            >
+              Contacts 📩
+            </Link>
+
+
             
 
 

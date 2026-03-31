@@ -57,6 +57,7 @@ import WhyChoose from "../components/whyChoose";
 import LoginModal from "../components/LoginModal";
 import RegisterModal from "../components/RegisterModal";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import PickupForm from "./PickupForm";
 
 const faqItems = [
   {
@@ -100,6 +101,7 @@ const Home = () => {
       <Pricing/>
 
       <Reviews/>
+      
 
       <section className="bg-[#050505] px-4 py-14 text-white sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-6xl">

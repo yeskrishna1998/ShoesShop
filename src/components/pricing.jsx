@@ -33,7 +33,7 @@ const pricingGroups = [
     title: "Multi Shoes Combo",
     description: "Better pricing for multiple pairs with strong margin and customer value.",
     items: [
-      { service: "2 Shoes Basic", price: "₹799", note: "Value pack" },
+      { service: "2 Shoes Basic", price: "₹749", note: "Value pack" },
       { service: "2 Shoes Deep", price: "₹899", note: "Most Popular", badge: "Popular" },
       { service: "3 Shoes Basic", price: "₹999", note: "Budget combo" },
       { service: "3 Shoes Deep", price: "₹1199", note: "High profit", badge: "Premium" },

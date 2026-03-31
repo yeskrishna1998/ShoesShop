@@ -18,6 +18,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import TopBar from "./components/TopBar";
 import SeoManager from "./components/SeoManager";
+import PickupForm from "./pages/PickupForm";
 
 function App() {
   const location = useLocation();
@@ -55,6 +56,8 @@ function App() {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin/*" element={<AdminRoutes />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/pickup-form" element={<PickupForm />} />
+
 
         </Routes>
 

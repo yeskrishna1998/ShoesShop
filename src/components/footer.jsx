@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import RegisterForm from "./RegisterForm";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+   const navigate = useNavigate(); 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedService, setSelectedService] = useState("");
 
@@ -168,6 +169,13 @@ Contact
 <li>🕒 Mon – Sun : 10 AM – 8 PM</li>
 
 </ul>
+<button
+onClick={() => navigate("/pickup-form")}    
+className="mt-4 px-4 py-2 bg-[#FE9874] h
+over:bg-red-400 text-white rounded-lg text-sm transition"
+  >
+     Add Pickup
+  </button>
 
 </div>
 
