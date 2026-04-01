@@ -6,6 +6,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import QuickRegistrations from "./QuickRegistrations";
 import Review from "./Review";
 import Contacts from "./Contacts";
+import Pickups from "./Pickups";
+import Delivery from "./Delivery";
 
 function AdminRoutes() {
   return (
@@ -17,6 +19,8 @@ function AdminRoutes() {
           <Route path="quick-registrations" element={<QuickRegistrations />} />
           <Route path="reviews" element={<Review />} />
           <Route path="contact" element={<Contacts />} />
+          <Route path="pickups" element={<Pickups />} />
+          <Route path="delivery" element={<Delivery />} />
         </Routes>
       </AdminLayout>
     </ProtectedRoute>

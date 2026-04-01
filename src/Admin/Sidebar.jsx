@@ -77,6 +77,21 @@ function Sidebar({ open, setOpen }) {
             </Link>
 
 
+   <Link
+  to="/admin/pickups"
+  onClick={() => setOpen(false)}
+  className="hover:text-yellow-400"
+>
+  Pickup 
+</Link>
+
+<Link
+  to="/admin/delivery"
+  onClick={() => setOpen(false)}
+  className="hover:text-yellow-400"
+>
+  Delivery 
+</Link>
             
 
 
