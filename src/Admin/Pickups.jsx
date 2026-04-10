@@ -1,116 +1,146 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function Pickups() {
-  const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(true);
+function PickupForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    address: "",
+  });
 
-  const fetchData = async () => {
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    if (!formData.name || !formData.phone || !formData.address) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    setSubmitting(true);
+
     try {
       const res = await fetch(
-        "https://shoes-backend-1lip.onrender.com/pickups"
+        "https://shoes-backend-1lip.onrender.com/pickups",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
       );
-      const result = await res.json();
 
-      if (Array.isArray(result)) setData(result);
-      else setData(result.data || []);
+      if (res.ok) {
+        setSuccess(true);
+        setFormData({ name: "", phone: "", address: "" });
 
+        setTimeout(() => {
+          setSuccess(false);
+        }, 2500);
+      } else {
+        alert("Error submitting");
+      }
     } catch (err) {
-      console.error(err);
-      setData([]);
+      alert("Server error");
     } finally {
-      setLoading(false);
+      setSubmitting(false);
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const filtered = data.filter((c) =>
-    c.name?.toLowerCase().includes(search.toLowerCase()) ||
-    c.phone?.includes(search)
-  );
-
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-4 sm:p-6 min-h-screen bg-gray-100 flex items-center justify-center">
 
-      {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">
-          Pickup Requests
-          <span className="ml-2 text-sm bg-blue-500 text-white px-2 py-1 rounded">
-            {filtered.length}
-          </span>
-        </h1>
+      {/* Card */}
+      <div className="bg-white w-full max-w-md p-6 rounded-2xl shadow-xl">
+        <h2 className="text-xl font-bold text-center mb-4">
+          Request Pickup
+        </h2>
 
         <input
-          type="text"
-          placeholder="Search by name / phone..."
-          className="border px-4 py-2 rounded shadow-sm focus:outline-none"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
         />
+
+        <input
+          name="phone"
+          placeholder="Phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full mb-3 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+
+        <textarea
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+          className="w-full mb-4 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+
+        {/* BUTTON */}
+        <button
+          onClick={handleSubmit}
+          disabled={submitting}
+          className={`w-full py-3 rounded-lg text-white font-semibold transition-all duration-300 
+          ${
+            submitting
+              ? "bg-gray-400"
+              : "bg-gradient-to-r from-blue-500 to-indigo-600 active:scale-95"
+          }`}
+        >
+          {submitting ? "Processing..." : "🚀 Submit Pickup"}
+        </button>
       </div>
 
-      {/* Table */}
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+      {/* LOADING OVERLAY */}
+      {submitting && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center z-50">
+          <div className="bg-white px-6 py-4 rounded-xl shadow-xl text-center">
+            <div className="animate-spin text-3xl mb-2">⏳</div>
+            Submitting...
+          </div>
+        </div>
+      )}
 
-        {loading ? (
-          <p className="p-6 text-center">Loading...</p>
-        ) : (
-          <table className="w-full text-sm">
+      {/* SUCCESS POPUP */}
+      {success && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-40 backdrop-blur-sm">
+          <div className="bg-white px-8 py-6 rounded-2xl shadow-2xl text-center animate-scaleIn">
+            
+            <div className="text-green-500 text-5xl mb-3 animate-bounce">
+              ✅
+            </div>
 
-            <thead className="bg-gray-800 text-white">
-              <tr>
-                <th className="p-3">ID</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Image</th>
-                <th>Date</th>
-              </tr>
-            </thead>
+            <h3 className="text-lg font-bold mb-1">
+              Pickup Booked!
+            </h3>
 
-            <tbody>
-              {filtered.map((c) => (
-                <tr
-                  key={c.id}
-                  className="border-b hover:bg-gray-50 transition"
-                >
-                  <td className="p-3 font-medium">{c.id}</td>
-                  <td>{c.name}</td>
-                  <td>{c.phone}</td>
-                  <td className="max-w-xs truncate">{c.address}</td>
+            <p className="text-gray-500 text-sm">
+              Our team will contact you soon 🚀
+            </p>
+          </div>
+        </div>
+      )}
 
-                  {/* Image */}
-                  <td>
-                    <img
-                      src={
-                        c.image?.startsWith("http")
-                          ? c.image
-                          : `https://dvzgridkmraxqxnanqin.supabase.co/storage/v1/object/public/${c.image}`
-                      }
-                      className="w-14 h-14 object-cover rounded border"
-                      alt="shoe"
-                    />
-                  </td>
-
-                  {/* Date */}
-                  <td className="text-gray-500">
-                    {c.created_at
-                      ? new Date(c.created_at).toLocaleString("en-IN")
-                      : "-"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-
-          </table>
-        )}
-      </div>
+      {/* Animation */}
+      <style>
+        {`
+          @keyframes scaleIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+          }
+          .animate-scaleIn {
+            animation: scaleIn 0.3s ease-out;
+          }
+        `}
+      </style>
     </div>
   );
 }
 
-export default Pickups;
+export default PickupForm;
